@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Sở thích của bạn</title>
+    <style>
+        .padding{
+            border: 10px solid;
+            border-color: lightskyblue;
+            padding: 5px 5px 5px 5px;
+        }
+        p {
+            text-align: center;
+            color: aliceblue;
+            background-color: orangered;
+        }
+
+        div{
+            height: 200px;
+            width: 400px;
+        }
+        .a{
+            margin-left: 3px;
+
+        }
+        .b{
+            margin-left: 67px;
+        }
+        .c{
+            color: coral;
+        }
+
+    </style>
 </head>
 <body>
-$END$
+    <form action="simpleform1.html">
+    <div>
+    <fieldset class="padding">
+        <p>SỞ THÍCH CỦA BẠN</p>
+        <span style="color: darkblue">Họ và tên</span> <Input type="text" name="yourname"><br><br>
+        <span style="margin-left: 25px; color: darkblue">Email</span><Input class="a" type="text" name="email"><br><br>
+        <span style="margin-left: 10px; color: darkblue">Sở thích</span><Input type="checkbox" name="hobby" value="Thethao"><span style="color: orangered">Thể thao</span>
+        <Input style="margin-left: 9px" type="checkbox" name="hobby" value="Amnhac"><span style="color: orangered">Âm nhạc</span>
+        <Input style="margin-left: 20px" type="checkbox" name="hobby" value="Docsach"><span style="color: orangered">Đọc sách</span><br>
+        <Input class="b" type="checkbox" name="hobby" value="Luotweb"><span style="color: orangered">Lướt web</span>
+        <Input type="checkbox" name="hobby" value="Choigame"><span style="color: orangered">Chơi game</span>
+        <Input style="margin-left: 8px" type="checkbox" name="hobby" value="Dienanh"><span style="color: orangered">Điện ảnh</span><br>
+        <Input class="b" type="checkbox" name="hobby" value="Dulich"><span style="color: orangered">Du lịch</span><br>
+        <Input style="margin-left: 66px" type="submit" value="Gửi thông tin">
+        <Input type="reset" value="Nhập lại">
+    </fieldset>
+    </div>
+    </form>
 </body>
 </html>
