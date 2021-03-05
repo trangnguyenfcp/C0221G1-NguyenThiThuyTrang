@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    BÀI 1: <br>
+    <script>
+        vatly = prompt("Nhập điểm Vật lý: ");
+        hoaHoc = prompt("Nhập điểm Hóa học: ");
+        sinhHoc = prompt("Nhập điểm Sinh học: ");
+        let vl = parseInt(vatly);
+        let hh = parseInt(hoaHoc);
+        let sh = parseInt(sinhHoc);
+
+        let diemTrungBinh = (vl + hh + sh)/3;
+        document.write("Điểm trung bình: " + diemTrungBinh);
+    </script>
+    <br> <br>
+
+    BÀI 2: <br>
+    <script>
+        inputC = prompt("Nhập độ C");
+        let doC = parseInt(inputC);
+        let doF = doC/5*9+32;
+        document.write("Độ F: " + doF + " Fahrenheint");
+    </script>
+    <br><br>
+
+    BÀI 3: <br>
+    <script>
+        inputR = prompt("Nhập bán kính hình tròn: ");
+        let R = parseInt(inputR);
+        let S = 3.14*R*R;
+        document.write("Diện tích hình tròn: " +S);
+    </script>
+    <br><br>
+
+    BÀI 4: <br>
+    <script>
+        inputR2 = prompt("Nhập bán kính hình tròn: ");
+        let R2 = parseInt(inputR2);
+        let chuVi = 2*3.14*R2;
+        document.write("Chu vi hình tròn: " +chuVi);
+    </script>
+</body>
+</html>
