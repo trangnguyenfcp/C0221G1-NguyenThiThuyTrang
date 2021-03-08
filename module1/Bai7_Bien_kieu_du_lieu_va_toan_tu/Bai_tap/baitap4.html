@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+</head>
+<body>
+    <h1>Caculator</h1>
+    <input type="number" value="nhập số" id="nhapa">
+    <input type="number" value="nhập số" id="nhapb">
+    <button onclick="myFuntion1()" id="dau" value="1">Addition(+)</button>
+    <button onclick="myFuntion2()" id="dau2" value="2">Subtraction(-)</button>
+    <button onclick="myFuntion3()" id="dau3" value="3">Multiplication(X)</button>
+    <button onclick="myFuntion4()" id="dau4" value="4">Division(/)</button>
+    <br>
+    Result: <p id="result"></p>
+<script>
+    function myFuntion1(){
+        let aa = document.getElementById("nhapa").value;
+        let a = parseInt(aa);
+        let bb = document.getElementById("nhapb").value;
+        let b = parseInt(bb);
+        document.getElementById("result").innerHTML = a+b;
+    }
+    function myFuntion2(){
+        let aa = document.getElementById("nhapa").value;
+        let a = parseInt(aa);
+        let bb = document.getElementById("nhapb").value;
+        let b = parseInt(bb);
+        document.getElementById("result").innerHTML = a-b;
+    }
+    function myFuntion3(){
+        let aa = document.getElementById("nhapa").value;
+        let a = parseInt(aa);
+        let bb = document.getElementById("nhapb").value;
+        let b = parseInt(bb);
+        document.getElementById("result").innerHTML = a*b;
+    }
+    function myFuntion4(){
+        let aa = document.getElementById("nhapa").value;
+        let a = parseInt(aa);
+        let bb = document.getElementById("nhapb").value;
+        let b = parseInt(bb);
+        document.getElementById("result").innerHTML = a/b;
+    }
+
+</script>
+</body>
+</html>
