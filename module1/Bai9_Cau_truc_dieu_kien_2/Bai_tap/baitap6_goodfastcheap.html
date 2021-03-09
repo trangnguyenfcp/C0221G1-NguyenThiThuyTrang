@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="good" type="range" min="0" max="1" onclick="check()"> Good <br>
+<input id="fast" type="range" min="0" max="1" onclick="check()"> Fast <br>
+<input id="cheap" type="range" min="0" max="1" onclick="check()"> Cheap
+<script>
+    function check(choose) {
+        let x = document.getElementById(good).value;
+        let y = document.getElementById(fast).value;
+        let z = document.getElementById(cheap).value;
+        switch (choose) {
+            case "good":
+                if (y == 1) {
+                    z = 0;
+                }
+                break;
+            case "cheap":
+                if (z==1) {
+                    x = 0;
+                }
+                break;
+            case "fast":
+                if (x==1){
+                    y=0;
+                }
+                break;
+        }
+
+    }
+</script>
+</body>
+</html>

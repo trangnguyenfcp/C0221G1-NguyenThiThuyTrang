@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <input style="width: 120px" type="text" id="nhap" value="">
+    <tr>
+        <td><input type="button" onclick="tinh(this.value)" value="1" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="2" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="3" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="+" id="phim"></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="tinh(this.value)" value="4" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="5" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="6" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="-" id="phim"></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="tinh(this.value)" value="7" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="8" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="9" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="*" id="phim"></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="xoa()" value="C" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="0" id="phim"></td>
+        <td><input type="button" onclick="bang()" value="=" id="phim"></td>
+        <td><input type="button" onclick="tinh(this.value)" value="/" id="phim"></td>
+    </tr>
+</table>
+<script>
+    function tinh(kyTu) {
+        document.getElementById("nhap").value += kyTu;
+    }
+    function bang() {
+        document.getElementById("nhap").value = eval(document.getElementById("nhap").value);
+    }
+    function xoa() {
+        document.getElementById("nhap").value = "";
+    }
+</script>
+</body>
+</html>

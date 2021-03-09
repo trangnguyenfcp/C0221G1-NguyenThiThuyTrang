@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // BÀI 1:
+    let a = parseInt(prompt("nhập a"));
+    let b = parseInt(prompt("nhập b"));
+    if (a % b == 0){
+        alert("a chia hết cho b");
+    }else {
+        alert("a không chia hết cho b");
+    }
+
+    // BÀI 2:
+    let age = parseInt(prompt("nhập tuổi"));
+    if (age >= 15){
+        alert("đủ điều kiện vào lớp 10");
+    }else {
+        alert("không đủ tuổi vào lớp 10");
+    }
+
+    // // BÀI 3:
+    let number = parseInt(prompt("Nhập vào số nguyên: "));
+    if (number > 0){
+        alert(number + " lớn hơn 0");
+    }else if (number == 0){
+        alert(number + " bằng 0");
+    } else {
+        alert(number + " bé hơn 0");
+    }
+
+    // BÀI 4:
+    let x = parseInt(prompt("Nhập số nguyên x: "));
+    let y = parseInt(prompt("Nhập số nguyên y: "));
+    let z = parseInt(prompt("Nhập số nguyên z: "));
+
+    let max = x;
+    if (x > y) {
+        if (x > z) {
+            max = x;
+        }else {
+            max = z;
+        }
+    }else if(y>z){
+        max = y;
+    }else {
+        max = z;
+    }
+    alert("số lớn nhất là: " + max);
+
+    // BÀI 5:
+    let kiemTraMieng = parseInt(prompt("Nhập điểm kiểm tra miệng: "));
+    let kiemTra15p = parseInt(prompt("Nhập điểm kiểm tra 15 phút: "));
+    let kiemTra1Tiet = parseInt(prompt("Nhập điểm kiểm 1 tiết: "));
+    let kiemTraCuoiKy = parseInt(prompt("Nhập điểm kiểm cuối kỳ: "));
+    let diemTrungBinh = (kiemTraMieng + kiemTra15p + kiemTra1Tiet*2 + kiemTraCuoiKy*3)/7
+    if (diemTrungBinh >= 9){
+        alert("xếp loại giỏi");
+    }else if (diemTrungBinh >= 7){
+        alert("xếp loại khá");
+    }else if (diemTrungBinh >= 5) {
+        alert("xếp loại trung bình");
+    }else {
+        alert("xếp loại yếu");
+    }
+
+    // BÀI 6:
+    let doanhThu = parseInt(prompt("Doanh thu (DVT: triệu): "));
+    let hoaHong;
+    if (doanhThu <= 100){
+        hoaHong = doanhThu*5/100;
+    }else if (doanhThu <= 300){
+        hoaHong = doanhThu*10/1000;
+    }else {
+        hoaHong = doanhThu*20/100;
+    }
+    alert("Hoa hồng nhận được: " + hoaHong + " triệu");
+
+    // BÀI 7:
+    let soPhut = parseInt(prompt("Nhập số phút đã sử dụng: "));
+    let soTien;
+    if (soPhut <= 50){
+        soTien = 25 + 0.6*soPhut;
+    }else if (soPhut <= 200){
+        soTien = 25 + 0.6*50 + 0.4*(soPhut - 50);
+    }else {
+        soTien =  25 + 0.6*50 + 0.4*150 + 0.2*(soPhut-200);
+    }
+    alert("Phí cước điện thoại là: " + soTien + " nghìn đồng");
+</script>
+</body>
+</html>

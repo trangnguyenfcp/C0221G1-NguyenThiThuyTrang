@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button type="button" onclick="bai1()">BÀI 1:</button>
+    <p id = "bai1"></p>
+    <button type="button" onclick="bai2()">BÀI 2:</button>
+    <p id = "bai2"></p>
+    <button type="button" onclick="bai3()">BÀI 3:</button>
+    <p id = "bai3"></p>
+    <button type="button" onclick="bai4()">BÀI 4:</button>
+    <p id = "bai4"></p>
+    <button type="button" onclick="bai5()">BÀI 5:</button>
+    <p id = "bai5"></p>
+    <button type="button" onclick="bai6()">BÀI 6:</button>
+    <p id = "bai6"></p>
+    <button type="button" onclick="bai7()">BÀI 7:</button>
+    <p id = "bai7"></p>
+    <button type="button" onclick="bai8()">BÀI 8:</button>
+    <p id = "bai8"></p>
+    <button type="button" onclick="bai9()">BÀI 9:</button>
+    <p id = "bai9"></p>
+    <button type="button" onclick="bai10()">BÀI 10:</button>
+    <p id = "bai10"></p>
+    <button type="button" onclick="bai11()">BÀI 11:</button>
+    <p id = "bai11"></p>
+    <button type="button" onclick="bai12()">BÀI 12:</button>
+    <p id = "bai12"></p>
+<script>
+    function bai1() {
+        let doC = parseInt(prompt("Nhập độ C: "));
+        let doF = doC*9/5 + 32;
+        document.getElementById("bai1").innerHTML = "Result: " + doC + " độ C bằng " +doF + " độ F";
+    }
+    function bai2() {
+        let m = parseInt(prompt("Nhập m: "));
+        let ft = m*3.2808;
+        document.getElementById("bai2").innerHTML = "Result: " + m + " m bằng " + ft + " ft";
+
+    }
+    function bai3() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let dienTichHV = a*a;
+        document.getElementById("bai3").innerHTML = "Result: Diện tích hình vuông có cạnh a = " +a +" là "+ dienTichHV;
+
+    }
+    function bai4() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let b = parseInt(prompt("Nhập cạnh b: "));
+        let dienTichHCN = a*b;
+        document.getElementById("bai4").innerHTML = "Result: Diện tích hình chữ nhật là "+ dienTichHCN;
+    }
+    function bai5() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let b = parseInt(prompt("Nhập cạnh b: "));
+        let dientichHTG = a*b/2;
+        document.getElementById("bai5").innerHTML = "Result: Diện tích hình tam giác là "+ dientichHTG;
+    }
+    function bai6() {
+        alert("Nhập các giá trị a, b trong phương trình bậc 1: a*x + b = 0");
+        let a = parseInt(prompt("Nhập a: "));
+        let b = parseInt(prompt("Nhập b: "));
+        if (a == 0){
+            if (b == 0){
+                document.getElementById("bai6").innerHTML = "Phương  trình có vô số nghiệm";
+            }else {
+                document.getElementById("bai6").innerHTML = "Phương  trình vô nghiệm";
+
+            }
+        }else {
+            document.getElementById("bai6").innerHTML = "Phương  trình có nghiệm = " + (-b/a);
+
+        }
+    }
+    function bai7() {
+        alert("Nhập các giá trị a, b, c trong phương trình bậc 2: a*x*x + b*x + c = 0");
+        let a = parseInt(prompt("Nhập a: "));
+        let b = parseInt(prompt("Nhập b: "));
+        let c = parseInt(prompt("Nhập c: "));
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    document.getElementById("bai7").innerHTML = "Phương  trình có vô số nghiệm";
+                } else {
+                    document.getElementById("bai7").innerHTML = "Phương  trình vô nghiệm";
+                }
+            } else {
+                document.getElementById("bai7").innerHTML = "Phương  trình có nghiệm = " + (-c / b);
+            }
+        } else {
+            let delta = b * b - 4 * a * c;
+            if (delta > 0) {
+                document.getElementById("bai7").innerHTML = "Phương  trình có 2 nghiệm = " + (-b + Math.sqrt(delta)) / (2 * a) + " và " + (-b - Math.sqrt(delta)) / (2 * a);
+
+            } else if (delta == 0) {
+                document.getElementById("bai7").innerHTML = "Phương  trình có nghiệm kép = " + (-b / 2 * a);
+
+            } else {
+                document.getElementById("bai7").innerHTML = "Phương  trình vô nghiệm";
+            }
+        }
+    }
+    function bai8() {
+        let inputAge = prompt("Nhập tuổi: ");
+        let age = parseInt(inputAge);
+
+        if (age > 0 && age < 120 && age == inputAge) {
+            document.getElementById("bai8").innerHTML = "Bạn là người";
+        } else {
+            document.getElementById("bai8").innerHTML = "Bạn không phải người";
+        }
+    }
+    function bai9() {
+        let a = parseFloat(prompt("NHập số thực a: "));
+        let b = parseFloat(prompt("NHập số thực b: "));
+        let c = parseFloat(prompt("NHập số thực c: "));
+        if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && c + b > a){
+            document.getElementById("bai9").innerHTML = "a, b, c là 3 cạnh của 1 tam giác";
+        }else {
+            document.getElementById("bai9").innerHTML = "a, b, c không là 3 cạnh của 1 tam giác";
+        }
+    }
+    function bai10() {
+        let soDien = parseInt(prompt("Nhập số điện đã sử dụng: "));
+        let soTien;
+        if (soDien <= 50){
+            soTien = 25 + 0.6*soDien;
+        }else if (soDien <= 200){
+            soTien = 25 + 0.6*50 + 0.4*(soDien - 50);
+        }else {
+            soTien =  25 + 0.6*50 + 0.4*150 + 0.2*(soDien-200);
+        }
+        alert("Tiền điện phải trả: " + soTien + " nghìn đồng");
+    }
+    function bai11() {
+        let thuNhap = parseFloat(prompt("Nhập thu nhập cá nhân có tính thuế, DVT: triệu đồng"));
+        let thue;
+        if (thuNhap <= 5){
+            thue = thuNhap*5/100;
+        }else if (thuNhap <= 10){
+            thue = thuNhap*10/100 -0.25;
+        }else if (thuNhap <= 18){
+            thue = thuNhap*15/100 -0.75;
+        }else if (thuNhap <= 32){
+            thue = thuNhap*20/100 -1.65;
+        }else if (thuNhap <= 52){
+            thue = thuNhap*25/100 -1.65;
+        }else {
+            thue = thuNhap*35/100 - 9.85;
+        }
+        document.getElementById("bai11").innerHTML = "Thuế thu nhập cá nhân: " + thue;
+    }
+    function bai12() {
+        let tienBanDau = parseInt(prompt("Nhập số tiền ban đầu, đơn vị: VND"));
+        let soThang = parseInt(prompt("Nhập số tháng cho vay: "));
+        let laiXuatHangThang = parseFloat(prompt("Nhập lãi xuất hằng tháng: "));
+        let laiNganHang = tienBanDau*((1 + laiXuatHangThang)**soThang) - tienBanDau;
+        document.getElementById("bai12").innerHTML = "Lãi ngân hàng " + laiNganHang + " VND";
+
+    }
+</script>
+</body>
+</html>
