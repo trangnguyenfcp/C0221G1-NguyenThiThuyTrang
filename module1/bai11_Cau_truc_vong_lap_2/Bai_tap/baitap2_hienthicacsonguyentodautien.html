@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("Nhập lượng số nguyên tố đầu tiên cần hiển thị: "));
+    let count = 0;
+    let n;
+    let i;
+
+    for (n = 2; count < num; n++) {
+        let  check = true;
+        if (n === 2) {
+            document.write(2 + "<br>");
+            count = count + 1;
+            continue;
+        }
+        for (i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                check=false;
+                break;
+            }
+        }
+        if(check){
+            document.write(n + "<br>");
+            count = count + 1;
+        }
+    }
+</script>
+</body>
+</html>

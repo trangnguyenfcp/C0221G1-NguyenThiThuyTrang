@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="bai1()" value="BÀI 1">
+<p id = "bai1"></p>
+<input type="button" onclick="bai2()" value="BÀI 2">
+<p id = "bai2"></p>
+<script>
+    // BÀI 1:
+    function bai1() {
+
+        for (let i = 0; i < 5; i++) {
+            document.getElementById("bai1").innerHTML = "The number is " + i + "<br>";
+        }
+    }
+
+    // BÀI 2:
+    function bai2() {
+        let n = parseInt(prompt("Nhập n: "));
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+            sum += i;
+        }
+        document.getElementById("bai2").innerHTML ="Tổng = " + sum;
+    }
+</script>
+</body>
+</html>
