@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="tiếng Anh" value="">
+<input type="button" value="DỊCH" onclick="dich()">
+<input id = "tiếng Việt" value="" >
+<script>
+    function dich() {
+        let vocab = document.getElementById("tiếng Anh").value;
+        let englishVocab = ["cat", "dog", "bird", "pig", "Minh"];
+        let vietnameseVocab = ["mèo", "chó", "chim", "heo", "ngu ngốc"];
+        for (let i = 0; i < englishVocab.length; i++) {
+                if (englishVocab[i] === vocab) {
+                    vocab = vietnameseVocab[i];
+                    break;
+                }
+            }
+        if (vocab === document.getElementById("tiếng Anh").value){
+            vocab = "Không có trong từ điển";
+        }
+        document.getElementById("tiếng Việt").value = vocab;
+    }
+</script>
+</body>
+</html>

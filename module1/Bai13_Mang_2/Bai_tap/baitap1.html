@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" ONCLICK="bai1()" value="BÀI 1">
+<p id="bai1"></p>
+<input type="button" ONCLICK="bai2()" value="BÀI 2">
+<p id="bai2"></p>
+<input type="button" ONCLICK="bai3()" value="BÀI 3">
+<p id="bai3"></p>
+<script>
+    function bai1() {
+        let myColor = ["Red", "Green", "While", "Black"];
+        myColor.concat();
+        document.getElementById("bai1").innerHTML = myColor;
+    }
+
+    function bai2() {
+        let num = prompt("Nhập số: ");
+        let arr = [];
+        for (let i = 0; i < num.length; i++) {
+            if ((num[i] % 2 == 0) && (num[i - 1] % 2 == 0)) {
+                arr.push('-', num[i]);
+
+            }
+            arr.push(num[i]);
+        }
+        document.getElementById("bai2").innerHTML = arr.join("");
+    }
+
+    function bai3() {
+        let chuoi = prompt("Nhập chuỗi: ");
+        let hoa = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+        let thuong = 'qwertyuiopasdfghjklzxcvbnm';
+        let res = [];
+        for (let i = 0; i < chuoi.length; i++) {
+            if (hoa.includes(chuoi[i])) {
+                res.push(chuoi[i].toLowerCase());
+            } else if (thuong.includes(chuoi[i])) {
+                res.push(chuoi[i].toUpperCase());
+            } else {
+                res.push(chuoi[i]);
+            }
+        }
+        document.getElementById("bai3").innerHTML = res.join("");
+    }
+</script>
+</body>
+</html>
