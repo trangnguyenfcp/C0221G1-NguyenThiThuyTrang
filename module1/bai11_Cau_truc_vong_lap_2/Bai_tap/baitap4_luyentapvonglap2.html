@@ -5,39 +5,169 @@
     <title>Title</title>
 </head>
 <body>
+<input type="button" onclick="bai1()" value="BÀI 1: In dãy Fibonaci">
+<p id="bai1"></p>
+<input type="button" onclick="bai2()" value="BÀI 2: Tính giai thừa">
+<p id="bai2"></p>
+<input type="button" onclick="bai3()" value="BÀI 3: Vẽ tam giác">
+<p id="bai3"></p>
+<input type="button" onclick="bai4()" value="BÀI 4: Vẽ hình chữ nhật">
+<p id="bai3"></p>
+<input type="button" onclick="bai5()" value="BÀI 5: Tính lãi ngân hàng">
+<p id="bai5"></p>
+<input type="button" onclick="bai6()" value="BÀI 6: Vẽ hình trái tim">
+<p id="bai3"></p>
 <script>
     let i;
     let j;
-    let sao;
-    for (i = 1; i <= 5; i++) {
-        for (j = 1; j <= 5; j++) {
-            if (j > i) {
-                break;
-            } else {
-                document.write("*")
-            }
+
+    // BÀI 1: In dãy Fibonaci
+    function bai1() {
+        let n = parseInt(prompt("Nhập số lượng phần tử đầu tiên của dãy FInonaci: "));
+        let count = 0;
+        let i = 0;
+        let j = 1;
+        let z = 0;
+        while (count < n) {
+            z = j;
+            j = j + i;
+            i = z;
+            document.writeln(j);
+            count++;
         }
-        document.write("<br>")
     }
-    for (i = 1; i <= 5; i++) {
-        for (j = 5; j >= 1; j--) {
-            if (j < i) {
-                break;
-            } else {
-                document.write("*")
-            }
+
+    // BÀI 2: Tính giai thừa
+    function bai2() {
+        let n = parseInt(prompt("Nhập số nguyên dương: "));
+        let z = 1;
+        while (n > 0) {
+            z = z * n;
+            n = n - 1;
         }
-        document.write("<br>")
+        document.getElementById("bai2").innerHTML = z;
     }
-    for (i = 1; i <= 5; i++) {
-        for (j = 1; j <= 5; j++) {
-            if (j > i) {
-                break;
-            } else {
-                document.write("*")
+
+    // Bài 3: Vẽ tam giác
+    function bai3() {
+        for (i = 1; i <= 5; i++) {
+            for (j = 1; j <= 5; j++) {
+                if (j > i) {
+                    break;
+                } else {
+                    document.write("*")
+                }
             }
+            document.write("<br>")
         }
-        document.write("<br>")
+        document.write("<br>");
+        document.write("<br>");
+        // VÌ ĐẸP!!
+
+        for (i = 1; i <= 5; i++) {
+            for (j = 5; j >= 1; j--) {
+                if (j < i) {
+                    break;
+                } else {
+                    document.write("*")
+                }
+            }
+            document.write("<br>")
+        }
+        document.write("<br>");
+        document.write("<br>");
+        // VÌ ĐẸP!!
+
+        for (i = 5; i >= 1; i--) {
+            for (j = 1; j <= 5; j++) {
+                if (i > j) {
+                    document.write("&ensp;");
+                } else {
+                    document.write("*");
+                }
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+        document.write("<br>");
+        // VÌ ĐẸP!!
+        for (i = 5; i >= 1; i--) {
+            for (j = 5; j >= 1; j--) {
+                if (i >= j) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+        document.write("<br>");
+        // VÌ ĐẸP!!
+    }
+
+    // BÀI 4: In hình chữ nhật
+    function bai4() {
+        for (i = 1; i <= 20; i++) {
+            document.write("*");
+        }
+        document.write("<br>");
+        for (i = 1; i <= 5; i++) {
+            for (j = 1; j <= 20; j++) {
+                if (j === 1 || j === 20) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
+        for (i = 1; i <= 20; i++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    // BÀI 5: Tính lãi ngân hàng
+    function bai5() {
+        let tienBanDau = parseInt(prompt("Nhập số tiền ban đầu, đơn vị: VND "));
+        let tien = tienBanDau;
+        let thang = parseInt(prompt("Nhập sô tháng: "));
+        let laiXuatThang = parseInt(prompt("Nhập lãi xuất hằng tháng, đơn vị: %: "));
+        while (thang > 0) {
+            tien = tien * (1 + laiXuatThang / 100);
+            thang = thang - 1;
+        }
+
+        document.getElementById("bai5").innerHTML = "Lãi ngân hàng: " + (tien - tienBanDau);
+    }
+
+    // BÀI 6: Vẽ hình trái tim
+    function bai6() {
+        let m = parseInt(prompt("Nhập kích cỡ trái tim bạn: "));
+        for (i = m / 8; i >= 1; i--) {
+            for (j = 1; j <= (m - 1); j++) {
+                if (j >= i && j <= m / 2 - i) {
+                    document.write("*");
+                } else if (j >= m / 2 + i && j <= m - i) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
+        for (i = 1; i <= m / 2; i++) {
+            for (j = m - 1; j >= 1; j--) {
+                if (j >= i && j <= m - i) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
     }
 </script>
 </body>
