@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button type="button" onclick="bai1()">BÀI 1:</button>
+    <p id="bai1"></p>
+    <button type="button" onclick="bai2()">BÀI 2:</button>
+    <p id="bai2"></p>
+    <button type="button" onclick="bai3()">BÀI 3:</button>
+    <p id="bai3"></p>
+    <button type="button" onclick="bai4()">BÀI 4:</button>
+    <p id="bai4"></p>
+    <button type="button" onclick="bai5()">BÀI 5:</button>
+    <p id="bai5"></p>
+    <button type="button" onclick="bai6()">BÀI 6:</button>
+    <p id="bai6"></p>
+    <button type="button" onclick="bai7()">BÀI 7:</button>
+    <p id="bai7"></p>
+    <button type="button" onclick="bai8()">BÀI 8:</button>
+    <p id="bai8"></p>
+    <button type="button" onclick="bai9()">BÀI 9:</button>
+    <p id="bai9"></p>
+<script>
+    function bai1() {
+        let arr = [];
+        let count = 0;
+        let res = [];
+        for (let i = 0; i < 10; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt 10 số nguyên: ")));
+        }
+        for (let i = 0; i < 10; i++){
+            if (arr[i] >= 10){
+                res.push(arr[i]);
+                count++;
+            }
+        }
+        document.getElementById("bai1").innerHTML = "Có " + count + " số >= 10: " + res;
+    }
+    function bai2() {
+        let arr = [];
+        let max = 0;
+        let index = 0;
+        for (let i = 0; i < 10; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt 10 số nguyên: ")));
+        }
+        for (let i = 0; i < 10; i++){
+            if (arr[i] > max){
+                max = arr[i];
+                index = i;
+            }
+        }
+        document.getElementById("bai2").innerHTML = "Phần tử lớn nhất trong mảng là: " + max + " ở vị trí " + index;
+    }
+    function bai3() {
+        let arr = [];
+        let max = 0;
+        let sum = 0;
+        let n = parseInt(prompt("Nhập vào số lượng phần tử mảng: "));
+        for (let i = 0; i < n; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt n phần tử mảng: ")));
+        }
+        for (let i = 0; i < n; i++){
+            if (arr[i] > max){
+                max = arr[i];
+                sum += arr[i];
+            }
+        }
+        document.getElementById("bai3").innerHTML = "Phần tử lớn nhất trong mảng là: " + max + " và giá trị trung bình là: " + sum/n;
+    }
+    function bai4() {
+        let arr = [];
+        let n = parseInt(prompt("Nhập vào số lượng phần tử mảng: "));
+        for (let i = 0; i < n; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt n phần tử mảng: ")));
+        }
+        document.getElementById("bai4").innerHTML = arr.reverse();
+    }
+    function bai5() {
+        let arr = [];
+        let count = 0;
+        let n = parseInt(prompt("Nhập vào số lượng phần tử mảng: "));
+        for (let i = 0; i < n; i++){
+            arr.push(prompt("Nhập lần lượt n phần tử mảng: "));
+        }
+        for (let i = 0; i < n; i++){
+            if (arr[i] <= 0){
+                count++;
+            }
+        }
+        document.getElementById("bai5").innerHTML = "Số phần tử bé hơn 0: " + count;
+    }
+    function bai6() {
+        let arr = [];
+        let check = "";
+        for (let i = 0; i < 10; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt 10 số nguyên: ")));
+        }
+        let V = prompt("Nhập số nguyên V: ");
+        for (let i = 0; i < 10; i++){
+            if (V == arr[i]){
+                check = "V is in the array";
+                break;
+            }
+            check = "V is not in the array";
+        }
+        document.getElementById("bai6").innerHTML = check;
+    }
+    function bai7() {
+        let arr = [];
+        let res = [];
+        let res2 = [];
+        for (let i = 0; i < 10; i++){
+            arr.push(parseInt(prompt("Nhập lần lượt 10 số nguyên: ")));
+        }
+        let V = parseInt(prompt("Nhập số nguyên V: "));
+        for (let i = 0; i < 10; i++){
+            if (V !== arr[i]){
+               res.push(arr[i]);
+            }else {
+                res2.push(0);
+            }
+        }
+        document.getElementById("bai7").innerHTML = res.concat(res2);
+    }
+</script>
+</body>
+</html>

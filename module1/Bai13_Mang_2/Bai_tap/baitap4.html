@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Type anything slowly</h1>
+<textarea rows="5" cols="30" id = "text" value="" onkeyup="nhanphim()"></textarea>
+<script>
+    let inputText = "TRANG XINH ĐẸP, THÔNG MINH!!! ";
+    s = [];
+    for (let i = 0; i < inputText.length; i++){
+        s.push(inputText[i]);
+    }
+    let text = [];
+    let res;
+function nhanphim() {
+        text.push(s[0]);
+        s.push(s[0]);
+        s.shift();
+        console.log(text);
+        res = text.join("")
+document.getElementById("text").value = res;
+}
+</script>
+</body>
+</html>
