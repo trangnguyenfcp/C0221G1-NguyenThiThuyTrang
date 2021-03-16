@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="bai1()">BÀI 1:</button>
+<p id="bai1"></p>
+<button type="button" onclick="bai2()">BÀI 2:</button>
+<p id="bai2"></p>
+<button type="button" onclick="bai3()">BÀI 3:</button>
+<p id="bai3"></p>
+<button type="button" onclick="bai4()">BÀI 4:</button>
+<p id="bai4"></p>
+<button type="button" onclick="bai5()">BÀI 5:</button>
+<p id="bai5"></p>
+<button type="button" onclick="bai6()">BÀI 6:</button>
+<p id="bai6"></p>
+<button type="button" onclick="bai7()">BÀI 7:</button>
+<p id="bai7"></p>
+<button type="button" onclick="bai8()">BÀI 8:</button>
+<p id="bai8"></p>
+<button type="button" onclick="bai9()">BÀI 9:</button>
+<p id="bai9"></p>
+<script>
+    function bai1() {
+        function binhPhuong(a) {
+            return a*a;
+        }
+        let n = parseInt(prompt("Nhập n: "));
+        alert("Bình phương của " + n + " là " + binhPhuong(n));
+    }
+    function bai2() {
+        function chuVi(a) {
+            return 2*Math.PI*a;
+        }
+        function dienTich(a) {
+            return Math.PI*a*a;
+        }
+        let r = parseFloat(prompt("Nhập bán kính hình tròn: "));
+        alert("Diện tích hình tròn: " + dienTich(r));
+        alert("Chu vi hình tròn: " + chuVi(r));
+    }
+    function bai3() {
+        function tinhGiaiThua(a){
+            if (a == 1){
+                return 1;
+            }
+            return a*tinhGiaiThua(a-1);
+            }
+        let n = parseInt(prompt("Nhập n nguyên dương: "));
+        alert("N giai thừa = " + tinhGiaiThua(n));
+    }
+    function bai4() {
+        function isNumber(a){
+            return !isNaN(a);
+        }
+        let char = prompt("Nhập kí tự: ");
+        alert("Có phải là kí tự số không? " + isNumber(char));
+    }
+    function bai5() {
+        function min(a, b, c) {
+            if (a < b && a < c){
+                return a;
+            } else if (b < c){
+                return b;
+            } else return c;
+        }
+        let num1 = parseInt(prompt("Nhập số 1: "));
+        let num2 = parseInt(prompt("Nhập số 3: "));
+        let num3 = parseInt(prompt("Nhập số 4: "));
+        alert("Số nhỏ nhất là: " + min(num1, num2, num3));
+    }
+    function bai6() {
+        function soDuong(a) {
+            if (a > 0){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        let n = parseInt(prompt("Nhập n: "));
+        alert(soDuong(n));
+    }
+    function bai7() {
+        function swap(a, b) {
+             arr1 = [a, b];
+             c = a;
+             a = b;
+             b = c;
+             return arr1;
+        }
+        let num1 = parseInt(prompt("Nhap so 1: "));
+        let num2 = parseInt(prompt("Nhap so 2: "));
+        let arr2 = [num1, num2];
+        alert("a, b sau khi swap là: " + swap(arr2));
+
+    }
+</script>
+</body>
+</html>

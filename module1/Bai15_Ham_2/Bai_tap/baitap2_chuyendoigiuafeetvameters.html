@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" value="" id="nhập" oninput="doi()">
+<select id="donvi" onchange="doi()">
+    <option value="1">meter</option>
+    <option value="3.379">feet</option>
+</select>
+<p id="res"></p>
+<script>
+    function doi() {
+        let res = 0;
+        let donvi = parseFloat(document.getElementById("donvi").value);
+        let nhap = parseFloat(document.getElementById("nhập").value);
+        if (donvi === 1) {
+            res = nhap * 3.379;
+            donvi = "feet";
+        } else {
+            res = nhap / 3.379;
+            donvi = "meter";
+        }
+        document.getElementById("res").innerHTML = "Kết quả là: " + res + " " + donvi;
+    }
+</script>
+</body>
+</html>

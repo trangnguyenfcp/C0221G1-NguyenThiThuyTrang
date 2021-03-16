@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="bai1()">BÀI 1:</button>
+<p id="bai1"></p>
+<button type="button" onclick="bai2()">BÀI 2:</button>
+<p id="bai2"></p>
+<button type="button" onclick="bai3()">BÀI 3:</button>
+<p id="bai3"></p>
+<button type="button" onclick="bai4()">BÀI 4:</button>
+<p id="bai4"></p>
+<button type="button" onclick="bai5()">BÀI 5:</button>
+<p id="bai5"></p>
+<script>
+    function bai1() {
+        alert("Xin chao");
+    }
+
+    function bai2() {
+        function increase(number) {
+            return number + 1;
+        }
+
+        let n = parseInt(prompt("Nhập n: "));
+        document.getElementById("bai2").innerHTML = increase(n);
+    }
+    function bai3() {
+        function haiSo(a, b) {
+            if (a > b){
+                return alert("Số thứ nhất lớn hơn số thứ hai");
+            }else {
+                return alert(a + b);
+            }
+        }
+        let num1 = parseInt(prompt("Nhập số thứ nhất: "));
+        let num2 = parseInt(prompt("Nhập số thứ hai: "));
+        haiSo(num1, num2);
+    }
+    function bai4() {
+        function addNumbers() {
+            firstNum = 4;
+            secondNum = 8;
+            result = firstNum + secondNum;
+            return result;
+        }
+        result = 0;
+        alert("result trước gọi hàm = " + result);
+        result = addNumbers();
+        alert("result sau gọi hàm = " + result);
+    }
+    function bai5() {
+        arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        function timChomSao(sao) {
+            for (let i = 0; i < arr1.length; i++){
+                if (sao == arr1[i]){
+                    return alert(arr2[i]);
+                }
+            }
+            return alert("Không tìm thấy chòm sao");
+        }
+        let n = prompt("Nhập ngôi sao cần tìm: ");
+        timChomSao(n);
+    }
+</script>
+</body>
+</html>
