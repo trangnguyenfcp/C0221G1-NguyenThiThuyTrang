@@ -5,29 +5,44 @@
     <title>Rectangle</title>
 </head>
 <body>
-<canvas id="myCanvas" style="border:1px solid #d3d3d3;">
+<canvas id="myCanvas"></canvas>
+
     <script>
         class Rectangle {
             constructor(height, width) {
                 this.height = height;
                 this.width = width;
             }
+            getHeight (){
+                return this.height;
+            }
+            getWidth(){
+                return this.width;
+            }
+            setHeight (height){
+                this.height = height;
+            }
+            setWidth (width){
+                this.width = width;
+            }
             getArea () {
-                return this.height*this.width;
-            };
+                return this.getHeight()*this.getWidth();
+            }
             getPerimeter() {
-                return 2*(height+width);
-            };
+                return 2*(this.getHeight() + this.getWidth());
+            }
+            createRectangle() {
+                let ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.fillRect(0, 0, this.getWidth(), this.getHeight());
+                ctx.fillStyle = "#FF0000";
+                return ctx;
+            }
         }
-        function createRectangle() {
-            let ctx = document.getElementById("myCanvas").getContext("2d");
-            ctx.strokeRect(0, 0, 30044, 200)
-        }
-        createRectangle()
-        let HCN = new Rectangle(5,10);
-        // alert(HCN.getArea());
-        // alert(HCN.getPerimeter());
 
+        let HCN = new Rectangle(50,100);
+        let height = HCN.getHeight();
+        let width = HCN.getWidth();
+        HCN.createRectangle();
     </script>
 </body>
 </html>
