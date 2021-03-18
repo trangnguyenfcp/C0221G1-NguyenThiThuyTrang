@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="add">
+<input type="button" onclick="add()" value="Add">
+<form id="delete" onclick="">Delete</form>
+<p id="hienthi"></p>
+<script>
+    let productName = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S", "Xiaomi Mi 5s Plus", "Apple iPhone 8 Plus", "Fujitsu F-04E", "Oppa A71"];
+    function display() {
+        let tab = "<table>";
+        for (let i = 0; i < productName.length; i++) {
+            tab += "<tr>";
+            for (let j = 0; j < 3; j++) {
+                if (j === 0) {
+                    tab += "<td>" + productName[i] + "</td>";
+                } else if (j === 1) {
+                    tab += '<td>' + '<input type="button" id = "" onclick="sua(this.id)" value="Edit">' + '</td>';
+                } else {
+                    tab += '<td>' + '<input type="button" id = "'+i +'"  onclick="xoa(this.id)" value="Delete">' + '</td>';
+                }
+            }
+            tab += "</tr>";
+        }
+        tab += "</table>";
+        document.getElementById("hienthi").innerHTML = tab;
+    }
+    display();
+    function add() {
+        let product = document.getElementById("add").value;
+        if (product != 0){
+            productName.push(product);
+        }
+        display();
+    }
+    function xoa(b) {
+       for (let )
+        display();
+
+    }
+</script>
+</body>
+</html>

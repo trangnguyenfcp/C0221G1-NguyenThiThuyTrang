@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPalindrome(s) {
+                let a = s[s.length - 1];
+                let b = s[0];
+                if (s.length <= 1) {
+                    return true;
+                }else if (a === b){
+                    s.shift();
+                    s.pop();
+                    return isPalindrome(s);
+                }else {
+                    return false;
+                }
+    }
+    let arr = [];
+    let str = prompt("Nhap chuoi: ");
+    for (let i = 0; i < str.length; i++){
+        arr.push(str[i]);
+    }
+    alert(isPalindrome(arr));
+</script>
+</body>
+</html>
