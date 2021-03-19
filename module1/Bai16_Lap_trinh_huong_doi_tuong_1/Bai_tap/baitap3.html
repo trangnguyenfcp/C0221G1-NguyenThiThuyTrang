@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+
+<script>
+
+    class Battery {
+        constructor(battery) {
+            this.battery = battery;
+        }
+    }
+
+    class Message {
+        constructor(message) {
+            this.message = message;
+        }
+    }
+
+    class Phone {
+        constructor(battery, message) {
+            this.battery = battery;
+            this.message = message;
+        }
+
+        sendMessage() {
+            if (this.battery.battery <= 0) {
+                alert("Hết pin. Không thể gửi tin nhắn");
+            } else {
+
+                this.message.message = prompt("Nội dung tin nhắn: ");
+                alert("Đã gửi");
+                this.battery.battery--;
+            }
+        }
+        receiveMessage() {
+            if (this.battery.battery <= 0){
+                alert("Hết pin. Không thể nhận được tin nhắn");
+            } else {
+                alert("Đọc tin nhắn");
+                alert(this.message.message);
+                this.battery.battery--;
+            }
+        }
+    }
+
+    let nokiaBattery = new Battery("34");
+    let message = new Message("");
+    let nokia = new Phone(nokiaBattery, message);
+    let iphoneBattery = new Battery("12");
+    let iphone = new Phone(iphoneBattery, message);
+    nokia.sendMessage();
+    iphone.receiveMessage();
+
+</script>
+</body>
+</html>
