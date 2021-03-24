@@ -5,17 +5,9 @@
     <title>VIETLOTT</title>
 </head>
 <body>
-<table border="1">
-    <tr>
-        <td onclick="tuNhap()">1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-</table>
+<p id="hien thi"></p>
 <button onclick="tuNhap()">Tự nhập</button>
+<button onclick="random()">Random</button>
 <script>
     class Ticket {
         constructor(num1, num2, num3, num4, num5, num6) {
@@ -35,9 +27,23 @@
             this.ticket.num1 = tuNhap();
         }
     }
-    function tuNhap() {
-        num = parseInt(prompt("Nhập số: "));
+    function tuNhap(num) {
+        alert(num);
     }
+    function display() {
+        let tab = '<table>\n' +
+            '    <tr>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '        <td style="border: #d61b06 solid; padding: 15px"></td>\n' +
+            '    </tr>\n' +
+            '</table>';
+        document.getElementById("hien thi").innerHTML = tab;
+    }
+    display();
 </script>
 </body>
 </html>
