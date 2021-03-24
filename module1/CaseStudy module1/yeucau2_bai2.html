@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 2 - Bài 2</title>
+</head>
+<body>
+<script>
+    let char = prompt("Nhập kí tự: ");
+    char = char.toLowerCase();
+        let patt = new RegExp(/[a-z]/i)
+        if (patt.test(char)) {
+        switch (char) {
+            case "u":
+            case "i":
+            case "a":
+            case "e":
+            case "o":
+                alert(char + " là ký tự nguyên âm");
+                break;
+            default:
+                alert(char + " không phải nguyên âm");
+
+        }
+    } else {
+            alert(char + " không phải ký tự");
+        }
+</script>
+</body>
+</html>

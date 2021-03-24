@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4 - Bài 3</title>
+</head>
+<body>
+<script>
+    let s1 = prompt("Nhập xâu ký tự 1: ");
+    let s2 = prompt("Nhập xâu ký tự 2: ");
+    let arr = [];
+    let n = s1.length;
+    let m = s2.length;
+    for (let i = 0; i < s1.length; i++){
+        for (let j = 0; j < s2.length; j++){
+            if (s1.charAt(i) == s2.charAt(j)){
+                arr.push(s1.charAt(i));
+                s1 = s1.replace(s1.charAt(i),'');
+                s2 = s2.replace(s2.charAt(j),'');
+                i--;
+            }
+        }
+    }
+    alert(arr.length);
+</script>
+</body>
+</html>

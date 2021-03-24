@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 1 (Vẽ hình *)</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1: Vẽ hình chữ nhật rỗng</button>
+<br><br>
+<button onclick="bai2()">Bài 2: Vẽ tam giác vuông cân rỗng</button>
+<br><br>
+<button onclick="bai3()">Bài 3: Vẽ tam giác cân đặc</button>
+<br><br>
+<button onclick="bai4()">Bài 4: Vẽ tam giác cân rỗng</button>
+<br><br>
+<script>
+    function bai1() {
+        let n = parseInt(prompt("Nhập chiều dài n: "));
+        let m = parseInt(prompt("Nhập chiều rộng m: "));
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < m; j++) {
+                if (i == 0 || i == n - 1 || j == 0 || j == m - 1) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+
+    function bai2() {
+        let h = parseInt(prompt("Nhập chiều cao h: "));
+        for (let i = 0; i < h; i++) {
+            for (let j = 0; j < h; j++) {
+                if (j == 0 || i == j || i == h - 1) {
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+
+    function bai3() {
+        let h = parseInt(prompt("Nhập chiều cao h: "));
+        for (let i = 1; i <= h; i++) {
+            for (let j = 1; j <= (2*h -1); j++) {
+                if ((j > h - i) && (j <= h-1+i)){
+                    document.write("*");
+                } else {
+                    document.write("&ensp;");
+                }
+            }
+            document.write("<br><br>");
+        }
+    }
+    function bai4() {
+        let h = parseInt(prompt("Nhập chiều cao h: "));
+        for (let i = 1; i <= h; i++) {
+            for (let j = 1; j <= (2*h -1); j++) {
+                if ((j == h - i +1) || (j == h+i-1) || i == h){
+                    document.writeln("*");
+                } else {
+                    document.writeln("&ensp;");
+                }
+            }
+            document.write("<br><br>");
+        }
+    }
+</script>
+</body>
+</html>

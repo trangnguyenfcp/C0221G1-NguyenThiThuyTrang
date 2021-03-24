@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 5 - Bài 1</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("Nhập số hàng: "));
+    let arr = Array(m);
+    let n = parseInt(prompt("Nhập số cột: "));
+    let sum = 0;
+    for (let i = 0; i < m; i++) {
+        arr[i] = Array(n);
+    }
+    for (let i = 0; i < m; i++){
+        for (let j = 0; j < n; j++){
+            arr[i][j] = parseInt(prompt("Nhập các phần tử ở vị trí: " + i + j));
+            if (arr[i][j] % 2 == 0){
+                sum += arr[i][j];
+            }
+        }
+    }
+    alert("Tổng các phần tử chẵn trong mảng là: " + sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4 - Bài 2</title>
+</head>
+<body>
+<script>
+    let s = prompt("Nhập xâu ký tự: ");
+    let arr = [s[0]];
+    for (let i = 1; i < s.length; i++){
+        if (!arr.includes(s.charAt(i))){
+            arr.push(s.charAt(i));
+        }
+    }
+    let differentSymbolsNaive = arr.length;
+    alert(differentSymbolsNaive);
+</script>
+</body>
+</html>

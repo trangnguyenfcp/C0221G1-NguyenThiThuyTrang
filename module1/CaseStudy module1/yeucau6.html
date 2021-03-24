@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VIETLOTT</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td onclick="tuNhap()">1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+<button onclick="tuNhap()">Tự nhập</button>
+<script>
+    class Ticket {
+        constructor(num1, num2, num3, num4, num5, num6) {
+            this.num1 = num1;
+            this.num2 = num2;
+            this.num3 = num3;
+            this.num4 = num4;
+            this.num5 = num5;
+            this.num6 = num6;
+        }
+    }
+    class Human {
+        constructor(ticket) {
+            this.ticket = ticket;
+        }
+        tuNhap(ticket){
+            this.ticket.num1 = tuNhap();
+        }
+    }
+    function tuNhap() {
+        num = parseInt(prompt("Nhập số: "));
+    }
+</script>
+</body>
+</html>

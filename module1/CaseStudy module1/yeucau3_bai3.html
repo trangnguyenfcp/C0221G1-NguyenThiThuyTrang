@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3 - Bài 3</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số phân số: "));
+    let numerators = [];
+    let denominators = [];
+    let index = 0;
+    let max = "";
+    for (let i = 0; i < n; i++){
+        denominators[i] = parseInt(prompt("Nhập tử số của phân số có chỉ số: " + i));
+        numerators[i] = parseInt(prompt("Nhập mẫu số của phân số có chỉ số: "+i));
+        if (max < (denominators[i]/numerators[i])) {
+            max = denominators[i]/numerators[i];
+            index = i;
+        }
+    }
+    alert("Phân số lớn nhất có chỉ số: " + index);
+</script>
+</body>
+</html>

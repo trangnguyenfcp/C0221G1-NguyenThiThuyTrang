@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let h = parseInt(prompt("Nhập chiều cao h: "));
+    for (let i = 1; i <= h; i++) {
+        for (let j = 1; j <= (2*h -1); j++) {
+            if ((j = h - i +1) || (j = h+i-1)){
+                document.write("*");
+            } else {
+                document.write("&ensp;");
+            }
+        }
+        document.write("<br><br>");
+    }
+</script>
+</body>
+</html>

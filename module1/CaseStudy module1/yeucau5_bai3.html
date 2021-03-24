@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 5 - Bài 3</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("Nhập số hàng: "));
+    let n = parseInt(prompt("Nhập số cột: "));
+    let arr = Array(m);
+    let max = '';
+    let min = '';
+    for (let i = 0; i < m; i++) {
+        arr[i] = Array(n);
+    }
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("Nhập phần tử ở vị trí: " + i + j));
+            min = arr[0][0];
+            max = arr[0][0];
+            if (max < arr[i][j]){
+                max = arr[i][j];
+            }
+            if (min > arr[i][j]){
+                min = arr[i][j];
+            }
+        }
+    }
+    alert("Số lớn nhất là: " + max + ", Số nhỏ nhất là: " + min);
+</script>
+</body>
+</html>

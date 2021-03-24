@@ -23,23 +23,66 @@
 
         this.moveRight = function(){
             this.left += this.speed;
-            console.log('ok: ' + this.left);
+        };
+        this.moveLeft = function () {
+            this.left -= this.speed;
+        };
+        this.moveUp = function () {
+            this.top -= this.speed;
+        };
+        this.moveDown = function () {
+            this.top += this.speed;
         }
 
     }
     let speed = parseInt(prompt("Nhap speed: "));
-    var hero = new Hero('cat2.gif', 20, 30, 200, speed);
+    var hero = new Hero('cat2.gif', 20, 30, 100, speed);
     hero.moveRight(speed);
+    hero.moveLeft(speed);
+    hero.moveUp(speed);
+    hero.moveDown(speed);
 
-    function start(){
+    function moveRight(){
         if(hero.left < window.innerWidth - hero.size){
             hero.moveRight();
         }
         document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start, 500)
+    }
+    function moveLeft(){
+        if(hero.left > 0){
+            hero.moveLeft();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+    }
+    function moveUp(){
+        if(hero.top > 0){
+            hero.moveUp();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+    }
+    function moveDown(){
+        if(hero.top < window.innerHeight - hero.size){
+            hero.moveDown();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+    }
+        document.onkeydown = function(e) {
+        switch (e.which) {
+            case 37:
+                moveLeft();
+                break;
+            case 38:
+                moveUp();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+        }
     }
 
-    start();
 </script>
 </body>
 </html>

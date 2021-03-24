@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3 - Bài 1</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử mảng a: "));
+    let a = [];
+    let b = [];
+    let sum = 0;
+    for (let i = 0; i < n; i++){
+        a[i] = parseInt(prompt("Nhập phần tử ở vị trí: " + i));
+        sum += a[i];
+        b.push(sum);
+    }
+    alert(b);
+</script>
+</body>
+</html>

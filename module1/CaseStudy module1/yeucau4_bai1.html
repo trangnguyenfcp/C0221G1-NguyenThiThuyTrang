@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 4 - Bài 1</title>
+</head>
+<body>
+<script>
+    let s = prompt("Nhập xâu ký tự: ");
+    alert(chuanHoa());
+    alert(findLongestWord());
+    function chuanHoa() {
+        s = s.toLowerCase();
+        let arr = s.split(' ');
+        let arr2 = [];
+        let res = [];
+        for (let i = 0; i < arr.length; i++){
+            if (arr[i] != ''){
+                arr2.push(arr[i]);
+            }
+        }
+        for (let i = 0; i < arr2.length; i++){
+            arr2[i] = arr2[i].charAt(0).toUpperCase() + arr2[i].slice(1);
+            res.push(arr2[i]);
+            }
+         res = res.join(" ");
+        return res;
+    }
+    function findLongestWord() {
+        let arr = s.split(' ');
+        let length = 0;
+        let longestWord = "";
+        for (let i = 0; i < arr.length; i++){
+            if (length < arr[i].length){
+                length = arr[i].length;
+                longestWord = arr[i];
+            }
+        }
+        return longestWord;
+    }
+</script>
+</body>
+</html>

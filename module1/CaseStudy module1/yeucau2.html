@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 2 - Bài 1</title>
+</head>
+<body>
+<script>
+    let luongTruocThue = parseFloat(prompt("Nhập lương, ĐV: triệu đồng: "));
+    let luongSauThue = 0;
+    if (luongTruocThue >= 15){
+        luongSauThue = luongTruocThue*(1-0.2);
+    } else if (luongTruocThue >= 7){
+        luongSauThue = luongTruocThue*(1-0.1);
+    }else {
+        luongSauThue = luongTruocThue*(1-0.05);
+    }
+    alert("Lương sau khi nộp thuế, ĐV: triệu đồng: " + luongSauThue);
+</script>
+</body>
+</html>

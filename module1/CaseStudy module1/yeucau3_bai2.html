@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3 - Bài 2</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử của mảng a: "));
+    let a = [];
+    let b = [];
+    let res = [];
+    for (let i = 0; i < n; i++){
+        a[i] = parseInt(prompt("Nhập phần tử mảng a ở vị trí: "+ i));
+    }
+    let m = parseInt(prompt("Nhập số phần tử của mảng b: "));
+    for (let i = 0; i < m; i++){
+        b[i] = parseInt(prompt("Nhập phần tử mảng a ở vị trí: "+ i));
+    }
+    for (let i = 0; i < n; i++){
+        if (b.includes(a[i]) && !res.includes(a[i])){
+            res.push(a[i]);
+        }
+    }
+    alert(res.sort(function (a, b){return a - b}));
+
+</script>
+</body>
+</html>

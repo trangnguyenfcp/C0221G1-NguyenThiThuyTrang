@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3 - Bài 5</title>
+</head>
+<body>
+<p id="tab"></p>
+<script>
+    let drinksList = ["Cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa", "Thoát gọi món"];
+    let priceList = ["18000", "19000","28000","38000","14000","15000",""];
+    let tab = '<table border="1" cellspacing="0" >\n' +
+        '    <tr>\n' +
+        '        <td>STT</td>\n' +
+        '        <td>Nước</td>\n' +
+        '        <td>Gía</td>\n' +
+        '    </tr>';
+    for (let i = 0; i <7; i++){
+        tab += '<tr>\n' +
+            '        <td>'+(i+1)+'</td>\n' +
+            '        <td>'+drinksList[i]+'</td>\n' +
+            '        <td>'+priceList[i]+'</td>\n' +
+            '    </tr>';
+    }
+    tab+= '</table>';
+    document.getElementById("tab").innerHTML = tab;
+    let drink = "";
+    let drinksListOfCustomer = [];
+    let numberOfDrinksOfCustomer = [];
+    let numberOfDrinks = "";
+    let price = [];
+    while (drink != 7){
+        drink = prompt("Nhập STT để gọi món: ");
+        drinksListOfCustomer.push(drinksList[drink-1]);
+        numberOfDrinks = prompt("Nhập số lượng món: ");
+        numberOfDrinksOfCustomer.push(numberOfDrinks);
+        price.push(priceList[drink-1]);
+    }
+    alert("Các món bạn gọi là: " + drinksListOfCustomer + " với số lượng "+ numberOfDrinksOfCustomer+ " và giá lần lượt là: " + price);
+</script>
+</body>
+</html>

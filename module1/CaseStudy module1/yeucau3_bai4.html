@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 3 - Bài 4</title>
+</head>
+<body>
+<script>
+    let s = prompt("Nhập số: ");
+    let chu = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+    let res = [];
+    for (let i = 0; i < s.length; i++){
+        for (let j = 0; j < 10; j++){
+            if (s[i] == j){
+                res.push(chu[j]);
+            }
+        }
+    }
+    res = res.join(" ");
+    alert(res);
+</script>
+</body>
+</html>
