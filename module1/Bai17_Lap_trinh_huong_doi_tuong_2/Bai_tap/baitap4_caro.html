@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caro</title>
+</head>
+<body>
+<!--    <table  border="1" cellspacing="0" style="position:absolute; height: 400px; width: 400px; text-align: center">-->
+<!--        <tr>-->
+<!--            <td id="i,j" onclick="danhdau(this.id)"></td>-->
+<!--            <td></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+    <p id = "hienthi"></p>
+<script>
+function display() {
+    let tab = ' <table  border="1" cellspacing="0" style="position:absolute; height: 400px; width: 400px; text-align: center">';
+    for (let i = 0; i <20; i++){
+        tab += '<tr>';
+        for (let j = 0; j < 20; j++){
+            tab += '<td onclick="danhDau('+i+','+j+')"></td>';
+
+        }
+        tab += '</tr>';
+    }
+    tab += '</table>';
+    document.getElementById("hienthi").innerHTML = tab;
+}
+display();
+let arr =  Array(20);
+for (let i = 0; i < 20; i++){
+    arr[i] = Array(20);
+}
+for (let i = 0; i < 20; i++){
+    for (let j = 0; j < 20; j++){
+        arr[i][j] = 0;
+    }
+}
+for (let i = 0; i < 20; i++){
+    for (let j = 0; j < 20; j++){
+
+    }
+}
+
+class NguoiChoi {
+    constructor(dau, vitri) {
+        this.dau = dau;
+        this.vitri = vitri;
+    }
+    danhDau() {
+        danhDau();
+    }
+
+}
+    function danhDau(x,y) {
+
+}
+</script>
+</body>
+</html>

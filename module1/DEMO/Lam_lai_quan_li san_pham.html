@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>STT</th>-->
+<!--        <th>Tên Sản Phẩm</th>-->
+<!--        <th>Sửa</th>-->
+<!--        <th>Xóa</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <th></th>-->
+<!--        <th></th>-->
+<!--        <th><input type="text" value="Sửa" onclick="editProduct();"></th>-->
+<!--        <th><input type="text" value="xóa" onclick="deleteProduct();"></th>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<input type="text" placeholder="product Name " id="productName">
+<input type="button" value="ADD" id="them" onclick="addProduct()">
+<input type="button" value="Search" id="tim" onclick="searchProduct()">
+<p id="soluong"></p>
+<p id="hienthi"></p>
+
+<script>
+let listProduct=["Samsung","Nokia","Apple"];
+function disPlay(list) {
+    list.sort();
+    let tableString='<table border="1">\n' +
+        '    <tr>\n' +
+        '        <th>STT</th>\n' +
+        '        <th>Tên Sản Phẩm</th>\n' +
+        '        <th>Sửa</th>\n' +
+        '        <th>Xóa</th>\n' +
+        '    </tr>'
+    for(let i=0;i<list.length;i++){
+        tableString+=' <tr>\n' +
+            '        <th>'+(i+1)+'</th>\n' +
+            '        <th>'+list[i]+'</th>\n' +
+            '        <th><input type="button" value="Sửa" onclick="editProduct('+i+')"></th>\n' +
+            '        <th><input type="button" value="Xóa" onclick="deleteProduct('+i+')"></th>\n' +
+            '    </tr>'
+
+    }tableString+='</table>';
+    document.getElementById("hienthi").innerHTML=tableString;
+    document.getElementById("soluong").innerText=list.length;
+
+}
+disPlay(listProduct)
+    function addProduct() {
+    let NewProduct=document.getElementById("productName").value;
+    if(NewProduct!=""){
+        listProduct.push(NewProduct);
+        document.getElementById("productName").value="";
+    }
+    disPlay(listProduct)
+
+    }
+    function editProduct(index) {
+    let editName=prompt("nhap tên mới"+listProduct[index]);
+    listProduct[index]=editName;
+    disPlay(listProduct)
+    }
+    function deleteProduct(index) {
+    let conf=confirm("do you want to delete produc Name"+listProduct[index]);
+    if(conf){
+        listProduct.splice(index,1);
+        disPlay(listProduct)
+
+    }else {
+        alert("Not delete")
+    }
+    
+    }
+    function searchProduct() {
+    let searchList=[];
+    let searchByName = document.getElementById("productName").value;
+    for(let i=0;i<listProduct.length;i++){
+        if(listProduct[i].includes(searchByName)){
+            searchList.push(listProduct[i]);
+        }
+    }
+    disPlay(searchList);
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

@@ -4,7 +4,151 @@
     <meta charset="UTF-8">
     <title>Yêu cầu 7</title>
 </head>
-<body>
+<style>
+    table, tr, td {
+        border: black solid 1px;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
 
+    }
+
+    table {
+        width: 100%;
+    }
+
+    #toptop {
+        height: 10px;
+        background-color: #3aa7a3;
+        border-bottom: none;
+    }
+
+    #top {
+        height: 50px;
+        background-color: #3aa7a3;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+    }
+
+    #bottom {
+        height: 20px;
+        background-color: #3aa7a3;
+    }
+
+    #top2 {
+        height: 16px;
+        background-color: #9DD9D2;
+        border-left: none;
+    }
+
+    #top2trai {
+        background-color: #9DD9D2;
+        border-right: none;
+    }
+
+    #toptrai {
+        border-right: none;
+        background-color: #3aa7a3;
+        border-top: none;
+    }
+    #topphai {
+        border-right: none;
+        background-color: #3aa7a3;
+        border-top: none;
+        border-left: none;
+        width: 250px;
+    }
+
+    #middle {
+        width: 150px;
+        height: 450px;
+        background-color: #5ec2b7;
+    }
+
+    #G {
+        height: 40px;
+        object-position: bottom;
+        border: none;
+        margin-left: 15px;
+    }
+
+    #leftarrow {
+        height: 30px;
+        object-position: bottom;
+        border: none;
+        margin-left: 5px;
+    }
+
+    #rightarrow {
+        height: 30px;
+        object-position: bottom;
+        border: none;
+        margin-left: 10px;
+    }
+
+    #home {
+        height: 30px;
+        object-position: bottom;
+        border: none;
+        margin-left: 20px;
+    }
+
+    #close {
+        height: 25px;
+        object-position: bottom;
+        border: none;
+        margin-left: 15px;
+    }
+
+    #search {
+        height: 25px;
+        object-position: bottom;
+        border: none;
+        margin-left: 5px;
+    }
+
+</style>
+<body>
+<table cellspacing="0">
+    <tr>
+    <td id="toptop" colspan="3"><p style="text-align: center; color: white; font-size: 20px" >A Web Page</p></td>
+    </tr>
+    <tr>
+        <td id="toptrai"><img src="previous.png" id="leftarrow"><img src="next.png" id="rightarrow"><img src="close.png"
+                                                                                                         id="close"><img
+                src="home.png" id="home"></td>
+        <td id="top" style="padding-bottom: 10px">
+            <button type="text" style="width: 1000px; text-align: left; margin-left: 60px">http://</button>
+        </td>
+        <td id="topphai"><img src="search.png" id="search">
+        </td>
+    </tr>
+    <tr>
+        <td id="top2trai"><img src="g.png" id="G"></td>
+        <td id="top2" colspan="2"><p style="margin-left: 400px">Hệ thống quản lý bài tập Casestudy module 1</p></td>
+    </tr>
+    <tr>
+        <td id="middle" style="padding-left: 20px">
+            <select>
+                <option>Bài tập 1</option>
+            </select> <br><br>
+            <select>
+                <option>Bài tập 2</option>
+            </select><br><br>
+            <select>
+                <option>Bài tập 3</option>
+            </select><br><br>
+            <select>
+                <option>Bài tập 4</option>
+            </select><br><br>
+            <select>
+                <option>Bài tập 5</option>
+            </select>
+        </td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <td colspan="3" id="bottom"></td>
+    </tr>
+</table>
 </body>
 </html>
