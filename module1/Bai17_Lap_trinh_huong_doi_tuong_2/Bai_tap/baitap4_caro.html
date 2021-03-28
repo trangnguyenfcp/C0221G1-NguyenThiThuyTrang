@@ -5,60 +5,87 @@
     <title>caro</title>
 </head>
 <body>
-<!--    <table  border="1" cellspacing="0" style="position:absolute; height: 400px; width: 400px; text-align: center">-->
-<!--        <tr>-->
-<!--            <td id="i,j" onclick="danhdau(this.id)"></td>-->
-<!--            <td></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td></td>-->
-<!--            <td></td>-->
-<!--        </tr>-->
-<!--    </table>-->
-    <p id = "hienthi"></p>
+
+<p id="hienthi"></p>
 <script>
-function display() {
-    let tab = ' <table  border="1" cellspacing="0" style="position:absolute; height: 400px; width: 400px; text-align: center">';
-    for (let i = 0; i <20; i++){
-        tab += '<tr>';
-        for (let j = 0; j < 20; j++){
-            tab += '<td onclick="danhDau('+i+','+j+')"></td>';
+    function display() {
+        let tab = ' <table  border="1" cellspacing="0" style="position:absolute; height: 500px; width: 500px; text-align: center">';
+        for (let i = 0; i < 20; i++) {
+            tab += '<tr>';
+            for (let j = 0; j < 20; j++) {
+                tab += '<td height="20px" width="20px" onclick="choi(' + i + ',' + j + ')">'+arr[i][j]+'</td>';
+
+            }
+            tab += '</tr>';
+        }
+        tab += '</table>';
+        document.getElementById("hienthi").innerHTML = tab;
+    }
+    let arr = Array(20);
+    for (let i = 0; i < 20; i++) {
+        arr[i] = Array(20);
+    }
+    for (let i = 0; i < 20; i++) {
+        for (let j = 0; j < 20; j++) {
+            arr[i][j] = '';
+        }
+    }
+
+    display();
+    class OCaro {
+        constructor(trangThai, giaTri, luot) {
+            this.trangThai = trangThai;
+            this.giaTri = giaTri;
+            this.luot = luot;
+        }
+        doiDauX() {
+            this.trangThai = true;
+            this.giaTri = 'X';
+            this.luot = 'O';
+        }
+
+        doiDauO() {
+            this.trangThai = true;
+            this.giaTri = 'O';
+            this.luot = 'X';
 
         }
-        tab += '</tr>';
-    }
-    tab += '</table>';
-    document.getElementById("hienthi").innerHTML = tab;
-}
-display();
-let arr =  Array(20);
-for (let i = 0; i < 20; i++){
-    arr[i] = Array(20);
-}
-for (let i = 0; i < 20; i++){
-    for (let j = 0; j < 20; j++){
-        arr[i][j] = 0;
-    }
-}
-for (let i = 0; i < 20; i++){
-    for (let j = 0; j < 20; j++){
-
-    }
-}
-
-class NguoiChoi {
-    constructor(dau, vitri) {
-        this.dau = dau;
-        this.vitri = vitri;
-    }
-    danhDau() {
-        danhDau();
     }
 
-}
-    function danhDau(x,y) {
+    class NguoiChoi {
+        constructor(oCaro) {
+            this.oCaro = oCaro;
+        }
+        danhDau() {
+            if (this.oCaro.trangThai == false) {
+                if (this.oCaro.luot == 'X') {
+                    this.oCaro.doiDauX();
+                } else {
+                    this.oCaro.doiDauO();
+                }
+            } else {
 
-}
+                alert("Ô này đã được đánh");
+            }
+        }
+    }
+    let n = '';
+    function choi(a,b) {
+        let trangThai = '';
+        if (arr[a][b] != ''){
+            trangThai = true;
+        } else {
+            trangThai = false;
+        }
+        let giaTri = '';
+        let oCaro = new OCaro(trangThai, giaTri, n);
+        let nguoiChoi = new NguoiChoi(oCaro);
+        nguoiChoi.danhDau();
+        arr[a][b] = oCaro.giaTri;
+        n = oCaro.luot;
+        console.log(oCaro);
+        display();
+    }
 </script>
 </body>
 </html>

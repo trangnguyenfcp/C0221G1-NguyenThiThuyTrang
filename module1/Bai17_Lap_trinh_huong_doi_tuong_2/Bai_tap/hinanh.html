@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+var imageObj = new Image();
+imageObj.onload = function() {
+context.drawImage(imageObj, 69, 50);
+};
+imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darthvader.jpg';
+</body>
+</html>
