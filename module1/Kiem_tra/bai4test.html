@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    class DienThoai{
+        constructor(maDienThoai, ten, hangSanXuat, gia) {
+            this.maDienThoai = maDienThoai;
+            this.ten = ten;
+            this.hangSanXuat = hangSanXuat;
+            this.gia = gia;
+        }
+        getMaDienThoai(){
+            return this.maDienThoai;
+        }
+        setMaDienThoai(maDienThoai){
+            this.maDienThoai = maDienThoai;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setTen(ten){
+            this.ten = ten;
+
+        }
+        getHangSanXuat(){
+            return this.hangSanXuat;
+        }
+        setHangSanXuat(hangSanXuat){
+            this.hangSanXuat = hangSanXuat;
+        }
+        getGia(){
+            return this.gia;
+        }
+        setGia(gia){
+            this.gia = gia;
+        }
+        toString() {
+            return "Ma dien thoai = " + this.maDienThoai + " Ten = " + this.ten + " Hang san xuat = " + this.hangSanXuat + " Gia = " +this.gia;
+        }
+    }
+    let listDienThoai = [];
+    let samSung = new DienThoai("S21", "SamSung Galaxy S21", "SamSung", 500);
+    let iPhone = new DienThoai("12PM", "IPhone 12 Pro Max", "Apple", 1000);
+    let nokia = new DienThoai("723", "Nokia Ultra 2", "Microsoft", 300);
+    listDienThoai.push(samSung, iPhone, nokia);
+
+    function themDienThoai() {
+        let maDienThoai = prompt(" input ma dien thoai");
+        let ten = prompt(" input ten");
+        let hangSanXuat = prompt(" input hang san xuat");
+        let gia = prompt(" input gia");
+        let  dienThoai = new DienThoai(maDienThoai, ten, hangSanXuat, gia);
+        listDienThoai.push(dienThoai);
+        alert(listDienThoai);
+    }
+    themDienThoai();
+    showListDienThoai();
+    function showListDienThoai() {
+        let listSapXep = [];
+        let listName = [];
+        listName.push(samSung.getTen(), iPhone.getTen(), nokia.getTen());
+        listName = listName.sort();
+        for (let i = 0; i < listName.length; i++){
+            for (let j = 0; j < listDienThoai.length; j++)
+                if (listDienThoai[j].getTen() == listName[i]){
+                    listSapXep.push(listDienThoai[j]);
+                }
+        }
+        let list="";
+        for (let i=0; i<listSapXep.length;i++ ){
+            list +=(i+1)+". "+listSapXep[i].toString()+"\n";
+        }
+        alert(list);
+    }
+
+</script>
+</body>
+</html>

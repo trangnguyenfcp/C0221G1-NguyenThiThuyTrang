@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập vào số lượng phần tử: "));
+    let arr = [];
+    let tongChan = 0;
+    let tongLe = 0;
+    let hieu = '';
+    if (n > 20 || n < 0 || Number.isNaN(n)) {
+        alert("Nhập sai n, n là số nguyên dương <= 20");
+        hieu = "Hiệu không tồn tại";
+    } else {
+    for (let i = 0; i <n; i++){
+        arr[i] = parseInt(prompt("Nhập vào phần tử ở vị trí: " + i));
+        if (arr[i] % 2 === 0){
+            tongChan += arr[i];
+        } else {
+            tongLe += arr[i];
+        }
+        hieu = tongChan - tongLe;
+    }
+    }
+    alert("Mảng đã nhập là: " + arr);
+    alert("Hiệu của tổng các phần tử chẵn và Tổng các phần tử lẻ trong mảng là: " +hieu);
+</script>
+</body>
+</html>

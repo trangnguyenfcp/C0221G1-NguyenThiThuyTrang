@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function demKyTuHoa(str) {
+        let count = 0;
+        let patt = new RegExp(/[a-z]/i)
+        for (let i = 0; i < str.length; i++){
+            if (str.charAt(i).toUpperCase() === str.charAt(i) && patt.test(str.charAt(i))){
+                count++;
+            }
+        }
+        if (count === 0){
+            alert("The Strings is not contain upper char");
+        } else {
+            alert("Số lượng ký tự in hoa là: " + count);
+        }
+    }
+    let chuoi = prompt("Nhập chuỗi: ");
+    demKyTuHoa(chuoi);
+</script>
+</body>
+</html>

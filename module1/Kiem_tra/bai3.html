@@ -2,41 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yêu cầu 5 - Bài 2</title>
+    <title>Bài 3</title>
 </head>
 <body>
 <script>
     let n = parseInt(prompt("Nhập số phần tử mảng"));
     let mang = [];
-    for (let i = 0; i < n; i++){
+    for (let i = 0; i < n; i++) {
         mang[i] = parseInt(prompt("Nhập phần tử ở vị trí: " + i));
     }
     timSoNguyenTo(mang);
+
     function timSoNguyenTo(arr) {
         let res = [];
-        for (let i = 0; i < arr.length; i++){
-            if (isPrime(arr[i])){
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
                 res.push(arr[i]);
             }
         }
+        res = res.sort(function (a, b) {
+            return a - b;
+
+        });
         alert(res);
     }
-    function isPrime(a) {
+
+    function isPrime(numb) {
         let check = true;
-        if (a < 2){
+        if (numb < 2) {
             check = false;
         }
-        if (a == 2){
+        if (numb == 2) {
             check = true;
         }
-            for (let i = 2; i <= Math.sqrt(a); i++){
-                if (a % i == 0){
-                    check = false;
-                    continue;
-                }
+        for (let i = 2; i <= Math.sqrt(numb); i++) {
+            if (numb % i == 0) {
+                check = false;
+                continue;
             }
+        }
         return check;
     }
+
 </script>
 </body>
 </html>
