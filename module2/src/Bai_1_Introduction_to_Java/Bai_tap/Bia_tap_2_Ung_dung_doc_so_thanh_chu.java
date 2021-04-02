@@ -10,8 +10,8 @@ public class Bia_tap_2_Ung_dung_doc_so_thanh_chu {
         switch (length) {
             case 1:
                 switch ('1') {
-                    doc = "Một";
-                    
+
+
                 }
         }
     }
