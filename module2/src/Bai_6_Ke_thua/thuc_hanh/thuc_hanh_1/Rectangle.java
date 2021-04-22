@@ -1,6 +1,8 @@
 package Bai_6_Ke_thua.thuc_hanh.thuc_hanh_1;
 
-public class Rectangle extends Shape {
+import bai_7_abstract_class_interface.bai_tap.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -50,5 +52,11 @@ public class Rectangle extends Shape {
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        setLength(getLength()*percent);
+        setWidth(getWidth()*percent);
     }
 }

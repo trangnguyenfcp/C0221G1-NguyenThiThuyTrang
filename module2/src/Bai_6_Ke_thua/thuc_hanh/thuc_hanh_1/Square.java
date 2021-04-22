@@ -1,6 +1,8 @@
 package Bai_6_Ke_thua.thuc_hanh.thuc_hanh_1;
 
-public class Square extends Rectangle {
+import bai_7_abstract_class_interface.bai_tap.Colorable;
+
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 
@@ -17,8 +19,8 @@ public class Square extends Rectangle {
     }
 
     public void setSide(double side) {
-        setWidth(side);
-        setLength(side);
+       super.setWidth(side);
+        super.setLength(side);
     }
 
     @Override
@@ -37,5 +39,10 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 }

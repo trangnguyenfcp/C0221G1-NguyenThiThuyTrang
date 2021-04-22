@@ -10,5 +10,7 @@ public class CircleTest {
 
         circle = new Circle(3.5, "indigo", false);
         System.out.println(circle);
+        circle.resize(0.3);
+        System.out.println(circle);
     }
 }
