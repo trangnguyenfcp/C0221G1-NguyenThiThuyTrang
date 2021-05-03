@@ -1,6 +1,7 @@
 package ss16_io_text_file.practice;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class FindMaxValue {
     public static int findMax(List<Integer> numbers) {
@@ -14,8 +15,11 @@ public class FindMaxValue {
     }
     public static void main(String[] args) {
         ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
-        List<Integer> numbers = readAndWriteFile.readFile("D:\\C0221G1-NguyenThiThuyTrang\\module2\\src\\ss16_io_text_file\\practice\\numbers.txt");
+        System.out.println("Nhập đường dẫn");
+        Scanner scanner = new Scanner(System.in);
+        String filePath = scanner.nextLine();
+        List<Integer> numbers = readAndWriteFile.readFile(filePath);
         int maxValue = findMax(numbers);
-        readAndWriteFile.writeFile("result.txt", maxValue);
+        readAndWriteFile.writeFile("D:\\C0221G1_Nguyen_Thi_Thuy_Trang\\module2\\src\\ss16_io_text_file\\practice\\result.txt", maxValue);
     }
 }

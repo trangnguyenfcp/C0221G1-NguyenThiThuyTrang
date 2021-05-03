@@ -32,7 +32,6 @@ public class Thuc_hanh_7_Tao_ban_do_tro_choi_MineSweeper {
                         boolean isMineOwnerNeighbour = map[yOrdinateOfNeighbour][xOrdinateOfNeighbour].equals("*");
                         if (isMineOwnerNeighbour) minesAround++;
                     }
-
                     for (yOrdinate = 0; yOrdinate < MAP_HEIGHT; yOrdinate++) {
                         for (xOrdinate = 0; xOrdinate < MAP_WIDTH; xOrdinate++) {
                             String currentCellReport = mapReport[yOrdinate][xOrdinate];
