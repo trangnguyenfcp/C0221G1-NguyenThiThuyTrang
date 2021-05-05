@@ -39,6 +39,7 @@ public class StudentMain {
         students.add(new Student(5, "Nguyễn Khắc Nhật", "Hà Nội"));
         writeToFile("student.txt", students);
         List<Student> studentDataFromFile = readDataFromFile("student.txt");
+        System.out.println(studentDataFromFile);
         for (Student student : studentDataFromFile) {
             System.out.println(student);
         }

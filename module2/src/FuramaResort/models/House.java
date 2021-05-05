@@ -1,5 +1,7 @@
 package FuramaResort.models;
 
+import java.util.List;
+
 public class House extends Services {
     private String standardOfRoom;
     private String descriptionOtherAmenities;
@@ -67,7 +69,7 @@ public class House extends Services {
     }
 
     @Override
-    public long getRentalCost() {
+    public double getRentalCost() {
         return super.getRentalCost();
     }
 
@@ -110,4 +112,5 @@ public class House extends Services {
                 ", numberOfFloors=" + numberOfFloors +
                 '}';
     }
+
 }

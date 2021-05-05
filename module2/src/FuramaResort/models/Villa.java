@@ -78,7 +78,7 @@ public class Villa extends Services{
     }
 
     @Override
-    public long getRentalCost() {
+    public double getRentalCost() {
         return super.getRentalCost();
     }
 

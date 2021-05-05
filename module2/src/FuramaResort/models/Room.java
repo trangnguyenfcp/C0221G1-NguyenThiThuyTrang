@@ -49,7 +49,7 @@ public class Room extends Services{
     }
 
     @Override
-    public long getRentalCost() {
+    public double getRentalCost() {
         return super.getRentalCost();
     }
 

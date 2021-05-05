@@ -1,10 +1,13 @@
 package FuramaResort.models;
 
+import java.io.Serializable;
+import java.util.List;
+
 public abstract class Services {
     private String id;
     private String service;
     private double usableArea;
-    private long rentalCost;
+    private double rentalCost;
     private int maximumInHouse;
     private String rentalPeriod;
     public Services(){}
@@ -41,7 +44,7 @@ public abstract class Services {
         this.usableArea = usableArea;
     }
 
-    public long getRentalCost() {
+    public double getRentalCost() {
         return rentalCost;
     }
 

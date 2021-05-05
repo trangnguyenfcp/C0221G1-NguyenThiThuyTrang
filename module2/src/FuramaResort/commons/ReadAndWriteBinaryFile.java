@@ -1,5 +1,6 @@
-package FuramaResort.controllers;
+package FuramaResort.commons;
 
+import FuramaResort.models.House;
 import FuramaResort.models.Services;
 
 import java.io.*;
@@ -7,13 +8,13 @@ import java.nio.file.FileSystemNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWriteFile {
+public class ReadAndWriteBinaryFile {
     public List<Services> readFile(String path){
         List<Services> services = new ArrayList<>();
         try{
             FileInputStream fis = new FileInputStream(path);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            services = (List<Services>)ois.readObject();
+            services = (List<Services>) ois.readObject();
            fis.close();
            ois.close();
         }
