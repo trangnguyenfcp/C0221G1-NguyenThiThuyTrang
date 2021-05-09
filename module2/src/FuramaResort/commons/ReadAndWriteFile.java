@@ -37,10 +37,36 @@ public class ReadAndWriteFile {
             e.printStackTrace();
         }
     }
-    public static void setFullPathFile(String fileName){
+
+    public static void setFullPathFile(String fileName) {
         StringBuffer path = new StringBuffer("D:\\C0221G1-NguyenThiThuyTrang\\module2\\src\\FuramaResort\\data\\");
         path.append(fileName);
         path.append(StringUtils.CSV);
         ReadAndWriteFile.path = path.toString();
+    }
+
+    public static void deleteLine(int lineOrder) {
+        List<String> customerLines = new ArrayList<>();
+        try {
+            bufferedReader = new BufferedReader(new FileReader(path));
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                customerLines.add(line);
+            }
+            FileWriter fileWriter = new FileWriter(path, false);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            for (int i = 0; i < customerLines.size(); i++){
+                if ((i+1)!=lineOrder) {
+                    bufferedWriter.write(customerLines.get(i));
+                    bufferedWriter.newLine();
+                }else {
+                    bufferedWriter.write("");
+                }
+            }
+            bufferedReader.close();
+            bufferedWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

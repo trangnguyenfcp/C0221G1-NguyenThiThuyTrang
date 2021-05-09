@@ -11,7 +11,7 @@ public abstract class Services {
     private int maximumInHouse;
     private String rentalPeriod;
     public Services(){}
-    public Services(String id, String service, Double usableArea, long rentalCost, int maximumInHouse, String rentalPeriod){
+    public Services(String id, String service, Double usableArea, double rentalCost, int maximumInHouse, String rentalPeriod){
         this.id = id;
         this.service = service;
         this.usableArea = usableArea;

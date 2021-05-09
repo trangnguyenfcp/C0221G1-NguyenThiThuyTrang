@@ -1,0 +1,2 @@
+Customer{name='Phong', dateOfBirth='17/02/1998', gender='MAle', id='192 125 323', phoneNumber=0764917603, email='phongmmo@gmail.com', customerType='Diamond', address='Cau Hai', service=FuramaResort.models.Villa@470e2030}
+Customer{name='Phong', dateOfBirth='17/02/1998', gender='MAle', id='192 125 323', phoneNumber=0764917603, email='phongmmo@gmail.com', customerType='Diamond', address='Cau Hai', service=FuramaResort.models.Villa@470e2030}

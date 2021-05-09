@@ -4,7 +4,7 @@ import FuramaResort.controllers.MainController;
 
 import java.util.Scanner;
 
-public class Customer {
+public class Customer{
     private String name;
     private String dateOfBirth;
     private String gender;
@@ -24,7 +24,7 @@ public class Customer {
         this.email = email;
         this.typeOfCustomer = typeOfCustomer;
         this.address = address;
-        this.services = services;
+//        this.services = services;
     }
 
     public String getName() {
