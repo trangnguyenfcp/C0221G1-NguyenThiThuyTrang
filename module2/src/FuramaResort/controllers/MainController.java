@@ -248,7 +248,6 @@ public class MainController {
     }
 
     public static void addNewCustomer() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Input customer information");
         boolean isValid;
         String name;
@@ -304,17 +303,18 @@ public class MainController {
         System.out.println("Input phone number");
         String phoneNumber = scanner.nextLine();
         String email;
-        do {
-            isValid = true;
-            System.out.println("Input email");
-            email = scanner.nextLine();
-            try {
-                Validators.isValidEmail(email);
-            } catch (EmailException e) {
-                isValid = false;
-                e.printStackTrace();
-            }
-        } while (!isValid);
+        email = scanner.nextLine();
+//        do {
+//            isValid = true;
+//            System.out.println("Input email");
+//            email = scanner.nextLine();
+//            try {
+////                Validators.isValidEmail(email);
+//            } catch (EmailException e) {
+//                isValid = false;
+//                e.printStackTrace();
+//            }
+//        } while (!isValid);
 
         System.out.println("Input type of customer");
         String typeOfCustomer = scanner.nextLine();

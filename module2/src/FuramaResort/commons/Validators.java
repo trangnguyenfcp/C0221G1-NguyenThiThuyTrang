@@ -1,13 +1,10 @@
 package FuramaResort.commons;
 
+import Directory.commons.EmailException;
 import FuramaResort.exception.*;
 
-import java.awt.desktop.OpenURIEvent;
-import java.net.BindException;
 import java.time.Year;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,7 +67,7 @@ public class Validators {
             }
         }
     }
-    public static void isValidEmail(String email) throws EmailException {
+    public static void isValidEmail(String email) throws Directory.commons.EmailException {
         int countA = 0;
         int countPoint = 0;
         for (int i = 0; i < email.length(); i++){
@@ -109,4 +106,5 @@ public class Validators {
             }
         }
     }
+
 }
