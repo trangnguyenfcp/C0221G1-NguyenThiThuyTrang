@@ -1,100 +1,100 @@
--- START TAST 1
-CREATE TABLE vi_tri(
-id_vi_tri INT,
-ten_vi_tri VARCHAR(45),
-PRIMARY KEY(id_vi_tri)
+
+create database furama_management;
+create table `position`(
+position_id int primary key,
+position_name varchar(45)
 );
-CREATE TABLE trinh_do(
-id_trinh_do INT,
-trinh_do VARCHAR(45),
-PRIMARY KEY(id_trinh_do)
+create table education_degree(
+education_degree_id int primary key,
+education_degree_name varchar(45)
 );
-CREATE TABLE bo_phan(
-id_bo_phan INT,
-ten_bo_phan VARCHAR(45),
-PRIMARY KEY(id_bo_phan)
+create table division(
+division_id int primary key,
+division_key varchar(45)
 );
-CREATE TABLE nhan_vien(
-id_nhan_vien INT PRIMARY KEY,
-ho_ten VARCHAR(45),
-id_vi_tri INT,
-id_trinh_do INT,
-id_bo_phan INT,
-ngay_sinh DATE,
-so_cmnd VARCHAR(45),
-luong VARCHAR(45),
-sdt VARCHAR(45),
-email VARCHAR(45),
-dia_chi VARCHAR(45),
-FOREIGN KEY(id_vi_tri) REFERENCES vi_tri(id_vi_tri),
-FOREIGN KEY(id_trinh_do) REFERENCES trinh_do(id_trinh_do),
-FOREIGN KEY(id_bo_phan) REFERENCES bo_phan(id_bo_phan)
+CREATE TABLE employee(
+employee_id INT PRIMARY KEY,
+employee_name VARCHAR(45),
+position_id INT,
+education_degree_id INT,
+division_id INT,
+employee_birthday DATE,
+employee_id_card VARCHAR(45),
+employee_salary VARCHAR(45),
+employee_phone VARCHAR(45),
+employee_email VARCHAR(45),
+employee_address VARCHAR(45),
+FOREIGN KEY(position_id) REFERENCES `position`(position_id),
+FOREIGN KEY(education_degree_id) REFERENCES education_degree(education_degree_id),
+FOREIGN KEY(division_id) REFERENCES division(division_id)
 );
-CREATE TABLE loai_khach(
-id_loai_khach INT PRIMARY KEY,
-ten_loai_khach VARCHAR(45)
+CREATE TABLE customer_type(
+customer_type_id INT PRIMARY KEY,
+customer_type_name VARCHAR(45)
 );
-CREATE TABLE khach_hang(
-id_khach_hang INT PRIMARY KEY,
-id_loai_khach INT,
-ho_ten VARCHAR(45),
-ngay_sinh DATE,
-so_cmnd VARCHAR(45),
-sdt VARCHAR(45),
-email VARCHAR(45),
-dia_chi VARCHAR(45),
-FOREIGN KEY(id_loai_khach) REFERENCES loai_khach(id_loai_khach)
+CREATE TABLE customer(
+customer_id INT PRIMARY KEY,
+customer_type_id INT,
+customer_name VARCHAR(45),
+customer_birthday DATE,
+customer_id_card VARCHAR(45),
+customer_phone VARCHAR(45),
+customer_email VARCHAR(45),
+customer_address VARCHAR(45),
+FOREIGN KEY(customer_type_id) REFERENCES customer_type(customer_type_id)
 );
-CREATE TABLE kieu_thue(
-id_kieu_thue INT PRIMARY KEY,
-ten_kieu_thue VARCHAR(45),
-gia INT
+CREATE TABLE service_type(
+service_type_id INT PRIMARY KEY,
+service_type_name VARCHAR(45)
 );
-CREATE TABLE loai_dich_vu(
-id_loai_dich_vu INT PRIMARY KEY,
-ten_loai_dich_vu VARCHAR(45)
+CREATE TABLE rent_type(
+rent_type_id INT PRIMARY KEY,
+rent_type_name VARCHAR(45),
+rent_type_cost DOUBLE
 );
-CREATE TABLE dich_vu(
-id_dich_vu INT PRIMARY KEY,
-ten_dich_vu VARCHAR(45),
-dien_tich INT,
-so_tang INT,
-so_nguoi_toi_da INT,
-chi_phi_thue VARCHAR(45),
-id_kieu_thue INT,
-id_loai_dich_vu INT,
-trang_thai VARCHAR(45),
-FOREIGN KEY(id_kieu_thue) REFERENCES kieu_thue(id_kieu_thue),
-FOREIGN KEY(id_loai_dich_vu) REFERENCES loai_dich_vu(id_loai_dich_vu)
+
+CREATE TABLE service(
+service_id INT PRIMARY KEY,
+service_name VARCHAR(45),
+service_area INT,
+service_cost DOUBLE,
+number_of_floors INT,
+service_max_people INT,
+service_type_id INT,
+rent_type_id INT,
+`status` VARCHAR(45),
+FOREIGN KEY(rent_type_id) REFERENCES rent_type(rent_type_id),
+FOREIGN KEY(service_type_id) REFERENCES service_type(service_type_id)
 
 );
 
-CREATE TABLE dich_vu_di_kem(
-id_dich_vu_di_kem INT PRIMARY KEY,
-ten_dich_vu_di_kem VARCHAR(45),
-gia INT,
-don_vi INT,
-trang_thai_kha_dung VARCHAR(45)
+CREATE TABLE attach_service(
+attach_service_id INT PRIMARY KEY,
+attach_service_name VARCHAR(45),
+attach_service_cost INT,
+attach_service_unit INT,
+attach_service_status VARCHAR(45)
 );
-CREATE TABLE hop_dong(
-id_hop_dong INT PRIMARY KEY,
-id_nhan_vien INT,
-id_khach_hang INT,
-id_dich_vu INT,
-ngay_lam_hop_dong DATE,
-ngay_ket_thuc DATE,
-tien_dat_coc INT,
-tong_tien INT,
-FOREIGN KEY(id_nhan_vien) REFERENCES nhan_vien(id_nhan_vien),
-FOREIGN KEY(id_khach_hang) REFERENCES khach_hang(id_khach_hang),
-FOREIGN KEY(id_dich_vu) REFERENCES dich_vu(id_dich_vu)
+CREATE TABLE contract(
+contract_id INT PRIMARY KEY,
+employee_id INT,
+customer_id INT,
+service_id INT,
+contract_start_date DATETIME,
+contract_end_date DATETIME,
+contract_deposit INT,
+contract_total_money INT,
+FOREIGN KEY(employee_id) REFERENCES employee(employee_id),
+FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+FOREIGN KEY(service_id) REFERENCES service(service_id)
 
 );
-CREATE TABLE hop_dong_chi_tiet(
-id_hop_dong_chi_tiet INT PRIMARY KEY,
-id_hop_dong INT,
-id_dich_vu_di_kem INT,
-so_luong INT,
-FOREIGN KEY(id_hop_dong) REFERENCES hop_dong(id_hop_dong),
-FOREIGN KEY(id_dich_vu_di_kem) REFERENCES dich_vu_di_kem(id_dich_vu_di_kem)
+CREATE TABLE contract_detail(
+contract_detail_id INT PRIMARY KEY,
+contract_id INT,
+attach_service_id INT,
+quantity INT,
+FOREIGN KEY(contract_id) REFERENCES contract(contract_id),
+FOREIGN KEY(attach_service_id) REFERENCES attach_service(attach_service_id)
 );
+
