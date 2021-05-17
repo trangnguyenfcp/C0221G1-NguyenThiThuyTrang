@@ -38,9 +38,11 @@ insert into service_type
 value(1,'Room'),(2,'House'),(3,'Villa');
 
 insert into service
-value(1,'Room 1','30',10,1,2,1,1,'avalable');
+value(1,'Room 1','30',100000,1,2,1,1,'avalable');
 insert into service
-value(2,'Room 2','25',8,1,1,1,2,'avalable');
+value(2,'Room 2','25',80000,1,1,1,2,'avalable');
+insert into service
+value(3,'Villa 1','150',25000000,3,15,3,2,'avalable');
 
 insert into attach_service
 value(1,'Bike',0,10,'avalable'),
@@ -52,8 +54,13 @@ value(1,3,1,1,'2018/09/12','2018/09/15','500000',0),
 (2,1,3,2,'2019/03/14','2019/04/23','2000000',0),
 (3,2,3,1,'2019/04/24','2019/05/23','2000000',0),
 (4,3,2,1,'2019/11/12','2019/11/15','500000',0);
+insert into contract
+value(5,2,3,3,'2018/09/12','2018/09/15','500000',0);
+
 insert into contract_detail
 value(1,1,1,2),
 (2,2,1,1),
 (3,3,1,3),
 (4,4,2,1);
+insert into contract_detail
+value(5,5,2,2);
