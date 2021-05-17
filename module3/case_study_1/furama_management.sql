@@ -10,8 +10,10 @@ education_degree_name varchar(45)
 );
 create table division(
 division_id int primary key,
-division_key varchar(45)
+division_name varchar(45)
 );
+
+
 CREATE TABLE employee(
 employee_id INT PRIMARY KEY,
 employee_name VARCHAR(45),
