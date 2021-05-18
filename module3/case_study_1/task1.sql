@@ -7,7 +7,7 @@ value(1,'High school'),(2,'College'),(3,'University'),(4,'Master'),(5,'Pd.D');
 insert into division
 value(1,'Production'), (2,'R&D'),(3,'Purchasing'),(4,'Marketing'),(5,'HR'),(6,'Accounting and Finance');
 
-insert into employee
+insert into employee 
 value(1,'Le Phuoc Sy Phu',2,3,2,'1992/10/02','193718281','10000000','0937837103','syphu121@gmail.com', 'Da Nang'),
 (2,'Hoang Pham Dong',1,2,3,'2002/02/04','836193648','5000000','0783748294','dongpham@gmail.com', 'Dak lak'),
 (3,'Le Nhu Tam',4,2,4,'2005/03/05','193682916','15000000','0905627194','tamtam@gmail.com', 'Quang Tri'),

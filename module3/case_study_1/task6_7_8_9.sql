@@ -2,7 +2,11 @@
 select S.service_id, S.service_name, S.service_area, S.service_cost, ST.service_type_name, Con.contract_start_date
 from service S join service_type ST on S.service_type_id = ST.service_type_id
 join contract Con on Con.service_id = S.service_id
-where month(Con.contract_start_date) in (1,2,3);
+where ST.service_type_id not in (
+select ST.service_type_id
+from service S join service_type ST on S.service_type_id = ST.service_type_id
+join contract Con on Con.service_id = S.service_id
+where Con.contract_start_date between'2019/01/01' and '2019/03/31');
 -- TASK 7 
 select S.service_id, S.service_name, S.service_area, S.service_max_people, S.service_cost, ST.service_type_name, Con.contract_start_date
 from service S join service_type ST on S.service_type_id = ST.service_type_id

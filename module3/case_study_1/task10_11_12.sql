@@ -1,8 +1,9 @@
+-- TASK 10
 select Con.contract_id, count(CD.attach_service_id)
 from contract Con join contract_detail CD 
 where Con.contract_id = CD.contract_id
 group by contract_id;
-
+-- TASK 11
 select  C.customer_id,C.customer_name, CT.customer_type_name, Att.attach_service_name
 from customer C join customer_type CT on C.customer_type_id = CT.customer_type_id
 join contract Con on C.customer_id = Con.customer_id
@@ -10,7 +11,7 @@ join contract_detail CD on Con.contract_id = CD.contract_id
 join attach_service Att on Att.attach_service_id =  CD.attach_service_id
 where (CT.customer_type_name = 'Diamond') and (C.customer_address in ('Vinh', 'Quang Ngai'))
 group by C.customer_id, Att.attach_service_id;
-
+-- TASK 12
 select Con.contract_id, Con.employee_id, C.customer_name, C.customer_phone, S.service_name, count(CD.attach_service_id), Con.contract_deposit
 from contract Con join customer C on C.customer_id = Con.customer_id
 join service S on Con.service_id = S.service_id
