@@ -48,24 +48,25 @@ delimiter ;
 call find_all_products;
 
 delimiter //
-create procedure insert_new_product()
+create procedure insert_new_product
+(in p_id int, in p_code varchar(45), in p_name varchar(45),in p_price int, in p_amount int, in p_des varchar(45), in p_status varchar(45))
 begin
 insert into products
-value(6,'b6','iphone',40,6,'good','available');
+value(p_id,p_code,p_name,p_price,p_amount,p_des,p_status);
 end //
 delimiter ;
-call insert_new_product();
+call insert_new_product(7,'g1','Loli',200,2,'no','no');
 
 delimiter //
 create procedure update_product
-(in pro_id int)
+(in p_id int, in p_code varchar(45), in p_name varchar(45),in p_price int, in p_amount int, in p_des varchar(45), in p_status varchar(45))
 begin
 update products
-set product_name = 'Not iphone'
-where id = pro_id;
+set product_code = p_code, product_name = p_name, product_price = p_price, product_amount = p_amount, product_description = p_des, product_status = p_status
+where id = p_id;
 end //
 delimiter ;
-call update_product(3);
+call update_product(3,'p20','Chang Chang',1000,1,'no','no');
 
 delimiter //
 create procedure delete_product
