@@ -1,0 +1,118 @@
+*{
+    font-family: Tahoma;
+}
+#header{
+    height: 235px;
+    width: 100%;
+    position: relative;
+}
+#header-image{
+    width: 100%;
+    height: 195px;
+    margin-bottom: 5px;
+}
+#logo{
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+#wallpaper{
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+#icon{
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+#menu{
+    background-color: firebrick;
+    height: 35px;
+    width: 75%;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 12.5%;
+}
+.menu{
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+#the-loai{
+    height: 100%;
+    width: 25%;
+    float: left;
+
+}
+#type-of-comic{
+    border: none;
+    height: 100%;
+    background-color: firebrick;
+    width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance:none;
+    appearance: none;
+   margin-left: 55px;
+    color: white;
+    font-size: 15px;
+}
+#type-of-comic::-ms-expand {
+    display: none;
+}
+#container-menu-items{
+
+    float: left;
+    height: 100%;
+    width: 75%;
+}
+.menu-item{
+    margin-top: 8px;
+    position: relative;
+    height: 100%;
+    width: 25%;
+    text-decoration: none;
+    float: left;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+
+}
+
+#main{
+    width: 100%;
+    position: relative;
+}
+#main-content{
+    width: 75%;
+    position: absolute;
+    left: 15%;
+    float: left;
+}
+#left-main{
+    margin-top: 5px;
+    height: 100%;
+    width:27% ;
+    float: left;
+}
+#big-comic{
+    height: 100%;
+    width: 100%;
+}
+#big-comic-item{
+    height: 100%;
+    width: 100%;
+}
+#right-main{
+    height: 100%;
+    width:72% ;
+    float: left;
+}
+.comic{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 22%;
+    height: 50%;
+    float: left;
+    display: block;
+}
