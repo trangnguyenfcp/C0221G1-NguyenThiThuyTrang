@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tạo layout với RWD</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        [class*="col-"] {
+            float: left;
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* For tablets: */
+            .col-m-1 {
+                width: 8.33%;
+            }
+
+            .col-m-2 {
+                width: 16.66%;
+            }
+
+            .col-m-3 {
+                width: 25%;
+            }
+
+            .col-m-4 {
+                width: 33.33%;
+            }
+
+            .col-m-5 {
+                width: 41.66%;
+            }
+
+            .col-m-6 {
+                width: 50%;
+            }
+
+            .col-m-7 {
+                width: 58.33%;
+            }
+
+            .col-m-8 {
+                width: 66.66%;
+            }
+
+            .col-m-9 {
+                width: 75%;
+            }
+
+            .col-m-10 {
+                width: 83.33%;
+            }
+
+            .col-m-11 {
+                width: 91.66%;
+            }
+
+            .col-m-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        #header {
+            width: 100%;
+            height: 45px;
+            background-color: darkslategrey;
+            display: flex;
+            color: white;
+            float: left;
+
+        }
+
+        #logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10%;
+            float: left;
+            margin-left: 10px;
+        }
+
+        #nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            float: left;
+        }
+
+        .nav-content {
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+        }
+        #left-side{
+            background-color: lightgray;
+        }
+        #login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            margin-right: 10px;
+            float: left;
+        }
+        #main{
+            height: 1000px;
+        }
+        #left-side{
+            height: 100%;
+        }
+        .container-link{
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .link{
+            display: block;
+            text-decoration: none;
+        }
+        #right-side{
+            height: 100%;
+            background-color: lightgray;
+            display: block;
+        }
+        #footer{
+            clear: both;
+            height: 35px;
+            width: 100%;
+            position: fixed;
+            bottom: 0 ;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: darkslategrey;
+        }
+        .ads{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="logo"><p>Logo</p></div>
+    <div id="nav">
+        <a class="nav-content" href="#">Home</a>
+        <a class="nav-content" href="#">About</a>
+        <a class="nav-content" href="#">Projects</a>
+        <a class="nav-content" href="#">Contact</a>
+    </div>
+    <div id="login"><p>Login</p></div>
+</div>
+<div id="main">
+<div id="left-side" class="col-2">
+    <div class="container-link"><a class="link" href="#">Link</a></div>
+    <div class="container-link"><a class="link" href="#">Link</a></div>
+    <div class="container-link"><a class="link" href="#">Link</a></div>
+</div>
+<div id="center" class="col-8">
+    <div style="margin: 5px 5px 5px 5px">
+    <h1>Việt Nam</h1>
+    <p style="text-align: justify">Việt Nam, tên gọi chính thức là Cộng hòa Xã hội chủ nghĩa Việt Nam, là quốc gia nằm ở cực Đông của bán đảo Đông Dương thuộc khu vực Đông Nam Á, giáp với Lào, Campuchia, Trung Quốc, Biển Đông và vịnh Thái Lan. Quốc gia này có chung đường biên giới trên biển với Thái Lan qua vịnh Thái Lan và với Trung Quốc, Philippines, Indonesia, Brunei và Malaysia qua Biển Đông.</p>
+    </div>
+</div>
+<div id="right-side" class="col-2">
+<div>
+    <div class="ads"><p style="border: solid black 1px; height: 50px; width: 60px;">ADS</p></div>
+    <div class="ads"><p style="border: solid black 1px; height: 50px; width: 60px;">ADS</p></div>
+</div>
+
+</div>
+    <div id="footer"><p>Footer Text</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Phát triển trang web xem hoạt hình trực tuyến</title>
+    <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        #header {
+            width: 100%;
+            height: 65px;
+            background-color: lightgray;
+            border: solid white 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            height: 90%;
+        }
+
+        #head-link {
+            width: 100%;
+            height: 35px;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .head-link-content {
+            text-decoration: none;
+            margin-left: 15px;
+            color: black;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 35px;
+            background-color: lightgray;
+            border: solid white 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #content {
+            width: 100%;
+            background-color: lightgray;
+            float: left;
+        }
+
+        #left-content {
+            width: 27%;
+
+            float: left;
+            background-color: lightgray;
+            border: solid white 1px;
+            display: block;
+
+        }
+        .video-container{
+            margin-left: 20px;
+        }
+
+        .video {
+            width: 100%;
+
+
+        }
+
+        #right-content {
+            width: 70%;
+            float: left;
+            display: block;
+
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <img id="logo" src="logo.png">
+</div>
+<div id="head-link">
+    <a class="head-link-content" href="##">Phim hoạt hình</a>
+    <a class="head-link-content" href="##">Phim hoạt hình yêu thích</a>
+    <a class="head-link-content" href="##">Nhân vật hoạt hình</a>
+    <a class="head-link-content" href="##">Góp ý</a>
+</div>
+<div id="content">
+    <div id="left-content">
+        <div class="video-container">
+        <div class="video embed-responsive-item">
+            <iframe src="https://www.youtube.com/embed/Q9GLCcJ27TA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+            <div class="font-weight-bold">Tom và Jerry - Anh chị em họ của Jerry</div>
+            <span>Channel Fun</span>
+        </div>
+        <div class="video-container">
+        <div class="video embed-responsive-item">
+            <iframe class="video1" src="https://www.youtube.com/embed/fU9K94HWxMw"></iframe>
+        </div>
+            <div class="font-weight-bold">Tom và Jerry - Anh chị em họ của Jerry</div>
+            <span>Channel Fun</span>
+        </div>
+        <div class="video-container">
+        <div class="video embed-responsive-item">
+            <iframe class="video1" src="https://www.youtube.com/embed/Ws-QlpSltr8"></iframe>
+        </div>
+        <div class="font-weight-bold">Tom và Jerry - Anh chị em họ của Jerry</div>
+        <span>Channel Fun</span>
+    </div>
+    </div>
+    <div id="right-content">
+        <div>
+            <iframe width="640" height="320" src="https://www.youtube.com/embed/Ws-QlpSltr8" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="font-weight-bold" >Trốn Tìm (Hide and Seek)</div>
+        <pre>
+            Download/Stream: https://Denvau.lnk.to/TronTim
+Performed by MTV band and Đen
+Director: Ong DONG & Ba HUONG
+Written by DENVAU
+Music Produced by LỒNG ĐÈN
+Arranger: TRAN HAU
+Instrumentals : TRAN HAU (Drumset, Percussion, Piano, Melodica), DANH TU (Guitar Acoustic, Guitar Bass)
+Record/Mix/Master: TRAN HAU (24BeatsProduction)
+Support: BIEN, CHENG, JACK TRAN
+
+Media Manager: NHAT DUY
+English Sub: HANA’S LEXIS
+Photographer: NGUYEN TUAN KHANH
+BTS Camera: PHAM KY THIEU
+Music Distributor: BELIEVE
+
+Production house THE RED TEAM
+Talent: AMANDINE, HUNG LE, Bé CA ROT
+Producer : TRA MYY
+D.o.P: MAT QUE
+Production Assistant: TAKKEO, QUOC TRUNG
+Assistant Director: THANH TUAN
+Camera Operator: VIET ANH
+Focus Puller: BENH
+Editor: LEINAD
+Colorgrading: DANIEL
+BTS Photographer: LINH VU NGUYEN
+Art Director: MIEN & GIO
+Set Decorator: CUOYIA
+Stylist: dien70s DIEN HUYEN LINH
+Stylist Assistant: SAPOCHEE
+Makeup & Hair: CAO QUY DUONG
+Makeup Assistant: LUONG KHANH HOA
+Catering: N TEAM
+Equipment: CINE HANOI
+SPECIAL THANKS TO CHI NET, ANH THANH, ANH TUAN, ANH HAU, ANH NGUYEN, 200 Sheep & 15 Birds
+@DV ent.
+#TronTim #MTVband #Đen #Denvau
+
+        </pre>
+    </div>
+</div>
+<div id="footer"><p id="footer-content">2021 - Thiết kế web bởi Chang Chang</p></div>
+<script src="bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
