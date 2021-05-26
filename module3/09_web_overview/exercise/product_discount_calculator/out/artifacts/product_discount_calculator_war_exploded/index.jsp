@@ -12,7 +12,7 @@
 </head>
 <body>
 <p>Product Discount Calculator</p>
-<form action="/discount" method="post">
+<form action="/discount" method="get">
 <input type="text" name="productDes" placeholder="Product Des">
 <input type="text" name="listPrice" placeholder="List Price">
 <input type="text" name="discountPercent" placeholder="discount percent">
