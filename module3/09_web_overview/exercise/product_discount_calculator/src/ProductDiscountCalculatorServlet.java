@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ProductDiscountCalculator", value = "/discount")
-public class ProductDiscountCalculator extends HttpServlet {
+@WebServlet(name = "ProductDiscountCalculatorServlet", value = "/discount")
+public class ProductDiscountCalculatorServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
