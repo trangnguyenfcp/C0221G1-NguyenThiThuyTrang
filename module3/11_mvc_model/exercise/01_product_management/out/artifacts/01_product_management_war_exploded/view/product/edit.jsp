@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -13,8 +14,8 @@
 <body>
 <h1>Edit product</h1>
 <p>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
+    <c:if test='${message != null}'>
+        <span class="message">${message}</span>
     </c:if>
 </p>
 <p>
@@ -26,15 +27,15 @@
         <table>
             <tr>
                 <td>Name: </td>
-                <td><input type="text" name="name" id="name" value="${requestScope["product"].name}"></td>
+                <td><input type="text" name="name" id="name" value="${product.name}"></td>
             </tr>
             <tr>
                 <td>Manufacturer: </td>
-                <td><input type="text" name="manufacturer" id="manufacturer" value="${requestScope["product"].manufacturer}"></td>
+                <td><input type="text" name="manufacturer" id="manufacturer" value="${product.manufacturer}"></td>
             </tr>
             <tr>
                 <td>price: </td>
-                <td><input type="text" name="price" id="price" value="${requestScope["product"].price}"></td>
+                <td><input type="text" name="price" id="price" value="${product.price}"></td>
             </tr>
             <tr>
                 <td></td>

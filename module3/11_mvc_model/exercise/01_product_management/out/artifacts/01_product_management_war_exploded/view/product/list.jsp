@@ -20,7 +20,7 @@
         <td>Edit</td>
         <td>Delete</td>
     </tr>
-    <c:forEach items='${requestScope["products"]}' var="product">
+    <c:forEach items='${products}' var="product">
         <tr>
             <td><a href="/products?action=view&id=${product.id}">${product.name}</a></td>
             <td>${product.manufacturer}</td>

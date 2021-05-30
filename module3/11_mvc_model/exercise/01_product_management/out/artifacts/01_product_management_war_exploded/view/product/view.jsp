@@ -18,15 +18,15 @@
 <table>
     <tr>
         <td>Product: </td>
-        <td>${requestScope["product"].name}</td>
+        <td>${product.name}</td>
     </tr>
     <tr>
         <td>Manufacturer: </td>
-        <td>${requestScope["product"].manufacturer}</td>
+        <td>${product.manufacturer}</td>
     </tr>
     <tr>
         <td>Price: </td>
-        <td>${requestScope["product"].price}</td>
+        <td>${product.price}</td>
     </tr>
 </table>
 </body>

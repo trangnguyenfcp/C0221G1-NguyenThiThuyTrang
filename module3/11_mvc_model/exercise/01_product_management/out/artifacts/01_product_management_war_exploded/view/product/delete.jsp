@@ -9,15 +9,15 @@
         <table>
             <tr>
                 <td>Name: </td>
-                <td>${requestScope["product"].name}</td>
+                <td>${product.name}</td>
             </tr>
             <tr>
                 <td>Email: </td>
-                <td>${requestScope["product"].manufacturer}</td>
+                <td>${product.manufacturer}</td>
             </tr>
             <tr>
                 <td>Address: </td>
-                <td>${requestScope["product"].price}</td>
+                <td>${product.price}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete product"></td>

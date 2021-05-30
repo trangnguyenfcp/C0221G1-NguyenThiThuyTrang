@@ -151,7 +151,7 @@ public class CustomerServlet extends HttpServlet {
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
         if(customer == null){
-            dispatcher = request.getRequestDispatcher("error_404.jsp");
+            dispatcher = request.getRequestDispatcher("/view/customer/error_404.jsp");
         } else {
             request.setAttribute("customer", customer);
             dispatcher = request.getRequestDispatcher("/view/customer/edit.jsp");
