@@ -237,7 +237,7 @@ public class ProductServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException e) {   v     
             e.printStackTrace();
         }
     }

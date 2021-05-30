@@ -18,13 +18,7 @@
     <h1>Customer List</h1>
 <table class="table">
     <thead class="thead-light">
-    <tr>
-        <th scope="col">No</th>
-        <th scope="col">Name</th>
-        <th scope="col">Date of birth</th>
-        <th scope="col">Address</th>
-        <th scope="col">Image</th>
-    </tr>
+    
     </thead>
     <tbody>
     <c:forEach items="${customers}" var="customer" varStatus="status">
