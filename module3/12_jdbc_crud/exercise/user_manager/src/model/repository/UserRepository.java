@@ -18,7 +18,9 @@ public class UserRepository {
             "where id = ?;";
     public static final String DELETE_USER = "delete from users where id = ?;";
     public static final String FIND_BY_COUNTRY = "select* from users\n" +
-            "where country = ?;";
+            "where country like ?;";
+    public static final String SORT_BY_NAME = "select* from users\n" +
+            "order by `name`;";
 
     BaseRepository baseRepository = new BaseRepository();
 
@@ -111,15 +113,16 @@ public class UserRepository {
         return check;
     }
 
-    public List<User> findByCountry(String country) throws SQLException {
+    public List<User> findByCountry(String keyword) throws SQLException {
         Connection connection = baseRepository.connectDataBase();
         List<User> users = new ArrayList<>();
         User user = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_COUNTRY);
-            preparedStatement.setString(1, country);
+            preparedStatement.setString(1, "%"+keyword+"%");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                String country = resultSet.getString("country");
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 int id = resultSet.getInt("id");
@@ -135,12 +138,28 @@ public class UserRepository {
         return users;
     }
 
-    public void sortByName(List<User> users) throws SQLException {
-        Collections.sort(users, new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return (o1.getName()).compareTo(o2.getName());
+    public List<User> sortByName(List<User> users) throws SQLException {
+
+        Connection connection = baseRepository.connectDataBase();
+        List<User> userList = new ArrayList<>();
+        User user = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SORT_BY_NAME);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String country = resultSet.getString("country");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                int id = resultSet.getInt("id");
+                user = new User(id, name, email, country);
+                userList.add(user);
             }
-        });
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        users = userList;
+        return userList;
     }
 }

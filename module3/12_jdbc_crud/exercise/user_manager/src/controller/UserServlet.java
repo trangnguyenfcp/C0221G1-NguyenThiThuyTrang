@@ -125,7 +125,7 @@ public class UserServlet extends HttpServlet {
     private void sortByName(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<User> users = new ArrayList<>();
         users=userService.selectAllUsers();
-        userService.sortByName(users);
+        users=userService.sortByName(users);
         request.setAttribute("users", users);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
         requestDispatcher.forward(request, response);
@@ -145,8 +145,8 @@ public class UserServlet extends HttpServlet {
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        String country = request.getParameter("country");
-        List<User> users = userService.findByCountry(country);
+        String keyword = request.getParameter("country");
+        List<User> users = userService.findByCountry(keyword);
         RequestDispatcher dispatcher;
         if(users.size() == 0){
             dispatcher = request.getRequestDispatcher("/view/user/error_404.jsp");

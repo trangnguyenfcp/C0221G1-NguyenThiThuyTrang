@@ -26,13 +26,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByCountry(String country) throws SQLException {
-        return userRepository.findByCountry(country);
+    public List<User> findByCountry(String keyword) throws SQLException {
+        return userRepository.findByCountry(keyword);
     }
 
     @Override
-    public void sortByName(List<User> users) throws SQLException {
-        userRepository.sortByName(users);
+    public List<User> sortByName(List<User> users) throws SQLException {
+       return userRepository.sortByName(users);
 
     }
 

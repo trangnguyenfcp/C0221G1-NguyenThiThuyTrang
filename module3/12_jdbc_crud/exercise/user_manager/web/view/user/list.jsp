@@ -18,7 +18,7 @@
         <caption><h2>List of Users</h2></caption>
         <tr>
             <th>ID</th>
-            <th>Name <a href="/users?action=sort">Sort</a></th>
+            <th><a href="/users">Name</a> <a href="/users?action=sort">Sort</a></th>
             <th>Email</th>
             <th>Country</th>
             <th>Actions</th>
