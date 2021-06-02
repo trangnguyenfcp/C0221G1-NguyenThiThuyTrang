@@ -7,73 +7,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet(name = "FuramaServlet", urlPatterns = {"", "/home"})
+@WebServlet(name = "FuramaServlet", urlPatterns = {"","/furama"})
 public class FuramaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        try {
-            switch (action) {
-                case "create":
-//                    create(request, response);
-                    break;
-                case "edit":
-//                    edit(request, response);
-                    break;
-                case "search":
-//                    search(request, response);
-                    break;
-                case "delete":
-//                    delete(request, response);
-                    break;
-                default:
-                    list(request, response);
-                    break;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
+        String active = request.getParameter("action");
+        if(active == null){
+            active = "";
         }
+        switch (active){
+            case "create":
+
+                break;
+            case "edit":
+
+                break;
+            case "delete":
+
+                break;
+            case "view":
+
+                break;
+            case "customer":
+                break;
+            default:
+                home(request, response);
+                break;
+        }
+    }
+
+    private void home(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         try {
-            switch (action) {
-                case "create":
-//                    showCreateForm(request, response);
-                    break;
-                case "edit":
-//                    showEditForm(request, response);
-                    break;
-                case "delete":
-//                    showDeleteForm(request, response);
-                    break;
-                case "search":
-//                    showSearchForm(request, response);
-                    break;
-                case "sort":
-//                    sortByName(request, response);
-                default:
-                    list(request, response);
-                    break;
-            }
-        } catch (SQLException e) {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-    private void list(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
-        requestDispatcher.forward(request, response);
     }
 }
