@@ -1,101 +1,100 @@
 package model.bean;
 
 public class Customer {
-    private int customer_id;
-    private int customer_type_id;
-    private String customer_name;
-    private String customer_birthday;
-    private int customer_gender;
-    private String customer_id_card;
-    private String customer_phone;
-    private String customer_email;
+    private int customerId;
+    private int customerTypeId;
+    private String customerName;
+    private String customerBirthday;
+    private int customerGender;
+    private String customerIdCard;
+    private String customerPhone;
+    private String customerEmail;
+    private String customerAddress;
     public Customer(){
 
     }
 
-    public Customer(int customer_id, int customer_type_id, String customer_name, String customer_birthday, int customer_gender, String customer_id_card, String customer_phone, String customer_email, String customer_address) {
-        this.customer_id = customer_id;
-        this.customer_type_id = customer_type_id;
-        this.customer_name = customer_name;
-        this.customer_birthday = customer_birthday;
-        this.customer_gender = customer_gender;
-        this.customer_id_card = customer_id_card;
-        this.customer_phone = customer_phone;
-        this.customer_email = customer_email;
-        this.customer_address = customer_address;
+    public String getCustomerAddress() {
+        return customerAddress;
     }
 
-    public String customer_address;
-
-    public int getCustomer_id() {
-        return customer_id;
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public Customer(int customerId, int customerTypeId, String customerName, String customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+        this.customerId = customerId;
+        this.customerTypeId = customerTypeId;
+        this.customerName = customerName;
+        this.customerBirthday = customerBirthday;
+        this.customerGender = customerGender;
+        this.customerIdCard = customerIdCard;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerEmail;
+        this.customerAddress = customerAddress;
     }
 
-    public int getCustomer_type_id() {
-        return customer_type_id;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_type_id(int customer_type_id) {
-        this.customer_type_id = customer_type_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public int getCustomerTypeId() {
+        return customerTypeId;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setCustomerTypeId(int customerTypeId) {
+        this.customerTypeId = customerTypeId;
     }
 
-    public String getCustomer_birthday() {
-        return customer_birthday;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer_birthday(String customer_birthday) {
-        this.customer_birthday = customer_birthday;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public int getCustomer_gender() {
-        return customer_gender;
+    public String getCustomerBirthday() {
+        return customerBirthday;
     }
 
-    public void setCustomer_gender(int customer_gender) {
-        this.customer_gender = customer_gender;
+    public void setCustomerBirthday(String customerBirthday) {
+        this.customerBirthday = customerBirthday;
     }
 
-    public String getCustomer_id_card() {
-        return customer_id_card;
+    public int getCustomerGender() {
+        return customerGender;
     }
 
-    public void setCustomer_id_card(String customer_id_card) {
-        this.customer_id_card = customer_id_card;
+    public void setCustomerGender(int customerGender) {
+        this.customerGender = customerGender;
     }
 
-    public String getCustomer_phone() {
-        return customer_phone;
+    public String getCustomerIdCard() {
+        return customerIdCard;
     }
 
-    public void setCustomer_phone(String customer_phone) {
-        this.customer_phone = customer_phone;
+    public void setCustomerIdCard(String customerIdCard) {
+        this.customerIdCard = customerIdCard;
     }
 
-    public String getCustomer_email() {
-        return customer_email;
+    public String getCustomerPhone() {
+        return customerPhone;
     }
 
-    public void setCustomer_email(String customer_email) {
-        this.customer_email = customer_email;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 
-    public String getCustomer_address() {
-        return customer_address;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setCustomer_address(String customer_address) {
-        this.customer_address = customer_address;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 }

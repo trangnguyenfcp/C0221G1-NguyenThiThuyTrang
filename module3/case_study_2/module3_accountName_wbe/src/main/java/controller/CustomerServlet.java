@@ -38,7 +38,7 @@ public class CustomerServlet extends HttpServlet {
 //                viewCustomer(request, response);
                 break;
             case "search":
-//                searchProductByName(request, response);
+                searchByName(request, response);
                 break;
             default:
                 listCustomer(request, response);
@@ -51,15 +51,15 @@ public class CustomerServlet extends HttpServlet {
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         int id = Integer.parseInt(request.getParameter("customer_id"));
-        int customer_type_id = Integer.parseInt(request.getParameter("customer_type_id"));
-        String customer_name = request.getParameter("customer_name");
-        String customer_birthday = request.getParameter("customer_birthday");
-        int customer_gender = Integer.parseInt(request.getParameter("customer_gender"));
-        String customer_id_card = request.getParameter("customer_id_card");
-        String customer_phone = request.getParameter("customer_phone");
-        String customer_email = request.getParameter("customer_email");
-        String customer_address = request.getParameter("customer_address");
-        Customer customer = new Customer(id, customer_type_id, customer_name, customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
+        int customerTypeId = Integer.parseInt(request.getParameter("customer_type_id"));
+        String customerName = request.getParameter("customer_name");
+        String customerBirthday = request.getParameter("customer_birthday");
+        int customerGender = Integer.parseInt(request.getParameter("customer_gender"));
+        String customerIdCard = request.getParameter("customer_id_card");
+        String customerPhone = request.getParameter("customer_phone");
+        String customerEmail = request.getParameter("customer_email");
+        String customerAddress = request.getParameter("customer_address");
+        Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
         boolean check = customerService.updateCustomer(id, customer);
         RequestDispatcher dispatcher;
         if (!check) {
@@ -94,20 +94,38 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        int customer_type_id = Integer.parseInt(request.getParameter("customer_type_id"));
-        String customer_name = request.getParameter("customer_name");
-        String customer_birthday = request.getParameter("customer_birthday");
-        int customer_gender = Integer.parseInt(request.getParameter("customer_gender"));
-        String customer_id_card = request.getParameter("customer_id_card");
-        String customer_phone = request.getParameter("customer_phone");
-        String customer_email = request.getParameter("customer_email");
-        String customer_address = request.getParameter("customer_address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customer_type_id"));
+        String customerName = request.getParameter("customer_name");
+        String customerBirthday = request.getParameter("customer_birthday");
+        int customerGender = Integer.parseInt(request.getParameter("customer_gender"));
+        String customerIdCard = request.getParameter("customer_id_card");
+        String customerPhone = request.getParameter("customer_phone");
+        String customerEmail = request.getParameter("customer_email");
+        String customerAddress = request.getParameter("customer_address");
         int id = (int)(Math.random() * 10000);
 
-        Customer customer = new Customer(id, customer_type_id, customer_name, customer_birthday, customer_gender, customer_id_card,customer_phone, customer_email, customer_address);
+        Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard,customerPhone, customerEmail, customerAddress);
         customerService.insertCustomer(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/create.jsp");
         request.setAttribute("message", "Customer was edited");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String keyword = request.getParameter("customerName");
+        List<Customer> customers = customerService.findByName(keyword);
+        RequestDispatcher dispatcher;
+        if(customers.size() == 0){
+            dispatcher = request.getRequestDispatcher("/view/customer/error_404.jsp");
+        } else {
+            request.setAttribute("customers", customers);
+            dispatcher = request.getRequestDispatcher("/view/customer/result_of_search.jsp");
+        }
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -134,7 +152,7 @@ public class CustomerServlet extends HttpServlet {
                     showDeleteForm(request, response);
                 break;
             case "search":
-//                    showSearch(request, response);
+                    showSearch(request, response);
                 break;
             default:
 
@@ -143,6 +161,17 @@ public class CustomerServlet extends HttpServlet {
                 break;
         }
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showSearch(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/search.jsp");
+        try{
+            dispatcher.forward(request,response);
+        }catch (ServletException e){
+            e.printStackTrace();
+        }catch (IOException e){
             e.printStackTrace();
         }
     }

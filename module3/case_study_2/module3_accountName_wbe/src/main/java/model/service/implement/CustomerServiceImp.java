@@ -20,8 +20,8 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     @Override
-    public List<Customer> findByCountry(String keyword) throws SQLException {
-        return null;
+    public List<Customer> findByName(String keyword) throws SQLException {
+        return customerRepository.findByName(keyword);
     }
 
     @Override

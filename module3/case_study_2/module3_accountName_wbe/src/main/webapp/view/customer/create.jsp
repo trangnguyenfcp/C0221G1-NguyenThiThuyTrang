@@ -23,36 +23,36 @@
 <div style="width: 400px">
 <form method="post">
     <div class="form-group">
-        <label for="customer_type_id" class="form-label">Customer Type ID</label>
-        <input type="text" class="form-control" name="customer_type_id" id="customer_type_id">
+        <label for="customerTypeId" class="form-label">Customer Type ID</label>
+        <input type="text" class="form-control" name="customerTypeId" id="customerTypeId">
     </div>
     <div class="form-group">
-        <label for="customer_name" class="form-label">Customer Name</label>
-        <input type="password" class="form-control" name="customer_name" id="customer_name">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="password" class="form-control" name="customerName" id="customerName">
     </div>
     <div class="form-group">
-        <label for="customer_birthday" class="form-label">Customer Birthday</label>
-        <input type="text" class="form-control" name="customer_birthday" id="customer_birthday">
+        <label for="customerBirthday" class="form-label">Customer Birthday</label>
+        <input type="text" class="form-control" name="customerBirthday" id="customerBirthday">
     </div>
     <div class="form-group">
-        <label for="customer_gender" class="form-label">Customer Gender</label>
-        <input type="text" class="form-control" name="customer_gender" id="customer_gender" placeholder="0:female, 1:male, 2:other">
+        <label for="customerGender" class="form-label">Customer Gender</label>
+        <input type="text" class="form-control" name="customerGender" id="customerGender" placeholder="0:female, 1:male, 2:other">
     </div>
     <div class="form-group">
-        <label for="customer_id_card" class="form-label">Customer ID Card</label>
-        <input type="text" class="form-control" name="customer_id_card" id="customer_id_card">
+        <label for="customerIdCard" class="form-label">Customer ID Card</label>
+        <input type="text" class="form-control" name="customerIdCard" id="customerIdCard">
     </div>
     <div class="form-group">
-        <label for="customer_phone" class="form-label">Customer Phone</label>
-        <input type="text" class="form-control" name="customer_phone" id="customer_phone">
+        <label for="customerPhone" class="form-label">Customer Phone</label>
+        <input type="text" class="form-control" name="customerPhone" id="customerPhone">
     </div>
     <div class="form-group">
-        <label for="customer_email" class="form-label">Customer Email</label>
-        <input type="text" class="form-control" name="customer_email" id="customer_email">
+        <label for="customerEmail" class="form-label">Customer Email</label>
+        <input type="text" class="form-control" name="customerEmail" id="customerEmail">
     </div>
     <div class="form-group">
-        <label for="customer_address" class="form-label">Customer Address</label>
-        <input type="text" class="form-control" name="customer_address" id="customer_address">
+        <label for="customerAddress" class="form-label">Customer Address</label>
+        <input type="text" class="form-control" name="customerAddress" id="customerAddress">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
