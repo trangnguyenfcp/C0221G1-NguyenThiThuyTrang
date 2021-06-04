@@ -121,7 +121,7 @@ public class UserRepository {
         try (Connection connection = baseRepository.connectDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER);) {
             preparedStatement.setInt(1, id);
-            check = preparedStatement.executeUpdate() > 0;
+            check = preparedStatement.executeUpdate()>0;
         }
         return check;
     }
