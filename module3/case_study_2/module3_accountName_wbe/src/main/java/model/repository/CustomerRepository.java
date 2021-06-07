@@ -7,13 +7,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerRepository {
     BaseRepository baseRepository = new BaseRepository();
     public static final String INSERT_NEW_CUSTOMER = "insert into customer\n" +
             "value(?,?,?,?,?,?,?,?,?);";
-    public static final String SELECT_ALL_CUSTOMERS = "select* from customer;";
+    public static final String SELECT_ALL_CUSTOMERS = "SELECT * FROM customer;";
+    public static final String SELECT_ALL_CUSTOMERS_TYPES = "SELECT * FROM customer_type;";
     public static final String SELECT_CUSTOMER_BY_ID = "select* from customer where customer_id=?;";
     public static final String DELETE_CUSTOMER = "delete from customer where customer_id = ?;";
     public static final String UPDATE_CUSTOMER_BY_ID = "update customer\n" +
@@ -30,7 +33,7 @@ public class CustomerRepository {
         preparedStatement.setInt(2, customer.getCustomerTypeId());
         preparedStatement.setString(3, customer.getCustomerName());
         preparedStatement.setString(4, customer.getCustomerBirthday());
-        preparedStatement.setInt(5, customer.getCustomerGender());
+        preparedStatement.setString(5, customer.getCustomerGender());
         preparedStatement.setString(6, customer.getCustomerIdCard());
         preparedStatement.setString(7, customer.getCustomerPhone());
         preparedStatement.setString(8, customer.getCustomerEmail());
@@ -52,7 +55,7 @@ public class CustomerRepository {
                 int customerTypeId = resultSet.getInt("customer_type_id");
                 String customerName = resultSet.getString("customer_name");
                 String customerBirthday = resultSet.getString("customer_birthday");
-                int customerGender = resultSet.getInt("customer_gender");
+                String customerGender = resultSet.getString("customer_gender");
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("Customer_email");
@@ -82,7 +85,7 @@ public class CustomerRepository {
                 int customerTypeId = resultSet.getInt("customer_type_id");
                 String customerName = resultSet.getString("customer_name");
                 String customerBirthday = resultSet.getString("customer_birthday");
-                int customerGender = resultSet.getInt("customer_gender");
+                String customerGender = resultSet.getString("customer_gender");
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("Customer_email");
@@ -113,7 +116,7 @@ public class CustomerRepository {
                 int customerTypeId = resultSet.getInt("customer_type_id");
                String customerName = resultSet.getString("customer_name");
                String customerBirthday = resultSet.getString("customer_birthday");
-               int customerGender = resultSet.getInt("customer_gender");
+               String customerGender = resultSet.getString("customer_gender");
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("Customer_email");
@@ -128,6 +131,25 @@ public class CustomerRepository {
             e.printStackTrace();
         }
         return customers;
+    }
+    public Map<Integer, String> selectAllCustomerTypes() throws SQLException {
+        Connection connection = baseRepository.connectDataBase();
+       Map<Integer, String> customerTypes = new HashMap<>();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS_TYPES);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int customerTypeId = resultSet.getInt("customer_type_id");
+                String customerTypeName = resultSet.getString("customer_type_name");
+                customerTypes.put(customerTypeId, customerTypeName);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerTypes;
     }
 
     public boolean deleteCustomer(int id) throws SQLException {
@@ -147,7 +169,7 @@ public class CustomerRepository {
         preparedStatement.setInt(1, customer.getCustomerTypeId());
         preparedStatement.setString(2, customer.getCustomerName());
         preparedStatement.setString(3, customer.getCustomerBirthday());
-        preparedStatement.setInt(4, customer.getCustomerGender());
+        preparedStatement.setString(4, customer.getCustomerGender());
         preparedStatement.setString(5, customer.getCustomerIdCard());
         preparedStatement.setString(6, customer.getCustomerPhone());
         preparedStatement.setString(7, customer.getCustomerEmail());

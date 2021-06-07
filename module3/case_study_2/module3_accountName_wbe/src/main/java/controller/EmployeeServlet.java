@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "EmployeeServlet", urlPatterns = "/employee")
 public class EmployeeServlet extends HttpServlet {
@@ -69,7 +70,7 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee(id, employeeName, positionId, educationDegreeId, divisionId, username,employeeBirthday, employeeIdCard, employeeSalary,employeePhone,employeeEmail, employeeAddress);
         employeeService.insertEmployee(employee);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/employee/create.jsp");
-        request.setAttribute("message", "Employee was edited");
+        request.setAttribute("message", "Employee was created");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -110,7 +111,13 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        Map<Integer, String> positions = employeeService.selectAllPositions();
+        request.setAttribute("positions", positions);
+        Map<Integer, String> educationDegrees = employeeService.selectAllEducationDegrees();
+        request.setAttribute("educationDegrees", educationDegrees);
+        Map<Integer, String> divisions = employeeService.selectAllDivisions();
+        request.setAttribute("divisions", divisions);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/employee/create.jsp");
         try {
             dispatcher.forward(request, response);

@@ -6,6 +6,7 @@ import model.service.CustomerService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerServiceImp implements CustomerService {
     CustomerRepository customerRepository = new CustomerRepository();
@@ -42,5 +43,10 @@ public class CustomerServiceImp implements CustomerService {
     @Override
     public Customer getUserById(int id) throws SQLException {
         return null;
+    }
+
+    @Override
+    public Map<Integer, String> selectAllCustomerTypes() throws SQLException {
+        return customerRepository.selectAllCustomerTypes();
     }
 }

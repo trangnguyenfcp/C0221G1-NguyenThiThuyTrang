@@ -8,13 +8,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeRepository {
     BaseRepository baseRepository = new BaseRepository();
     public static final String INSERT_NEW_EMPLOYEE = "insert into employee\n" +
             "value(?,?,?,?,?,?,?,?,?,?,?,?);";
     public static final String SELECT_ALL_EMPLOYEES = "select* from employee;";
+    public static final String SELECT_ALL_POSITIONS = "select* from position;";
+    public static final String SELECT_ALL_EDUCATION_DEGREES = "select* from education_degree;";
+    public static final String SELECT_ALL_DIVISIONS = "select* from division;";
     public static final String SELECT_EMPLOYEE_BY_ID = "select* from employee where employee_id=?;";
     public static final String DELETE_EMPLOYEE = "delete from employee where employee_id = ?;";
     public static final String UPDATE_EMPLOYEE_BY_ID = "update employee\n" +
@@ -141,7 +146,63 @@ public class EmployeeRepository {
         }
         return employees;
     }
-
+    public Map<Integer, String> selectAllPositions() throws SQLException {
+        Connection connection = baseRepository.connectDataBase();
+        Map<Integer, String> positions = new HashMap<>();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_ALL_POSITIONS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int positionId = resultSet.getInt("position_id");
+                String positionName = resultSet.getString("position_name");
+                positions.put(positionId, positionName);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return positions;
+    }
+    public Map<Integer, String> selectAllEducationDegrees() throws SQLException {
+        Connection connection = baseRepository.connectDataBase();
+        Map<Integer, String> educationDegrees = new HashMap<>();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_ALL_EDUCATION_DEGREES);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int educationDegreeId = resultSet.getInt("education_degree_id");
+                String educationDegreeName = resultSet.getString("education_degree_name");
+                educationDegrees.put(educationDegreeId, educationDegreeName);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return educationDegrees;
+    }
+    public Map<Integer, String> selectAllDivisions() throws SQLException {
+        Connection connection = baseRepository.connectDataBase();
+        Map<Integer, String> divisions = new HashMap<>();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_ALL_DIVISIONS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int divisionId = resultSet.getInt("division_id");
+                String divisionName = resultSet.getString("division_name");
+                divisions.put(divisionId, divisionName);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return divisions;
+    }
     public boolean deleteEmployee(int id) throws SQLException {
         boolean check;
         try (Connection connection = baseRepository.connectDataBase();

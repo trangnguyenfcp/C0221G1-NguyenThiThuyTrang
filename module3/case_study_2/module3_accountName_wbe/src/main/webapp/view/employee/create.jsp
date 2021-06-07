@@ -28,15 +28,27 @@
     </div>
     <div class="form-group">
         <label for="positionId" class="form-label">Position Id</label>
-        <input type="text" class="form-control" name="positionId" id="positionId">
+        <select class="form-control" id="positionId" name="positionId">
+            <c:forEach items="${positions}" var="position">
+                <option value="<c:out value="${position.key}"></c:out>"><c:out value="${position.value}"></c:out> </option>
+            </c:forEach>
+        </select>
     </div>
     <div class="form-group">
         <label for="educationDegreeId" class="form-label">Education Degree Id</label>
-        <input type="text" class="form-control" name="educationDegreeId" id="educationDegreeId">
+        <select class="form-control" id="educationDegreeId" name="educationDegreeId">
+            <c:forEach items="${educationDegrees}" var="educationDegree">
+                <option value="<c:out value="${educationDegree.key}"></c:out>"><c:out value="${educationDegree.value}"></c:out> </option>
+            </c:forEach>
+        </select>
     </div>
     <div class="form-group">
         <label for="divisionId" class="form-label">Division Id</label>
-        <input type="text" class="form-control" name="divisionId" id="divisionId">
+        <select class="form-control" id="divisionId" name="divisionId">
+            <c:forEach items="${divisions}" var="division">
+                <option value="<c:out value="${division.key}"></c:out>"><c:out value="${division.value}"></c:out> </option>
+            </c:forEach>
+        </select>
     </div>
     <div class="form-group">
         <label for="username" class="form-label">Username</label>

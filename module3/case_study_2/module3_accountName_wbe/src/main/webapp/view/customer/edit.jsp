@@ -34,8 +34,11 @@
             </div>
             <div class="form-group">
                 <label for="customerTypeId" class="form-label">Customer Type ID</label>
-                <input type="text" class="form-control" name="customerTypeId" id="customerTypeId"
-                       value="${customer.customerTypeId}">
+                <select class="form-control" id="customerTypeId" name="customerTypeId">
+                    <c:forEach items="${customerTypes}" var="customerType">
+                        <option value="<c:out value="${customerType.key}"></c:out>"><c:out value="${customerType.value}"></c:out> </option>
+                    </c:forEach>
+                </select>
             </div>
 
             <div class="form-group">
@@ -50,8 +53,11 @@
             </div>
             <div class="form-group">
                 <label for="customerGender" class="form-label">Customer Gender</label>
-                <input type="text" class="form-control" name="customerGender" id="customerGender"
-                       placeholder="0:female, 1:male, 2:other" value="${customer.customerGender}">
+                <select class="form-control" id="customerGender" name="customerGender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="customerIdCard" class="form-label">Customer ID Card</label>

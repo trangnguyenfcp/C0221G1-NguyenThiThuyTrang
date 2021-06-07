@@ -265,18 +265,17 @@
     </script>
 </head>
 <body>
-<jsp:include page="/view/header.jsp"></jsp:include>
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Employee</b></h2>
+                        <h2>Manage <b>Contract</b></h2>
                     </div>
                     <div class="col-sm-6">
-                          <a href="/employee?action=create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                        <a href="/employee?action=search" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Search Employee</span></a>
+                        <a href="/contract?action=create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Contract</span></a>
+                        <a href="/contract?action=search" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Search Contract</span></a>
 
                     </div>
                 </div>
@@ -290,19 +289,19 @@
 								<label for="selectAll"></label>
 							</span>
                     </th>
-                    <th>Employee ID</th>
-                    <th>Employee Name</th>
-                    <th>Employee Birthday</th>
-                    <th>Employee Phone</th>
-                    <th>Username</th>
-                    <th>Employee Email</th>
-                    <th>Employee Address</th>
+                    <th>Contract ID</th>
+                    <th>Employee ID/th>
+                    <th>Customer ID</th>
+                    <th>Service ID</th>
+                    <th>Contract Start Date</th>
+                    <th>Contract End Date</th>
+                    <th>Contract Deposit</th>
                     <th>Actions</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items='${employees}' var="employee">
+                <c:forEach items='${contracts}' var="contract">
                     <tr>
                         <td>
 							<span class="custom-checkbox">
@@ -310,16 +309,16 @@
 								<label for="checkbox1"></label>
 							</span>
                         </td>
-                        <td><c:out value="${employee.employeeId}"/></td>
-                        <td><c:out value="${employee.employeeName}"/></td>
-                        <td><c:out value="${employee.employeeBirthday}"/></td>
-                        <td><c:out value="${employee.employeePhone}"/></td>
-                        <td><c:out value="${employee.username}"/></td>
-                        <td><c:out value="${employee.employeeEmail}"/></td>
-                        <td><c:out value="${employee.employeeAddress}"/></td>
+                        <td><c:out value="${contract.contractId}"/></td>
+                        <td><c:out value="${contract.employeeId}"/></td>
+                        <td><c:out value="${contract.customerId}"/></td>
+                        <td><c:out value="${contract.serviceId}"/></td>
+                        <td><c:out value="${contract.contractStartDate}"/></td>
+                        <td><c:out value="${contract.contractEndDate}"/></td>
+                        <td><c:out value="${contract.contractDeposit}"/></td>
                         <td>
-                            <a href="/employee?action=edit&id=${employee.employeeId}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" onclick="sendDataToModal('${employee.employeeId}','${employee.employeeId}')" title="Delete">&#xE872;</i></a>
+                            <a href="/service?action=edit&id=${contract.contractId}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" onclick="sendDataToModal('${contract.contractId}')" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -328,18 +327,17 @@
         </div>
     </div>
 </div>
-<!
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="/employee?action=delete">
+            <form method="post" action="/contract?action=delete">
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
+                    <h4 class="modal-title">Delete Contract</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <input hidden type="text" name="employeeId" id="employeeId">
+                    <input hidden type="text" name="contractId" id="contractId">
                     <p>Are you sure you want to delete these Records?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
@@ -352,10 +350,10 @@
     </div>
 </div>
 <script>
-    function sendDataToModal(id, name) {
-        document.getElementById("employeeId").value=id;
+    function sendDataToModal(id) {
+        document.getElementById("contractId").value=id;
     }
 </script>
-<jsp:include page="../footer.jsp"></jsp:include>
+
 </body>
 </html>

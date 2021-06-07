@@ -54,16 +54,21 @@ public class ServiceServlet extends HttpServlet {
         String serviceName = request.getParameter("serviceName");
         int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
         double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));
-        int numberOfFloors = Integer.parseInt(request.getParameter("numberOfFloors"));
+        String numberOfFloors = request.getParameter("numberOfFloors");
         int serviceMaxPeople = Integer.parseInt(request.getParameter("serviceMaxPeople"));
         int serviceTypeId = Integer.parseInt(request.getParameter("serviceTypeId"));
-        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
+        String poolArea = request.getParameter("poolArea");
         String standardRoom = request.getParameter("standardRoom");
         String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
         int rentTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
         int id = (int)(Math.random() * 10000);
-
-        Service service = new Service(id, serviceName, serviceArea, serviceCost, numberOfFloors, serviceMaxPeople,serviceTypeId, poolArea, standardRoom,descriptionOtherConvenience,rentTypeId);
+        if (numberOfFloors == ""){
+            numberOfFloors = "0";
+        }
+        if (poolArea == ""){
+            poolArea = "0";
+        }
+        Service service = new Service(id, serviceName, serviceArea, serviceCost, Integer.parseInt(numberOfFloors), serviceMaxPeople,serviceTypeId, Double.parseDouble(poolArea), standardRoom,descriptionOtherConvenience,rentTypeId);
         serviceService.insertService(service);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/service/create.jsp");
         request.setAttribute("message", "Service was edited");

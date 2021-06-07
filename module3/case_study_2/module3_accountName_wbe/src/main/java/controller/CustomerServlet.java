@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -50,15 +51,15 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        int id = Integer.parseInt(request.getParameter("customer_id"));
-        int customerTypeId = Integer.parseInt(request.getParameter("customer_type_id"));
-        String customerName = request.getParameter("customer_name");
-        String customerBirthday = request.getParameter("customer_birthday");
-        int customerGender = Integer.parseInt(request.getParameter("customer_gender"));
-        String customerIdCard = request.getParameter("customer_id_card");
-        String customerPhone = request.getParameter("customer_phone");
-        String customerEmail = request.getParameter("customer_email");
-        String customerAddress = request.getParameter("customer_address");
+        int id = Integer.parseInt(request.getParameter("id"));
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        String customerName = request.getParameter("customerName");
+        String customerBirthday = request.getParameter("customerBirthday");
+        String customerGender = request.getParameter("customerGender");
+        String customerIdCard = request.getParameter("customerIdCard");
+        String customerPhone = request.getParameter("customerPhone");
+        String customerEmail = request.getParameter("customerEmail");
+        String customerAddress = request.getParameter("customerAddress");
         Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
         boolean check = customerService.updateCustomer(id, customer);
         RequestDispatcher dispatcher;
@@ -78,7 +79,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        int id = Integer.parseInt(request.getParameter("customer_id"));
+        int id = Integer.parseInt(request.getParameter("customerId"));
         Customer customer = customerService.selectCustomer(id);
         RequestDispatcher dispatcher;
         if(customer == null){
@@ -94,20 +95,20 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        int customerTypeId = Integer.parseInt(request.getParameter("customer_type_id"));
-        String customerName = request.getParameter("customer_name");
-        String customerBirthday = request.getParameter("customer_birthday");
-        int customerGender = Integer.parseInt(request.getParameter("customer_gender"));
-        String customerIdCard = request.getParameter("customer_id_card");
-        String customerPhone = request.getParameter("customer_phone");
-        String customerEmail = request.getParameter("customer_email");
-        String customerAddress = request.getParameter("customer_address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        String customerName = request.getParameter("customerName");
+        String customerBirthday = request.getParameter("customerBirthday");
+        String customerGender = request.getParameter("customerGender");
+        String customerIdCard = request.getParameter("customerIdCard");
+        String customerPhone = request.getParameter("customerPhone");
+        String customerEmail = request.getParameter("customerEmail");
+        String customerAddress = request.getParameter("customerAddress");
         int id = (int)(Math.random() * 10000);
 
         Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard,customerPhone, customerEmail, customerAddress);
         customerService.insertCustomer(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/create.jsp");
-        request.setAttribute("message", "Customer was edited");
+        request.setAttribute("message", "Customer was created");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -177,6 +178,8 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        Map<Integer, String> customerTypes = customerService.selectAllCustomerTypes();
+        request.setAttribute("customerTypes", customerTypes);
         int id = Integer.parseInt(request.getParameter("id"));
         RequestDispatcher requestDispatcher;
         Customer customer = customerService.selectCustomer(id);
@@ -209,7 +212,9 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        Map<Integer, String> customerTypes = customerService.selectAllCustomerTypes();
+        request.setAttribute("customerTypes", customerTypes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/create.jsp");
         try {
             dispatcher.forward(request, response);

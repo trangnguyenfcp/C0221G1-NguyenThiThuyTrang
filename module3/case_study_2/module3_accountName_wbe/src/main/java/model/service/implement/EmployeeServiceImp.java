@@ -7,6 +7,7 @@ import model.service.EmployeeService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeServiceImp implements EmployeeService {
     EmployeeRepository employeeRepository = new EmployeeRepository();
@@ -38,5 +39,20 @@ public class EmployeeServiceImp implements EmployeeService {
     @Override
     public boolean updateEmployee(int id, Employee employee) throws SQLException {
         return employeeRepository.updateEmployee(id, employee);
+    }
+
+    @Override
+    public Map<Integer, String> selectAllPositions() throws SQLException {
+        return employeeRepository.selectAllPositions();
+    }
+
+    @Override
+    public Map<Integer, String> selectAllEducationDegrees() throws SQLException {
+        return employeeRepository.selectAllEducationDegrees();
+    }
+
+    @Override
+    public Map<Integer, String> selectAllDivisions() throws SQLException {
+        return employeeRepository.selectAllDivisions();
     }
 }
