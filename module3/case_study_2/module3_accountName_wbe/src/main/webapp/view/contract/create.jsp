@@ -37,46 +37,26 @@
             </c:forEach>
         </select>
     </div>
-<%--    <div class="form-group">--%>
-<%--        <label for="serviceArea" class="form-label">Service Area</label>--%>
-<%--        <input type="text" class="form-control" name="serviceArea" id="serviceArea">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="serviceCost" class="form-label">Service Cost</label>--%>
-<%--        <input type="text" class="form-control" name="serviceCost" id="serviceCost">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="serviceMaxPeople" class="form-label">Service Max People</label>--%>
-<%--        <input type="text" class="form-control" name="serviceMaxPeople" id="serviceMaxPeople">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="serviceTypeId" class="form-label">Service Type</label>--%>
-<%--        <select class="form-control" id="serviceTypeId" name="serviceTypeId" onchange="showService(this)">--%>
-<%--            <option value="1">Room</option>--%>
-<%--            <option value="2">House</option>--%>
-<%--            <option value="3">Villa</option>--%>
-<%--        </select>--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="rentTypeId" class="form-label">rent Type Id</label>--%>
-<%--        <input type="text" class="form-control" name="rentTypeId" id="rentTypeId">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="numberOfFloors" class="form-label villa house">Number Of Floors</label>--%>
-<%--        <input type="text" class="form-control" name="numberOfFloors" id="numberOfFloors">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="poolArea" class="form-label villa">Pool Area</label>--%>
-<%--        <input type="text" class="form-control" name="poolArea" id="poolArea">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="standardRoom" class="form-label villa house">Standard Room</label>--%>
-<%--        <input type="text" class="form-control" name="standardRoom" id="standardRoom">--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <label for="descriptionOtherConvenience" class="form-label villa house">Description Other Convenience</label>--%>
-<%--        <input type="text" class="form-control" name="descriptionOtherConvenience" id="descriptionOtherConvenience">--%>
-<%--    </div>--%>
+    <div class="form-group">
+        <label for="serviceId" class="form-label">Service</label>
+        <select class="form-control" id="serviceId" name="serviceId">
+            <c:forEach items="${listService}" var="service">
+                <option value="<c:out value="${service.key}"></c:out>"><c:out value="${service.value}"></c:out> </option>
+            </c:forEach>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="contractStartDate" class="form-label">Contract Start Date</label>
+        <input type="date" class="form-control" name="contractStartDate" id="contractStartDate">
+    </div>
+    <div class="form-group">
+        <label for="contractEndDate" class="form-label">Contract Start Date</label>
+        <input type="date" class="form-control" name="contractEndDate" id="contractEndDate">
+    </div>
+    <div class="form-group">
+        <label for="contractDeposit" class="form-label">contract Deposit</label>
+        <input type="text" class="form-control" name="contractDeposit" id="contractDeposit">
+    </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
     </div>

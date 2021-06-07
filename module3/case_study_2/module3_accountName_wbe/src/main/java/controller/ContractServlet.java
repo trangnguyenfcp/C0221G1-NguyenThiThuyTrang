@@ -51,35 +51,25 @@ public class ContractServlet extends HttpServlet {
         }
     }
 
-    private void createContract(HttpServletRequest request, HttpServletResponse response) {
-//        String serviceName = request.getParameter("serviceName");
-//        int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
-//        double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));
-//        String numberOfFloors = request.getParameter("numberOfFloors");
-//        int serviceMaxPeople = Integer.parseInt(request.getParameter("serviceMaxPeople"));
-//        int serviceTypeId = Integer.parseInt(request.getParameter("serviceTypeId"));
-//        String poolArea = request.getParameter("poolArea");
-//        String standardRoom = request.getParameter("standardRoom");
-//        String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
-//        int rentTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
-//        int id = (int)(Math.random() * 10000);
-//        if (numberOfFloors == ""){
-//            numberOfFloors = "0";
-//        }
-//        if (poolArea == ""){
-//            poolArea = "0";
-//        }
-//        Service service = new Service(id, serviceName, serviceArea, serviceCost, Integer.parseInt(numberOfFloors), serviceMaxPeople,serviceTypeId, Double.parseDouble(poolArea), standardRoom,descriptionOtherConvenience,rentTypeId);
-//        serviceService.insertService(service);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/service/create.jsp");
-//        request.setAttribute("message", "Service was edited");
-//        try {
-//            dispatcher.forward(request, response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    private void createContract(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
+        String contractStartDate = request.getParameter("contractStartDate");
+        String contractEndDate = request.getParameter("contractEndDate");
+        int contractDeposit = Integer.parseInt(request.getParameter("contractDeposit"));
+        int id = (int)(Math.random() * 10000);
+        Contract contract = new Contract(id, employeeId, customerId, serviceId, contractStartDate, contractEndDate,contractDeposit);
+        contractService.insertContract(contract);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/contract/create.jsp");
+        request.setAttribute("message", "Contract was edited");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
