@@ -28,6 +28,11 @@
 <div style="width: 400px">
 <form method="post">
     <div class="form-group">
+        <label for="serviceCode" class="form-label">Service Code</label>
+        <input type="text" class="form-control" name="serviceCode" id="serviceCode">
+        <p class="text-danger">${msgCode}</p>
+    </div>
+    <div class="form-group">
         <label for="serviceName" class="form-label">Service Name</label>
         <input type="text" class="form-control" name="serviceName" id="serviceName">
     </div>

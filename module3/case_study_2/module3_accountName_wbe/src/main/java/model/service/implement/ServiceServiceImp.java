@@ -5,13 +5,29 @@ import model.repository.ServiceRepository;
 import model.service.ServiceService;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ServiceServiceImp implements ServiceService {
     ServiceRepository serviceRepository = new ServiceRepository();
     @Override
-    public void insertService(Service service) throws SQLException {
+    public Map<String, String> insertService(Service service) throws SQLException {
+        Map<String, String> mapMsg = new HashMap<>();
+        boolean check = true;
+        if ("".equals(service.getServiceCode())) {
+            mapMsg.put("serviceCode", "Please input code");
+            check = false;
+//            KH-1234
+        } else if (!service.getServiceCode().matches("^DV-[\\d]{4}$")) {
+            mapMsg.put("serviceCode", "Invalid code");
+            check = false;
+        }
+        if (check) {
             serviceRepository.insertService(service);
+        }
+        return mapMsg;
+
     }
 
     @Override

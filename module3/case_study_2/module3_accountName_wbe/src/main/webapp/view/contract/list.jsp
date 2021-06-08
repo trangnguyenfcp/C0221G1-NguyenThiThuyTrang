@@ -265,6 +265,7 @@
     </script>
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -275,19 +276,16 @@
                     </div>
                     <div class="col-sm-6">
                         <a href="/contract?action=create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Contract</span></a>
-                        <a href="/contract?action=search" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Search Contract</span></a>
+                        <a href="/contract_detail" class="btn btn-info"><i class="material-icons">&#xE147;</i> <span>Show Contract Detail</span></a>
 
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="table">
                 <thead>
                 <tr>
                     <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
+							Order
                     </th>
                     <th>Contract ID</th>
                     <th>Employee ID/th>
@@ -301,14 +299,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items='${contracts}' var="contract">
+                <c:forEach items='${contracts}' var="contract" varStatus="theCount">
                     <tr>
-                        <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-                        </td>
+                        <td>${theCount.count}</td>
                         <td><c:out value="${contract.contractId}"/></td>
                         <td><c:out value="${contract.employeeId}"/></td>
                         <td><c:out value="${contract.customerId}"/></td>
@@ -354,6 +347,18 @@
         document.getElementById("contractId").value=id;
     }
 </script>
-
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#table').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+</script>
+<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>

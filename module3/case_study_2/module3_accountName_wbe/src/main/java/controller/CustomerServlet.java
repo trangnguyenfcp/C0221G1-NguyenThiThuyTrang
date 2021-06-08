@@ -13,45 +13,48 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
     CustomerService customerService = new CustomerServiceImp();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if(action == null){
+        if (action == null) {
             action = "";
         }
-        try{
-        switch (action){
-            case "create":
-                createCustomer(request, response);
-                break;
-            case "edit":
-                updateCustomer(request, response);
-                break;
-            case "delete":
-                deleteCustomer(request, response);
-                break;
-            case "view":
+        try {
+            switch (action) {
+                case "create":
+                    createCustomer(request, response);
+                    break;
+                case "edit":
+                    updateCustomer(request, response);
+                    break;
+                case "delete":
+                    deleteCustomer(request, response);
+                    break;
+                case "view":
 //                viewCustomer(request, response);
-                break;
-            case "search":
-                searchByName(request, response);
-                break;
-            default:
-                listCustomer(request, response);
-                break;
-        }
+                    break;
+                case "search":
+                    searchByName(request, response);
+                    break;
+                default:
+                    listCustomer(request, response);
+                    break;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        String customerCode = request.getParameter("customerCode");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         String customerName = request.getParameter("customerName");
         String customerBirthday = request.getParameter("customerBirthday");
@@ -60,21 +63,18 @@ public class CustomerServlet extends HttpServlet {
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
         String customerAddress = request.getParameter("customerAddress");
-        Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
-        boolean check = customerService.updateCustomer(id, customer);
+        Customer customer = new Customer(id, customerCode, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress);
+        Map<String, String> mapMsg = customerService.updateCustomer(id, customer);
         RequestDispatcher dispatcher;
-        if (!check) {
-            dispatcher = request.getRequestDispatcher("view/customer/error_404.jsp");
-        } else {
+        if (mapMsg.isEmpty()) {
             request.setAttribute("customer", customer);
+            request.setAttribute("message", "Customer was edited");
             dispatcher = request.getRequestDispatcher("/view/customer/edit.jsp");
-        }
-        try {
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            request.setAttribute("msgCode", mapMsg.get("customerCode"));
+            request.setAttribute("msgPhone", mapMsg.get("customerPhone"));
+            showEditForm(request,response);
         }
     }
 
@@ -82,7 +82,7 @@ public class CustomerServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("customerId"));
         Customer customer = customerService.selectCustomer(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("view/customer/error_404.jsp");
         } else {
             customerService.deleteCustomer(id);
@@ -94,7 +94,8 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String customerCode = request.getParameter("customerCode");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         String customerName = request.getParameter("customerName");
         String customerBirthday = request.getParameter("customerBirthday");
@@ -103,25 +104,29 @@ public class CustomerServlet extends HttpServlet {
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
         String customerAddress = request.getParameter("customerAddress");
-        int id = (int)(Math.random() * 10000);
-
-        Customer customer = new Customer(id, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard,customerPhone, customerEmail, customerAddress);
-        customerService.insertCustomer(customer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/create.jsp");
-        request.setAttribute("message", "Customer was created");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        RequestDispatcher dispatcher;
+        int id = (int) (Math.random() * 10000);
+        Customer customer = new Customer(id, customerCode, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress);
+        Map<String, String> mapMsg = customerService.insertCustomer(customer);
+        if (mapMsg.isEmpty()) {
+            dispatcher = request.getRequestDispatcher("/view/customer/create.jsp");
+            dispatcher.forward(request,response);
+            request.setAttribute("message", "Customer was created");
+        } else {
+            request.setAttribute("msgCode", mapMsg.get("customerCode"));
+            request.setAttribute("msgPhone", mapMsg.get("customerPhone"));
+            request.setAttribute("msgIdCard", mapMsg.get("customerIdCard"));
+            request.setAttribute("msgEmail", mapMsg.get("customerEmail"));
+            showCreateForm(request,response);
         }
+
     }
+
     private void searchByName(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String keyword = request.getParameter("customerName");
         List<Customer> customers = customerService.findByName(keyword);
         RequestDispatcher dispatcher;
-        if(customers.size() == 0){
+        if (customers.size() == 0) {
             dispatcher = request.getRequestDispatcher("/view/customer/error_404.jsp");
         } else {
             request.setAttribute("customers", customers);
@@ -141,26 +146,26 @@ public class CustomerServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        try{
-        switch (action) {
-            case "create":
+        try {
+            switch (action) {
+                case "create":
                     showCreateForm(request, response);
-                break;
-            case "edit":
+                    break;
+                case "edit":
                     showEditForm(request, response);
-                break;
-            case "delete":
+                    break;
+                case "delete":
                     showDeleteForm(request, response);
-                break;
-            case "search":
+                    break;
+                case "search":
                     showSearch(request, response);
-                break;
-            default:
+                    break;
+                default:
 
                     listCustomer(request, response);
 
-                break;
-        }
+                    break;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -168,11 +173,11 @@ public class CustomerServlet extends HttpServlet {
 
     private void showSearch(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/customer/search.jsp");
-        try{
-            dispatcher.forward(request,response);
-        }catch (ServletException e){
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -197,7 +202,7 @@ public class CustomerServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.selectCustomer(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("/view/customer/error_404.jsp");
         } else {
             request.setAttribute("customer", customer);

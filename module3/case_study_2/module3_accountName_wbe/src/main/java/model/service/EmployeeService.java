@@ -17,4 +17,5 @@ public interface EmployeeService {
     public Map<Integer, String> selectAllPositions() throws SQLException;
     public Map<Integer, String> selectAllEducationDegrees() throws SQLException;
     public Map<Integer, String> selectAllDivisions() throws SQLException;
+    public void insertUser(Employee employee) throws SQLException;
 }

@@ -2,6 +2,7 @@ package model.bean;
 
 public class Service {
     private int serviceId;
+    private String serviceCode;
     private String serviceName;
     private int serviceArea;
     private double serviceCost;
@@ -16,8 +17,9 @@ public Service(){
 
 }
 
-    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int numberOfFloors, int serviceMaxPeople, int serviceTypeId, double poolArea, String standardRoom, String descriptionOtherConvenience, int rentTypeId) {
+    public Service(int serviceId, String serviceCode, String serviceName, int serviceArea, double serviceCost, int numberOfFloors, int serviceMaxPeople, int serviceTypeId, double poolArea, String standardRoom, String descriptionOtherConvenience, int rentTypeId) {
         this.serviceId = serviceId;
+        this.serviceCode = serviceCode;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
@@ -116,5 +118,13 @@ public Service(){
 
     public void setRentTypeId(int rentTypeId) {
         this.rentTypeId = rentTypeId;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 }

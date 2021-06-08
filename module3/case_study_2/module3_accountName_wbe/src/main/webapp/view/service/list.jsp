@@ -265,6 +265,7 @@
     </script>
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -280,15 +281,10 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="table" var="contractDetail">
                 <thead>
                 <tr>
-                    <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-                    </th>
+                    <th>Order</th>
                     <th>Service ID</th>
                     <th>Service Name</th>
                     <th>Service Area</th>
@@ -300,14 +296,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items='${services}' var="service">
+                <c:forEach items='${services}' var="service" varStatus="theCount">
                     <tr>
-                        <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-                        </td>
+                        <td>${theCount.count}</td>
                         <td><c:out value="${service.serviceId}"/></td>
                         <td><c:out value="${service.serviceName}"/></td>
                         <td><c:out value="${service.serviceArea}"/></td>
@@ -352,6 +343,18 @@
         document.getElementById("serviceId").value=id;
     }
 </script>
-
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#table').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+</script>
+<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>

@@ -15,74 +15,85 @@
 </head>
 <body>
 <jsp:include page="/view/header.jsp"></jsp:include>
-<div style="margin-left: 30px">
-    <h1>Edit customer</h1>
-    <p>
-        <c:if test='${message!=null}'>
-            <span class="message">${message}</span>
-        </c:if>
-    </p>
-    <p>
-        <a href="/customer">Back to customer list</a>
-    </p>
-    <div style="width: 400px">
-        <form method="post">
-            <div class="form-group">
-                <c:if test="${customer != null}">
-                    <input type="hidden" name="id" value="<c:out value='${customer.customerId}' />"/>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Edit customer</h1>
+            <p>
+                <c:if test='${message!=null}'>
+                    <span class="message">${message}</span>
                 </c:if>
-            </div>
-            <div class="form-group">
-                <label for="customerTypeId" class="form-label">Customer Type ID</label>
-                <select class="form-control" id="customerTypeId" name="customerTypeId">
-                    <c:forEach items="${customerTypes}" var="customerType">
-                        <option value="<c:out value="${customerType.key}"></c:out>"><c:out value="${customerType.value}"></c:out> </option>
-                    </c:forEach>
-                </select>
-            </div>
+            </p>
+            <p>
+                <a href="/customer">Back to customer list</a>
+            </p>
+            <div>
+                <form method="post">
+                    <div class="form-group">
+                        <c:if test="${customer != null}">
+                            <input type="hidden" name="id" value="<c:out value='${customer.customerId}' />"/>
+                        </c:if>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="customerCode" class="form-label">Customer Code</label>
+                            <input type="text" class="form-control" name="customerCode" id="customerCode"
+                                   value="${customer.customerCode}">
+                            <p class="text-danger">${msgCode}</p>
+                        </div>
+                        <label for="customerTypeId" class="form-label">Customer Type</label>
+                        <select class="form-control" id="customerTypeId" name="customerTypeId">
+                            <c:forEach items="${customerTypes}" var="customerType">
+                                <option value="${customerType.key}" ${customerType.key==customer.customerTypeId?"selected":""}>${customerType.value}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
 
-            <div class="form-group">
-                <label for="customerName" class="form-label">Customer Name</label>
-                <input type="text" class="form-control" name="customerName" id="customerName"
-                       value="${customer.customerName}">
+                    <div class="form-group">
+                        <label for="customerName" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" name="customerName" id="customerName"
+                               value="${customer.customerName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerBirthday" class="form-label">Customer Birthday</label>
+                        <input type="text" class="form-control" name="customerBirthday" id="customerBirthday"
+                               value="${customer.customerBirthday}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerGender" class="form-label">Customer Gender</label>
+                        <select class="form-control" id="customerGender" name="customerGender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerIdCard" class="form-label">Customer ID Card</label>
+                        <input type="text" class="form-control" name="customerIdCard" id="customerIdCard"
+                               value="${customer.customerIdCard}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone" class="form-label">Customer Phone</label>
+                        <input type="text" class="form-control" name="customerPhone" id="customerPhone"
+                               value="${customer.customerPhone}">
+                        <p class="text-danger">${msgPhone}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail" class="form-label">Customer Email</label>
+                        <input type="text" class="form-control" name="customerEmail" id="customerEmail"
+                               value="${customer.customerEmail}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress" class="form-label">Customer Address</label>
+                        <input type="text" class="form-control" name="customerAddress" id="customerAddress"
+                               value="${customer.customerAddress}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="customerBirthday" class="form-label">Customer Birthday</label>
-                <input type="text" class="form-control" name="customerBirthday" id="customerBirthday"
-                       value="${customer.customerBirthday}">
-            </div>
-            <div class="form-group">
-                <label for="customerGender" class="form-label">Customer Gender</label>
-                <select class="form-control" id="customerGender" name="customerGender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="customerIdCard" class="form-label">Customer ID Card</label>
-                <input type="text" class="form-control" name="customerIdCard" id="customerIdCard"
-                       value="${customer.customerIdCard}">
-            </div>
-            <div class="form-group">
-                <label for="customerPhone" class="form-label">Customer Phone</label>
-                <input type="text" class="form-control" name="customerPhone" id="customerPhone"
-                       value="${customer.customerPhone}">
-            </div>
-            <div class="form-group">
-                <label for="customerEmail" class="form-label">Customer Email</label>
-                <input type="text" class="form-control" name="customerEmail" id="customerEmail"
-                       value="${customer.customerEmail}">
-            </div>
-            <div class="form-group">
-                <label for="customerAddress" class="form-label">Customer Address</label>
-                <input type="text" class="form-control" name="customerAddress" id="customerAddress"
-                       value="${customer.customerAddress}">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Edit</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>

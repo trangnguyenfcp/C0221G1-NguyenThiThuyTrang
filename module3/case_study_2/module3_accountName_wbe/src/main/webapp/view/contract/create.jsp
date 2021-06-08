@@ -9,7 +9,9 @@
 </head>
 <body>
 <jsp:include page="/view/header.jsp"></jsp:include>
-<div style="margin-left: 30px">
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
 <h1>Create new contract</h1>
 <p>
     <c:if test='${message!=null}'>
@@ -19,7 +21,7 @@
 <p>
     <a href="/contract">Back to contract list</a>
 </p>
-<div style="width: 400px">
+<div>
 <form method="post">
     <div class="form-group">
         <label for="employeeId" class="form-label">Employee</label>
@@ -62,6 +64,8 @@
     </div>
 </form>
 </div>
+</div>
+    </div>
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>

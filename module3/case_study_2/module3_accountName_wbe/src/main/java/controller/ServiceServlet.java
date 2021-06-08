@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ServiceServlet", urlPatterns = "/service")
 public class ServiceServlet extends HttpServlet {
@@ -50,7 +51,8 @@ public class ServiceServlet extends HttpServlet {
         }
     }
 
-    private void createService(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void createService(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String serviceCode = request.getParameter("serviceCode");
         String serviceName = request.getParameter("serviceName");
         int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
         double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));
@@ -68,16 +70,16 @@ public class ServiceServlet extends HttpServlet {
         if (poolArea == ""){
             poolArea = "0";
         }
-        Service service = new Service(id, serviceName, serviceArea, serviceCost, Integer.parseInt(numberOfFloors), serviceMaxPeople,serviceTypeId, Double.parseDouble(poolArea), standardRoom,descriptionOtherConvenience,rentTypeId);
-        serviceService.insertService(service);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/service/create.jsp");
-        request.setAttribute("message", "Service was edited");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        Service service = new Service(id,serviceCode, serviceName, serviceArea, serviceCost, Integer.parseInt(numberOfFloors), serviceMaxPeople,serviceTypeId, Double.parseDouble(poolArea), standardRoom,descriptionOtherConvenience,rentTypeId);
+        Map<String, String> mapMsg = serviceService.insertService(service);
+        RequestDispatcher dispatcher;
+        if (mapMsg.isEmpty()) {
+            dispatcher = request.getRequestDispatcher("/view/service/create.jsp");
+            dispatcher.forward(request,response);
+            request.setAttribute("message", "Service was created");
+        } else {
+            request.setAttribute("msgCode", mapMsg.get("serviceCode"));
+            showCreateForm(request,response);
         }
     }
 

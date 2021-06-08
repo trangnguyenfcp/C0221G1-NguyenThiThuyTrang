@@ -68,6 +68,7 @@ public class EmployeeServlet extends HttpServlet {
         int id = (int)(Math.random() * 10000);
 
         Employee employee = new Employee(id, employeeName, positionId, educationDegreeId, divisionId, username,employeeBirthday, employeeIdCard, employeeSalary,employeePhone,employeeEmail, employeeAddress);
+        employeeService.insertUser(employee);
         employeeService.insertEmployee(employee);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/employee/create.jsp");
         request.setAttribute("message", "Employee was created");

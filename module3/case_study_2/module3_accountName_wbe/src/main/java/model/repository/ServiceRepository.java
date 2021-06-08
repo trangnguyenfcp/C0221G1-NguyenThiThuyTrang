@@ -13,7 +13,7 @@ import java.util.List;
 public class ServiceRepository {
     BaseRepository baseRepository = new BaseRepository();
     public static final String INSERT_NEW_SERVICE = "insert into service\n" +
-            "value(?,?,?,?,?,?,?,?,?,?,?);";
+            "value(?,?,?,?,?,?,?,?,?,?,?,?);";
     public static final String SELECT_ALL_SERVICES = "select* from service;";
 
     public void insertService(Service service) throws SQLException {
@@ -21,16 +21,17 @@ public class ServiceRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_SERVICE);
 
         preparedStatement.setInt(1, service.getServiceId());
-        preparedStatement.setString(2, service.getServiceName());
-        preparedStatement.setInt(3, service.getServiceArea());
-        preparedStatement.setDouble(4, service.getServiceCost());
-        preparedStatement.setInt(5, service.getNumberOfFloors());
-        preparedStatement.setInt(6, service.getServiceMaxPeople());
-        preparedStatement.setInt(7, service.getRentTypeId());
-        preparedStatement.setDouble(8, service.getPoolArea());
-        preparedStatement.setString(9, service.getStandardRoom());
-        preparedStatement.setString(10, service.getDescriptionOtherConvenience());
-        preparedStatement.setInt(11, service.getRentTypeId());
+        preparedStatement.setString(2, service.getServiceCode());
+        preparedStatement.setString(3, service.getServiceName());
+        preparedStatement.setInt(4, service.getServiceArea());
+        preparedStatement.setDouble(5, service.getServiceCost());
+        preparedStatement.setInt(6, service.getNumberOfFloors());
+        preparedStatement.setInt(7, service.getServiceMaxPeople());
+        preparedStatement.setInt(8, service.getRentTypeId());
+        preparedStatement.setDouble(9, service.getPoolArea());
+        preparedStatement.setString(10, service.getStandardRoom());
+        preparedStatement.setString(11, service.getDescriptionOtherConvenience());
+        preparedStatement.setInt(12, service.getRentTypeId());
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();
@@ -53,6 +54,7 @@ public class ServiceRepository {
             Service service = null;
             while (resultSet.next()) {
                 int serviceID = resultSet.getInt("service_id");
+                String serviceCode= resultSet.getString("service_code");
                 String serviceName = resultSet.getString("service_name");
                 int serviceArea = resultSet.getInt("service_area");
                 double serviceCost = resultSet.getDouble("service_cost");
@@ -63,7 +65,7 @@ public class ServiceRepository {
                 String standardRoom = resultSet.getString("standard_room");
                 String descriptionOtherConvenience = resultSet.getString("description_other_convenience");
                 int rentTypeId = resultSet.getInt("rent_type_id");
-                service = new Service(serviceID, serviceName, serviceArea, serviceCost, numberOfFloors, serviceMaxPeople, serviceTypeId, poolArea, standardRoom,descriptionOtherConvenience,rentTypeId);
+                service = new Service(serviceID,serviceCode, serviceName, serviceArea, serviceCost, numberOfFloors, serviceMaxPeople, serviceTypeId, poolArea, standardRoom,descriptionOtherConvenience,rentTypeId);
                 services.add(service);
             }
             preparedStatement.close();

@@ -55,4 +55,9 @@ public class EmployeeServiceImp implements EmployeeService {
     public Map<Integer, String> selectAllDivisions() throws SQLException {
         return employeeRepository.selectAllDivisions();
     }
+
+    @Override
+    public void insertUser(Employee employee) throws SQLException {
+        employeeRepository.insertUser(employee);
+    }
 }

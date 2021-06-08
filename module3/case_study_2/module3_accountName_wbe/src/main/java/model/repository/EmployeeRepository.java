@@ -16,6 +16,8 @@ public class EmployeeRepository {
     BaseRepository baseRepository = new BaseRepository();
     public static final String INSERT_NEW_EMPLOYEE = "insert into employee\n" +
             "value(?,?,?,?,?,?,?,?,?,?,?,?);";
+    public static final String INSERT_NEW_USER = "insert into user\n" +
+            "value(?,?);";
     public static final String SELECT_ALL_EMPLOYEES = "select* from employee;";
     public static final String SELECT_ALL_POSITIONS = "select* from position;";
     public static final String SELECT_ALL_EDUCATION_DEGREES = "select* from education_degree;";
@@ -28,7 +30,16 @@ public class EmployeeRepository {
     public static final String FIND_BY_NAME = "select* from employee\n" +
             "where employeer_name like ?;";
 
+    public void insertUser(Employee employee) throws SQLException {
+        Connection connection = baseRepository.connectDataBase();
+        PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_USER);
+        preparedStatement.setString(1, employee.getUsername());
+        preparedStatement.setString(2, "12345678");
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
 
+    }
     public void insertEmployee(Employee employee) throws SQLException {
         Connection connection = baseRepository.connectDataBase();
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_EMPLOYEE);

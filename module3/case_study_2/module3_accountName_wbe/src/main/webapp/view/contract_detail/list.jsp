@@ -280,15 +280,10 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="table">
                 <thead>
                 <tr>
-                    <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-                    </th>
+                    <th>Order</th>
                     <th>Contract Detail ID</th>
                     <th>Contract ID</th>
                     <th>Attach Service ID</th>
@@ -298,14 +293,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items='${contractDetails}' var="contractDetail">
+                <c:forEach items='${contractDetails}' var="contractDetail" varStatus="theCount">
                     <tr>
-                        <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-                        </td>
+                        <td>${theCount.count}</td>
                         <td><c:out value="${contractDetail.contractDetailId}"/></td>
                         <td><c:out value="${contractDetail.contractId}"/></td>
                         <td><c:out value="${contractDetail.attachServiceId}"/></td>
@@ -348,6 +338,17 @@
         document.getElementById("contractDetailId").value=id;
     }
 </script>
-
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#table').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+</script>
 </body>
 </html>
