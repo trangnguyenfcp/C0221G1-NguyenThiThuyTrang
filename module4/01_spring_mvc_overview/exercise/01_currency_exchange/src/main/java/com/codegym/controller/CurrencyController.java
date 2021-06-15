@@ -1,5 +1,8 @@
 package com.codegym.controller;
 
+import com.codegym.service.ExchangeService;
+import com.codegym.service.implement.ExchangeServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,8 @@ public class CurrencyController {
         currencies.put("Dollar (USD)", "22800");
         currencies.put("Pound (GBD)", "32200");
     }
+   @Autowired
+    private ExchangeService exchangeService;
     @GetMapping(value = {"/"})
     public String input(Model model) {
         model.addAttribute("currencies",currencies);
@@ -33,10 +38,7 @@ public class CurrencyController {
         int amountMoney = Integer.parseInt(amount);
         int fromCurrency = Integer.parseInt(from);
         int toCurrency = Integer.parseInt(to);
-        double result1 = (double)(amountMoney*fromCurrency)/toCurrency;
-        System.out.println(result1);
-        double result = Math.round(result1*100)/100D;
-        System.out.println(result);
+        double result=exchangeService.exchangeCurrency(amountMoney,fromCurrency,toCurrency);
         model.addAttribute("currencies",currencies);
         model.addAttribute("amount", amountMoney);
         model.addAttribute("from", fromCurrency);
