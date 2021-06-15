@@ -3,6 +3,11 @@ package model.common;
 import model.bean.Customer;
 import model.repository.CustomerRepository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.*;
+import java.util.Date;
+
 public class Validate {
     public static final String CUSTOMER_CODE = "^(KH-)[0-9]{4}$";
     public static final String PHONE = "^(\\(84\\)\\+|0)9[0|1][\\d]{7}$";
@@ -10,7 +15,10 @@ public class Validate {
     public static final String EMAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     public static final String NUMBER = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     public static final String SERVICE_CODE = "^[1-9][\\d]*$";
-
+    public static final String DOUBLE = "^[0-9]+\\.?[0-9]*$";
+    public static final String NAME = "^[a-zA-Z]+(([a-zA-Z ])?[a-zA-Z]*)*$";
+    public static final String DAY_DD_MM_YYYY = "^([0][1-9]|[12][0-9]|[3][01])[/]([0][1-9]|[1][012])[/]([1][0-9]{3}|[2][0-9]{3})$";
+    public static final String DAY_YYYY_MM_DD = "^(19[0-9]{2}|20[0-9]{2})-[01][0-9]-[0123][0-9]$";
     public static String validateCustomerCode(String customerCode) {
         String msg = "";
         if ("".equals(customerCode)) {
@@ -56,4 +64,35 @@ public class Validate {
         }
         return msg;
     }
+    public static String validateName(String name) {
+        String msg = "";
+        if ("".equals(name)) {
+            msg = "Please input name";
+        } else if (!name.matches(NAME)) {
+            msg = "Name is invalid";
+        }
+        return msg;
+    }
+    public static String validateBirthday(String birthday) throws ParseException {
+        String msg = "";
+
+        if ("".equals(birthday)) {
+            msg = "Please input birthday";
+        } else {
+            Date birthday1;
+            LocalDate birthDate;
+            LocalDate now;
+            try {
+                birthday1 = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
+                Instant instant = birthday1.toInstant();
+                birthDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+                now = java.time.LocalDate.now();
+                if (Period.between(birthDate,now).getYears()<=18) {
+                    msg = "Birthday is invalid";
+                }
+            }catch (ParseException e){
+                msg = "Birthday is invalid";
+            }
+        }
+        return msg;}
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class BaseRepository {
     Connection connectDataBase() {
         // Khai báo URL (port mysql://localhost:3306 + tên database: manager_students(thay đổi)
-        final String URL = "jdbc:mysql://localhost:3306/furama_management?useSSL=false";
+        final String URL = "jdbc:mysql://localhost:3306/employee_management?useSSL=false";
         // khai báo user: root (mặt định của mysql)
         final String USER = "root";
         // khai báo password (lúc bạn cài đặt mysql server)
