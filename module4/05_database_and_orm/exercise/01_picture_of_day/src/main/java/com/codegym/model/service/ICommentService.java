@@ -1,11 +1,10 @@
-package com.codegym.model.repository;
+package com.codegym.model.service;
 
 import com.codegym.model.entity.Comment;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
-public interface ICommentRepository {
+
+public interface ICommentService {
     List<Comment> findAll();
 
     Comment findOne(int id);
