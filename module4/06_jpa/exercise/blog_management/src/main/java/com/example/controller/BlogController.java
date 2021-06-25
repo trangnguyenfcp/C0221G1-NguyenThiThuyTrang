@@ -20,16 +20,11 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
     @Autowired
-    ICategoryService categoryService;
+    private ICategoryService categoryService;
 
     @ModelAttribute("categories")
     public Iterable<Category> provinces() {
         return categoryService.findAll();
-    }
-
-    @ModelAttribute("blogCategories")
-    public List<Category> blogCategories() {
-        return categoryService.findAllCategoriesOfBlog();
     }
 
     @GetMapping("/blogs")
@@ -76,12 +71,6 @@ public class BlogController {
         Set<Category> categorySet = blog.getBlogCategories();
         String[] categories = new String[categorySet.size()];
 
-        for (int i = 0; i < categorySet.size(); i++) {
-            for (Category category : categorySet) {
-                categories[i] = String.valueOf(category.getId());
-                break;
-            }
-        }
         DAO dao = new DAO(blog.getTittle(), blog.getSummary(), blog.getContent(), categories);
         if (blog != null) {
             ModelAndView modelAndView = new ModelAndView("blog/edit");

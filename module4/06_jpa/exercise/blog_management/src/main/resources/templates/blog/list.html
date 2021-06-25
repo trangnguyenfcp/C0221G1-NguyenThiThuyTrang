@@ -17,7 +17,7 @@
 
             <a th:href="@{/view-blog/__${blog.id}__ }"><h4 th:text="${blog.tittle}"></h4></a>
             <p th:text="${blog.summary}"></p>
-        <th:block th:each = "blogCategory:${blogCategories}">
+        <th:block th:each = "blogCategory : ${blog.blogCategories}">
             <span th:text = "${blogCategory.name}"></span>
         </th:block>
         <br>
