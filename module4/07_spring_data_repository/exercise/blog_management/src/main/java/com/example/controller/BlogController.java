@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.model.entity.Blog;
 import com.example.model.entity.BlogCategory;
 import com.example.model.entity.Category;
+import com.example.model.entity.DAO;
 import com.example.model.service.IBlogService;
 import com.example.model.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,27 +13,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class BlogController {
     @Autowired
     private IBlogService blogService;
     @Autowired
-    ICategoryService categoryService;
+    private ICategoryService categoryService;
+
     @ModelAttribute("categories")
-    public Iterable<Category> provinces(){
+    public Iterable<Category> provinces() {
         return categoryService.findAll();
     }
-    @ModelAttribute("blogCategories")
-    public List<Category> blogCategories(){
-        return categoryService.findAllCategoriesOfBlog();
-    }
+
     @GetMapping("/blogs")
     public ModelAndView listCustomers(@RequestParam("search") Optional<String> search, Pageable pageable) {
         Page<Blog> blogs;
-        if(search.isPresent()){
+        if (search.isPresent()) {
             blogs = blogService.findAllByTittleContaining(search.get(), pageable);
         } else {
             blogs = blogService.findAll(pageable);
@@ -41,29 +39,43 @@ public class BlogController {
         modelAndView.addObject("blogs", blogs);
         return modelAndView;
     }
+
     @GetMapping("/create-blog")
     public ModelAndView showCreateForm() {
         ModelAndView modelAndView = new ModelAndView("/blog/create");
-        modelAndView.addObject("blogCategory", new BlogCategory());
-        modelAndView.addObject("blog", new Blog());
+        modelAndView.addObject("dao", new DAO());
+
+
         return modelAndView;
     }
 
     @PostMapping("/create-blog")
-    public ModelAndView saveCustomer(@ModelAttribute("blog") Blog blog) {
+    public ModelAndView saveCustomer(@ModelAttribute("dao") DAO dao) {
+        Blog blog = new Blog(dao.getTittle(), dao.getSummary(), dao.getContent());
         blogService.save(blog);
-        ModelAndView modelAndView = new ModelAndView("/blog/create");
+        Set<Category> categories = new HashSet<>();
+        for (String id : dao.getBlogCategories()) {
+            categories.add(categoryService.findById(Long.parseLong(id)));
+        }
+        blog.setBlogCategories(categories);
+        ModelAndView modelAndView = new ModelAndView("blog/create");
         modelAndView.addObject("blog", new Blog());
         modelAndView.addObject("message", "New blog created successfully");
         return modelAndView;
     }
+
     @GetMapping("/edit-blog/{id}")
     public ModelAndView showEditForm(@PathVariable Long id) {
         Blog blog = blogService.findById(id);
+
+        Set<Category> categorySet = blog.getBlogCategories();
+        String[] categories = new String[categorySet.size()];
+
+        DAO dao = new DAO(blog.getTittle(), blog.getSummary(), blog.getContent(), categories);
         if (blog != null) {
-            ModelAndView modelAndView = new ModelAndView("/blog/edit");
-            modelAndView.addObject("blog", blog);
-            modelAndView.addObject("categories",categoryService.findAll());
+            ModelAndView modelAndView = new ModelAndView("blog/edit");
+            modelAndView.addObject("dao", dao);
+            modelAndView.addObject("categories", categoryService.findAll());
             return modelAndView;
         } else {
             ModelAndView modelAndView = new ModelAndView("/error.404");
@@ -72,10 +84,16 @@ public class BlogController {
     }
 
     @PostMapping("/edit-blog")
-    public ModelAndView updateCustomer(@ModelAttribute("blog") Blog blog) {
+    public ModelAndView updateCustomer(@ModelAttribute("dao") DAO dao) {
+        Blog blog = new Blog(dao.getTittle(), dao.getSummary(), dao.getContent());
+        Set<Category> categories = new HashSet<>();
+        for (String id : dao.getBlogCategories()) {
+            categories.add(categoryService.findById(Long.parseLong(id)));
+        }
+        blog.setBlogCategories(categories);
         blogService.save(blog);
         ModelAndView modelAndView = new ModelAndView("/blog/edit");
-        modelAndView.addObject("blog", blog);
+        modelAndView.addObject("dao", dao);
         modelAndView.addObject("message", "Blog updated successfully");
         return modelAndView;
     }

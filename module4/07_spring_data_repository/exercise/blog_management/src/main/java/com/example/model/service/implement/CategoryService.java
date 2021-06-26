@@ -42,7 +42,9 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public List<Category> findAllCategoriesOfBlog() {
-        return iCategoryRepository.findAllCategoriesOfBlog();
+    public List<Category> findAllCategoriesOfBlog(String id) {
+        return iCategoryRepository.findAllCategoriesOfBlog(id);
     }
+
+
 }

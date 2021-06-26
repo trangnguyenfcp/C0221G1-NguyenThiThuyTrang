@@ -7,12 +7,12 @@
 <body>
 <h1>Create blog</h1>
 <p>
-    <a href="/customers">Blog list</a>
+    <a href="/blogs">Blog list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/create-blog}" th:object="${blog}" method="post">
+<form th:action="@{/create-blog}" th:object="${dao}" method="post">
     <table>
         <tr>
             <td>Tittle</td>
@@ -27,12 +27,11 @@
             <td><input type="text" th:field="*{content}"/></td>
         </tr>
         <tr>
-            <td>Category:</td>
-            <td>
-                <select>
-                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
-                </select>
-            </td>
+            <td>Categories:</td>
+                <td th:each = "category:${categories}">
+                    <input  th:field="*{blogCategories}"  type="checkbox" th:value="${category.id}"/>
+                    <label th:for="${#ids.prev('blogCategories')}" th:text = "${category.name}"></label>
+                </td>
         </tr>
         <tr>
             <td></td>

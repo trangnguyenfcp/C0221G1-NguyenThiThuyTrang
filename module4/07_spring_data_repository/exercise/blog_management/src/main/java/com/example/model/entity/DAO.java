@@ -5,40 +5,18 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "blog")
-public class Blog {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(columnDefinition = "TEXT")
+public class DAO {
     private String tittle;
-    @Column(columnDefinition = "TEXT")
     private String summary;
-    @Column(columnDefinition = "TEXT")
     private String content;
-    @ManyToMany()
-    @JoinTable(name = "blog_category", joinColumns = @JoinColumn(name = "blog_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    @JsonManagedReference
-    private Set<Category> blogCategories;
+    private String[] blogCategories;
 
-
-
-    public Blog(){
-
-    }
-    public Blog(String tittle, String summary, String content) {
+    public DAO(){}
+    public DAO(String tittle, String summary, String content, String[] blogCategories) {
         this.tittle = tittle;
         this.summary = summary;
         this.content = content;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.blogCategories = blogCategories;
     }
 
     public String getTittle() {
@@ -65,11 +43,11 @@ public class Blog {
         this.content = content;
     }
 
-    public Set<Category> getBlogCategories() {
+    public String[] getBlogCategories() {
         return blogCategories;
     }
 
-    public void setBlogCategories(Set<Category> blogCategories) {
+    public void setBlogCategories(String[] blogCategories) {
         this.blogCategories = blogCategories;
     }
 }

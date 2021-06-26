@@ -16,5 +16,5 @@ public interface ICategoryService {
 
     void delete(Long id);
     Page<Category> findAllByNameContaining(String name, Pageable pageable);
-    List<Category> findAllCategoriesOfBlog();
+    List<Category> findAllCategoriesOfBlog(String id);
 }
