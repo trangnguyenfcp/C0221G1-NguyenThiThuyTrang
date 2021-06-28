@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/home">Back to home</a>
+<h2>Enter borrowed code</h2>
+<form th:action="@{return}" method = "post" th:object="${borrowedCode}">
+<input type="text" name="id" th:field="*{id}">
+    <input type="submit" value="Return book">
+</form>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+</body>
+</html>
