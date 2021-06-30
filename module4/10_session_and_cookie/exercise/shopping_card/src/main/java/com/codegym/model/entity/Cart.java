@@ -64,4 +64,21 @@ public class Cart {
         }
         return payment;
     }
+    public void removeProduct(Product product){
+        this.products.remove(product);
+    }
+    public void changeProductQuantity(Product product, String action){
+        Map.Entry<Product, Integer> itemEntry = selectItemInCart(product);
+        Integer newQuantity;
+        if(action.equals("+")){
+            newQuantity = itemEntry.getValue() + 1;
+        }else {
+            newQuantity = itemEntry.getValue() - 1;
+        }
+        if(newQuantity == 0){
+            removeProduct(product);
+        }else {
+            products.replace(itemEntry.getKey(),newQuantity);
+        }
+    }
 }

@@ -10,14 +10,16 @@ public class Product {
     private Long id;
     private String name;
     private double price;
+    private String image;
     private String description;
 
     public Product() {
     }
 
-    public Product(String name, double price, String description) {
+    public Product(String name, double price,String image, String description) {
         this.name = name;
         this.price = price;
+        this.image = image;
         this.description = description;
     }
 
@@ -51,5 +53,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
