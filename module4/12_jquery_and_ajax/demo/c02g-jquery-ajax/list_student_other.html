@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List student other</title>
+    <link rel="stylesheet" href="css/mdb.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row w-50 mx-auto">
+            <div class="col-lg-12">
+                <h2>List student other</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date of birth</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyStudent">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script>
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/studentRest/",
+            success: function(resultSuccess){
+                console.log("Success");
+                let resultHTML = "";
+                for (let i = 0; i < resultSuccess.length; i++) {
+                    resultHTML += "<tr>";
+                    resultHTML += "<th scope='row'>" + (i + 1) + "</th>";
+                    resultHTML += "<td>" + resultSuccess[i].id + "</td>";
+                    resultHTML += "<td>" + resultSuccess[i].name + "</td>";
+                    resultHTML += "<td>" + resultSuccess[i].dateOfBirth + "</td>";
+                    resultHTML += "</tr>";
+                }
+
+                console.log(resultHTML);
+                // innerHTML
+                $("#tableBodyStudent").html(resultHTML);
+            },
+            error: function(resultError) {
+                console.log("Error: ");
+                console.log(resultError);
+            }
+        });
+    </script>
+
+</body>
+</html>

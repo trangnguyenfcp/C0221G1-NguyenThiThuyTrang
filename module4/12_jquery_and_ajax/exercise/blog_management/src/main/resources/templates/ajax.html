@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Blogs</h1>
+<form id="search">
+    Search by tittle:
+    <input name="search" id="searchTittle" type="text"/>
+    <input type="submit" id="btnSubmit" value="Search"/>
+</form>
+<h1>Blog List</h1>
+<table id="blogTable">
+    <thead>
+    <tr>
+        <th>Tittle</th>
+        <th>Summary</th>
+        <th>Content</th>
+    </tr>
+    </thead>
+    <tbody id="tableBodyBlog">
+
+    </tbody>
+</table>
+    <input type="submit" id="btn" value="More"/>
+    <script stype="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script>
+        let page = 3;
+        $("#btn").click(function (){
+
+            // goi ajax
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                url: "http://localhost:8080/api/blogs/"+page,
+
+
+                //xử lý khi thành công
+                success: function (resultSuccess){
+                    console.log(resultSuccess);
+                    resultSuccess = resultSuccess.content;
+                    let resultHTML ="";
+                    for (let i=0; i< resultSuccess.length; i++){
+                        resultHTML += "<tr>";
+                        resultHTML += "<td>" + resultSuccess[i].tittle +"</td>";
+                        resultHTML += "<td>" + resultSuccess[i].summary +"</td>";
+                        resultHTML += "<td>" + resultSuccess[i].content +"</td>";
+                        resultHTML += "</tr>";
+                    }
+
+
+                    $("#tableBodyBlog").html(resultHTML);
+                },
+                error: function (resultError){
+                    console.log(resultError)
+                }
+            });
+            //chặn sự kiện mặc định của thẻ
+            event.preventDefault();
+            page = page+1;
+        });
+        $("#btnSubmit").click(function (){
+            let keyword = $("#searchTittle").val();
+            // goi ajax
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                url: "http://localhost:8080/api/blog/search/"+keyword,
+
+
+                //xử lý khi thành công
+                success: function (resultSuccess){
+                    console.log(resultSuccess);
+                    let resultHTML ="";
+                   for (let i=0; i< resultSuccess.length; i++){
+                       resultHTML += "<tr>";
+                       resultHTML += "<td>" + resultSuccess[i].tittle +"</td>";
+                       resultHTML += "<td>" + resultSuccess[i].summary +"</td>";
+                       resultHTML += "<td>" + resultSuccess[i].content +"</td>";
+                       resultHTML += "</tr>";
+                   }
+
+
+                    $("#tableBodyBlog").html(resultHTML);
+                },
+                error: function (resultError){
+                    console.log(resultError)
+                }
+            });
+            //chặn sự kiện mặc định của thẻ
+            event.preventDefault();
+        });
+    </script>
+</table>
+</body>
+</html>

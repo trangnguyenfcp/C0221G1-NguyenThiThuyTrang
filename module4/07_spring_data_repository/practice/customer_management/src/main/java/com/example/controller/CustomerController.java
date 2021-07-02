@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,7 +27,7 @@ public class CustomerController {
         return provinceService.findAll();
     }
     @GetMapping("/customers")
-    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search, Pageable pageable) {
+    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search,@PageableDefault(value = 2) Pageable pageable ) {
         Page<Customer> customers;
         if(search.isPresent()){
             customers = customerService.findAllByFirstNameContaining(search.get(), pageable);

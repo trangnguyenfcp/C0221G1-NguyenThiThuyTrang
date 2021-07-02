@@ -6,13 +6,14 @@ import com.example.model.service.IBlogService;
 import com.example.model.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class BlogRestController {
@@ -51,5 +52,21 @@ public class BlogRestController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blogs, HttpStatus.OK);
+    }
+    @GetMapping(value = "/blog/search/{keyword}")
+    public ResponseEntity<List<Blog>> findBlogByTittle(@PathVariable String keyword){
+        List<Blog> blogs = blogService.findAllByTittleContaining(keyword);
+        if (blogs.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogs, HttpStatus.OK);
+    }
+    @GetMapping(value = "/blogs/{page}")
+    public ResponseEntity<Page<Blog>> findPaginated(@PathVariable int page ){
+        Page<Blog> resultPage = blogService.findAll(PageRequest.of(page,2));
+        if (resultPage.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(resultPage, HttpStatus.OK);
     }
 }

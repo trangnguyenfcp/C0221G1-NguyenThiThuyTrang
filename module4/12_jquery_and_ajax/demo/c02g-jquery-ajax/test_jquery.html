@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="pHello">Hello World!</p>
+    <button id="btnChangeColor">Change color</button>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        // function changeColor() {
+        //     let pTag = document.getElementById("pHello");
+        //     pTag.style.color = "red";
+        // }
+
+        $("#btnChangeColor").click(function() {
+            $("#pHello").css("color", "white");
+            $("#pHello").css("background-color", "red");
+        });
+    </script>
+
+</body>
+</html>

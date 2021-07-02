@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create student other</title>
+    <link rel="stylesheet" href="css/mdb.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row w-50 mx-auto">
+            <div class="col-lg-12">
+                <h2>Create student other</h2>
+                <div class="form-outline mb-4">
+                    <input type="text" id="inputName" class="form-control" />
+                    <label class="form-label" for="inputName">Name</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="date" id="inputDateOfBirth" class="form-control" />
+                </div>
+
+                <select id="selectClass" class="form-control mb-4">
+                </select>
+
+                <button id="btnCreate" type="button" class="btn btn-primary btn-block">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script>
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/classStudentRest/",
+            success: function(resultSuccess){
+                // console.log("Success");
+                // console.log(resultSuccess);
+                let resultHTML = "";
+                for (let i = 0; i < resultSuccess.length; i++) {
+                    resultHTML += "<option value='" + resultSuccess[i].id + "'>"
+                        + resultSuccess[i].name + "</option>";
+                }
+
+                // console.log(resultHTML);
+                // // innerHTML
+                $("#selectClass").html(resultHTML);
+            },
+            error: function(resultError) {
+                console.log("Error: ");
+                console.log(resultError);
+            }
+        });
+
+        $("#btnCreate").click(function() {
+
+            // .value
+            let studentName = $("#inputName").val();
+            let studentDateOfBirth = $("#inputDateOfBirth").val();
+            let selectClass = $("#selectClass").val();
+
+            let studentObj = {
+                name: studentName,
+                dateOfBirth: studentDateOfBirth,
+                classStudent: {
+                    id: selectClass
+                }
+            }
+
+            console.log(studentObj);
+
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST", //GET, DELETE, PUT...
+                url: "http://localhost:8080/studentRest/create",
+                data: JSON.stringify(studentObj),
+                success: function(resultSuccess){
+                    console.log(resultSuccess);
+                },
+                error: function(resultError) {
+                    console.log(resultError);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

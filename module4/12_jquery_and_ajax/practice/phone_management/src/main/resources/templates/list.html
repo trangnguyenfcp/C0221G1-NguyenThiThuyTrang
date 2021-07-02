@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Smartphone</title>
+
+</head>
+<body>
+<form id="add-smartphone">
+    <table>
+        <tr>
+            <td>Producer:</td>
+            <td><input type="text" id="producer" placeholder="producer"></td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td><input type="text" id="model" placeholder="model"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" id="price" placeholder="price"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" id="btnCreate"></td>
+        </tr>
+    </table>
+</form>
+<h1>Smartphone List</h1>
+<table id="smartphoneList">
+    <thead>
+    <tr>
+        <th>Producer</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="tableBodyProduct">
+
+    </tbody>
+</table>
+<script stype="text/javascript"
+        src="jquery-3.6.0.min.js"></script>
+<script>
+    $("#btnCreate").click(function () {
+        let producer = $("#producer").val();
+        let model = $("#model").val();
+        let price = $("#price").val();
+        let productObj = {
+            producer: producer,
+            model: model,
+            price: price
+        }
+        console.log(productObj);
+        // goi ajax
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: "http://localhost:8080/smartphones",
+            data: JSON.stringify(productObj),
+            //tên API
+
+            //xử lý khi thành công
+            success: function (resultSuccess) {
+                console.log(resultSuccess);
+            },
+            error: function (resultError) {
+                console.log(resultError)
+            }
+        });
+        //chặn sự kiện mặc định của thẻ
+        event.preventDefault();
+    });
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/smartphones",
+        success: function (resultSuccess) {
+            console.log("success");
+            let resultHTML = "";
+            for (let i = 0; i < resultSuccess.length; i++) {
+                resultHTML += "<tr>";
+                resultHTML += "<td>" + resultSuccess[i].model + "</td>";
+                resultHTML += "<td>" + resultSuccess[i].producer + "</td>";
+                resultHTML += "<td>" + resultSuccess[i].price + "</td>";
+                resultHTML += "<td id='" + resultSuccess[i].id + "' onclick='deleteProduct(" + resultSuccess[i].id + ")'><input type='button' value='" + resultSuccess[i].id + "'></input></td>";
+                resultHTML += "</tr>";
+            }
+            $("#tableBodyProduct").html(resultHTML);
+        },
+        error: function (resultError) {
+            console.log(resultError);
+        }
+    })
+
+    //sư kiện nào thực hiện Ajax
+    function deleteProduct(id) {
+        console.log(id);
+        $.ajax({
+            type: "DELETE",
+            //tên API
+            url: "http://localhost:8080/smartphones/" + id,
+            //xử lý khi thành công
+            success: function (data) {
+                console.log("success");
+            }
+
+        });
+        event.preventDefault();
+        //chặn sự kiện mặc định của thẻ
+    }
+</script>
+</body>
+</html>
