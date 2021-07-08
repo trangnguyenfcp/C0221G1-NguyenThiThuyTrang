@@ -1,0 +1,94 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page">
+<head th:insert = "~{header_footer :: head}">
+    <title>Create new Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:insert="~{header_footer :: #header}"></div>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Create new service</h1>
+            <p>
+                <span th:if="${message != null}" th:text="${message}" class="message text-success"></span>
+            </p>
+            <p>
+                <a href="/service">Back to service list</a>
+            </p>
+            <form method="post" th:action="@{create-service}" th:object="${service}">
+                <div class="form-group">
+                    <label for="serviceCode" class="form-label">Service Code</label>
+                    <input type="text" class="form-control" name="serviceCode" id="serviceCode"
+                           th:field="*{serviceCode}">
+                </div>
+                <div class="form-group">
+                    <label for="serviceName" class="form-label">Service Name</label>
+                    <input type="text" class="form-control" name="serviceName" id="serviceName"
+                           th:field="*{serviceName}">
+                </div>
+                <div class="form-group">
+                    <label for="serviceType" class="form-label">Service Type</label>
+                    <select class="form-control" id="serviceType" name="serviceType" th:field="*{serviceType}">
+                        <option th:each="serviceType : ${serviceTypes}" th:value="${serviceType.serviceTypeId}"
+                                th:text="${serviceType.serviceTypeName}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rentType" class="form-label">Rent Type</label>
+                    <select class="form-control" id="rentType" name="rentType" th:field="*{rentType}">
+                        <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
+                                th:text="${rentType.rentTypeName}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceArea" class="form-label">Service Area</label>
+                    <input type="text" class="form-control" name="serviceArea" id="serviceArea"
+                           th:field="*{serviceArea}">
+                </div>
+                <div class="form-group">
+                    <label for="serviceCost" class="form-label">Service Cost</label>
+                    <input type="text" class="form-control" name="serviceCost" id="serviceCost"
+                           th:field="*{serviceCost}">
+                </div>
+                <div class="form-group">
+                    <label for="serviceMaxPeople" class="form-label">Service Max People</label>
+                    <input type="text" class="form-control" name="serviceMaxPeople" id="serviceMaxPeople"
+                           th:field="*{serviceMaxPeople}">
+                </div>
+                <div class="form-group">
+                    <label for="numberOfFloor" class="form-label">Number Of Floor</label>
+                    <input type="text" class="form-control" name="numberOfFloor" id="numberOfFloor"
+                           th:field="*{numberOfFloor}">
+                </div>
+                <div class="form-group">
+                    <label for="poolArea" class="form-label">Pool Area</label>
+                    <input type="text" class="form-control" name="poolArea" id="poolArea"
+                           th:field="*{poolArea}">
+                </div>
+                <div class="form-group">
+                    <label for="standardRoom" class="form-label">Standard Room</label>
+                    <input type="text" class="form-control" name="standardRoom" id="standardRoom"
+                           th:field="*{standardRoom}">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description Other Convenience</label>
+                    <input type="text" class="form-control" name="description" id="description"
+                           th:field="*{description}">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:insert="~{header_footer :: #footer}"></div>
+</body>
+</html>

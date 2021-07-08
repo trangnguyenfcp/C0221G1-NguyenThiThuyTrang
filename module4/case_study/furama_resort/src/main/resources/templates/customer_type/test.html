@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block th:each="customerType, count : ${customerTypes}">
+  <tr>
+    <td th:text = "${count.count}"></td>
+    <td th:text = "${customerType.customerTypeId}"></td>
+    <td th:text = "${customerType.customerTypeName}"></td>
+    <td th:each = "customer : ${customerList}">
+      <span th:if ="${customerType.customerTypeId == customer.customerType.customerTypeId}" th:text = "${customer.customerName}"></span>
+    </td>
+
+  </tr>
+</th:block>
+</body>
+</html>
