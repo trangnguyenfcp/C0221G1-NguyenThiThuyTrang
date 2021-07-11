@@ -15,72 +15,77 @@
 <div class="row">
     <div class="container d-flex justify-content-center">
         <div class="col-6 d-flex flex-column">
-            <h1>Create new service</h1>
+            <h1>Create new employee</h1>
             <p>
                 <span th:if="${message != null}" th:text="${message}" class="message text-success"></span>
             </p>
             <p>
-                <a href="/service">Back to service list</a>
+                <a href="/employee">Back to employee list</a>
             </p>
-            <form method="post" th:action="@{create-service}" th:object="${service}">
+            <form method="post" th:action="@{create-employee}" th:object="${employee}">
                 <div class="form-group">
-                    <label for="serviceCode" class="form-label">Service Code</label>
-                    <input type="text" class="form-control" name="serviceCode" id="serviceCode"
-                           th:field="*{serviceCode}">
+                    <label for="employeeName" class="form-label">Employee Name</label>
+                    <input type="text" class="form-control" name="employeeName" id="employeeName"
+                           th:field="*{employeeName}">
                 </div>
                 <div class="form-group">
-                    <label for="serviceName" class="form-label">Service Name</label>
-                    <input type="text" class="form-control" name="serviceName" id="serviceName"
-                           th:field="*{serviceName}">
-                </div>
-                <div class="form-group">
-                    <label for="serviceType" class="form-label">Service Type</label>
-                    <select class="form-control" id="serviceType" name="serviceType" th:field="*{serviceType}">
-                        <option th:each="serviceType : ${serviceTypes}" th:value="${serviceType.serviceTypeId}"
-                                th:text="${serviceType.serviceTypeName}"></option>
+                    <label for="positionId" class="form-label">Position</label>
+                    <select class="form-control" id="PositionId" name="PositionId" th:field="*{position}">
+                        <option th:each="position : ${positions}" th:value="${position.positionId}"
+                                th:text="${position.positionName}"></option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="rentType" class="form-label">Rent Type</label>
-                    <select class="form-control" id="rentType" name="rentType" th:field="*{rentType}">
-                        <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
-                                th:text="${rentType.rentTypeName}"></option>
+                    <label for="educationDegreeId" class="form-label">Education Degree</label>
+                    <select class="form-control" id="educationDegreeId" name="educationDegreeId" th:field="*{educationDegree}">
+                        <option th:each="educationDegree : ${educationDegrees}" th:value="${educationDegree.educationDegreeId}"
+                                th:text="${educationDegree.educationDegreeName}"></option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="serviceArea" class="form-label">Service Area</label>
-                    <input type="text" class="form-control" name="serviceArea" id="serviceArea"
-                           th:field="*{serviceArea}">
+                    <label for="divisionId" class="form-label">Division</label>
+                    <select class="form-control" id="divisionId" name="divisionId" th:field="*{division}">
+                        <option th:each="division : ${divisions}" th:value="${division.divisionId}"
+                                th:text="${division.divisionName}"></option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="serviceCost" class="form-label">Service Cost</label>
-                    <input type="text" class="form-control" name="serviceCost" id="serviceCost"
-                           th:field="*{serviceCost}">
+                    <label for="username" class="form-label">Username</label>
+                    <select class="form-control" id="username" name="username" th:field="*{username}">
+                        <option th:each="username : ${usernames}" th:value="${username.username}"
+                                th:text="${username.usernameName}"></option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="serviceMaxPeople" class="form-label">Service Max People</label>
-                    <input type="text" class="form-control" name="serviceMaxPeople" id="serviceMaxPeople"
-                           th:field="*{serviceMaxPeople}">
+                    <label for="employeeBirthday" class="form-label">Employee Birthday</label>
+                    <input type="date" class="form-control" name="employeeBirthday" id="employeeBirthday"
+                           th:field="*{employeeBirthday}">
                 </div>
                 <div class="form-group">
-                    <label for="numberOfFloor" class="form-label">Number Of Floor</label>
-                    <input type="text" class="form-control" name="numberOfFloor" id="numberOfFloor"
-                           th:field="*{numberOfFloor}">
+                    <label for="employeeIdCard" class="form-label">Employee Id Card</label>
+                    <input type="text" class="form-control" name="employeeIdCard" id="employeeIdCard"
+                           th:field="*{employeeIdCard}">
                 </div>
                 <div class="form-group">
-                    <label for="poolArea" class="form-label">Pool Area</label>
-                    <input type="text" class="form-control" name="poolArea" id="poolArea"
-                           th:field="*{poolArea}">
+                    <label for="employeeSalary" class="form-label">Employee Salary</label>
+                    <input type="text" class="form-control" name="employeeSalary" id="employeeSalary"
+                           th:field="*{employeeSalary}">
+                </div>
+
+                <div class="form-group">
+                    <label for="employeePhone" class="form-label">Employee Phone</label>
+                    <input type="text" class="form-control" name="employeePhone" id="employeePhone"
+                           th:field="*{employeePhone}">
                 </div>
                 <div class="form-group">
-                    <label for="standardRoom" class="form-label">Standard Room</label>
-                    <input type="text" class="form-control" name="standardRoom" id="standardRoom"
-                           th:field="*{standardRoom}">
+                    <label for="employeeEmail" class="form-label">Employee Email</label>
+                    <input type="text" class="form-control" name="employeeEmail" id="employeeEmail"
+                           th:field="*{employeeEmail}">
                 </div>
                 <div class="form-group">
-                    <label for="description" class="form-label">Description Other Convenience</label>
-                    <input type="text" class="form-control" name="description" id="description"
-                           th:field="*{description}">
+                    <label for="employeeAddress" class="form-label">Employee Address</label>
+                    <input type="text" class="form-control" name="employeeAddress" id="employeeAddress"
+                           th:field="*{employeeAddress}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Create</button>
