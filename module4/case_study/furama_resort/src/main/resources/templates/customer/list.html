@@ -1,7 +1,26 @@
 
 <html lang="en">
 <meta charset="UTF-8">
-<head th:insert = "~{header_footer :: head}">
+<head>
+    <!-- Favicons -->
+    <link href="/css/assets/img/favicon.png" rel="icon">
+    <link href="/css/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/css/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/css/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/css/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/css/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/css/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/assets/css/style.css" rel="stylesheet">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
@@ -265,6 +284,7 @@
             });
         });
     </script>
+
 </head>
 <body>
 <div th:replace = "~{header_footer :: #header}"></div>
@@ -277,13 +297,13 @@
                         <h2>Manage <b>Customer</b></h2>
                     </div>
                     <div class="col-sm-4">
-                    <form>
+                    <form action="/customer">
                         <input name="search" type="text"/>
-                        <input type="submit" value="Search"/>
+                        <input type="submit" value="search"/>
                     </form>
                     </div>
                     <div class="col-sm-4">
-                        <a href="/create-customer" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a>
+                        <a href="/customer/create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a>
                     </div>
                 </div>
             </div>
@@ -312,17 +332,18 @@
                         <td th:text="${customer.customerEmail}"></td>
                         <td th:text = "${customer.customerAddress}"></td>
                         <td>
-                            <a href="/customer?action=edit&id=${customer.customerId}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" onclick="sendDataToModal('${customer.customerId}','${customer.customerName}')" title="Delete">&#xE872;</i></a>
+                            <a th:href="@{/customer/edit/{id}(id = ${customer.customerId})}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <button type="button" th:onclick="|sendDataToModal(${customer.customerId})|" class="btn" data-toggle="modal" data-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
+
                         </td>
                     </tr>
                 </th:block>
                 </tbody>
             </table>
             <div>
-                <a th:href="@{'/customer'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>
+                <a th:href="@{'/customer'(page=${customers.number - 1}, search = ${searchValue})}" th:if="${customers.hasPrevious()}">Previous</a>
                 <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
-                <a th:href="@{'/customer'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
+                <a th:href="@{'/customer'(page=${customers.number + 1}, search = ${searchValue})}" th:if="${customers.hasNext()}">Next</a>
             </div>
         </div>
         </div>
@@ -333,13 +354,13 @@
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" action="/customer?action=delete">
+            <form method="get" th:action="@{/customer/delete}">
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Customer</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <input hidden type="text" name="customerId" id="customerId">
+                    <input hidden type="text" name="id" id="customerId">
                     <p>Are you sure you want to delete these Records?</p>
                     <p class="text-warning"><small>This action cannot be undone.</small></p>
                 </div>
@@ -353,16 +374,9 @@
 </div>
 <div th:replace = "~{header_footer :: #footer}"></div>
 <script>
-    function sendDataToModal(id, name) {
+    function sendDataToModal(id) {
         document.getElementById("customerId").value=id;
     }
-    $(document).ready(function() {
-        $('#table').dataTable( {
-            "dom": 'lrtip',
-            "lengthChange": false,
-            "pageLength": 5
-        } );
-    } );
 </script>
 
 </body>

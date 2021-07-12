@@ -281,13 +281,13 @@
                         <h2>Manage <b>Employee</b></h2>
                     </div>
                     <div class="col-sm-4">
-                        <form>
+                        <form action="/employee">
                             <input name="search" type="text"/>
                             <input type="submit" value="Search"/>
                         </form>
                     </div>
                     <div class="col-sm-4">
-                        <a href="/create-customer" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                        <a href="/employee/create" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
                     </div>
                 </div>
             </div>
@@ -324,9 +324,9 @@
                 </tbody>
             </table>
             <div>
-                <a th:href="@{'/employee'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">Previous</a>
+                <a th:href="@{'/employee'(page=${employees.number - 1}, search = ${searchValue})}" th:if="${employees.hasPrevious()}">Previous</a>
                 <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
-                <a th:href="@{'/employee'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+                <a th:href="@{'/employee'(page=${employees.number + 1}, search = ${searchValue})}" th:if="${employees.hasNext()}">Next</a>
             </div>
         </div>
     </div>

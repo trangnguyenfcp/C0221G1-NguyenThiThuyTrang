@@ -1,0 +1,96 @@
+<html>
+<head th:insert="~{header_footer :: head}">
+    <title>Create new service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:replace="~{header_footer :: #header}"></div>
+<div class="row">
+    <div class="container d-flex justify-content-center">
+        <div class="col-6 d-flex flex-column">
+            <h1>Create new contract</h1>
+            <span class="message" th:if="${message!=null}" th:text="${message}"></span>
+            <p>
+                <a href="/customer">Back to customer list</a>
+            </p>
+            <div>
+                <form method="post" th:action="@{/customer/edit/{id}(id=${customer.customerId})}" th:object="${customer}">
+                    <div class="form-group">
+                        <input type="hidden" name="id" th:field="*{customerId}"/>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="customerCode" class="form-label">Customer Code</label>
+                        <input type="text" class="form-control" name="customerCode" id="customerCode"
+                               th:field="*{customerCode}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" name="customerName" id="customerName"
+                               th:field="*{customerName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerTypeId" class="form-label">Customer Type</label>
+                        <select class="form-control" id="customerTypeId" name="customerTypeId" th:field="*{customerType}">
+                                <option th:each = "customerType : ${customerTypes}"
+                                        th:value="${customerType.customerTypeId}"
+                                        th:text = "${customerType.customerTypeName}"
+                                        th:selected="(${customer.customerType}) and (${customerType.customerTypeId}==*{customerType.customerTypeId})">
+                                </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerBirthday" class="form-label">Customer Birthday</label>
+                        <input type="date" class="form-control" name="customerBirthday" id="customerBirthday"
+                               th:field="*{customerBirthday}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerGender" class="form-label">Customer Gender</label>
+                        <select class="form-control" id="customerGender" name="customerGender" th:field="*{customerGender}">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerIdCard" class="form-label">Customer ID Card</label>
+                        <input type="text" class="form-control" name="customerIdCard" id="customerIdCard"
+                               th:field="*{customerIdCard}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone" class="form-label">Customer Phone</label>
+                        <input type="text" class="form-control" name="customerPhone" id="customerPhone"
+                               th:field="*{customerPhone}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail" class="form-label">Customer Email</label>
+                        <input type="text" class="form-control" name="customerEmail" id="customerEmail"
+                               th:field="*{customerEmail}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress" class="form-label">Customer Address</label>
+                        <input type="text" class="form-control" name="customerAddress" id="customerAddress"
+                               th:field="*{customerAddress}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{header_footer :: #footer}"></div>
+</body>
+</html>

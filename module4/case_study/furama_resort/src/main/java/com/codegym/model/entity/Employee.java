@@ -24,6 +24,8 @@ public class Employee {
     private String employeeEmail;
     @Column(name = "employee_address")
     private String employeeAddress;
+    @Column()
+    private int flag=1;
     @ManyToOne()
     @JoinColumn(name = "position_id", referencedColumnName = "position_id")
     private Position position;

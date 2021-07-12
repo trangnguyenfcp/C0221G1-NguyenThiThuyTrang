@@ -8,15 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
 @Controller
+@SessionAttributes("employee")
+@RequestMapping(value = "/employee")
 public class EmployeeController {
     @Autowired
     private IEmployeeService employeeService;
@@ -44,28 +43,31 @@ public class EmployeeController {
     public Iterable<Username> usernames(){
         return usernameService.findAll();
     }
-    @GetMapping(value = "create-employee")
+    @ModelAttribute("cart")
+    public Employee setupEmployee() {
+        return new Employee();
+    }
+    @GetMapping(value = "/create")
     public String showCreateForm(Model model){
         model.addAttribute("employee", new Employee());
         return "employee/create";
     }
-    @PostMapping(value = "create-employee")
+    @PostMapping(value = "/create")
     public String saveEmployee(Model model, @ModelAttribute("employee") Employee employee) {
         employeeService.save(employee);
         model.addAttribute("employee", new Employee());
         model.addAttribute("message", "Created successful");
         return "employee/create";
     }
-    @GetMapping(value = "employee")
+    @GetMapping(value = "")
     public ModelAndView listCustomers(@RequestParam("search") Optional<String> search, @PageableDefault(value = 2) Pageable pageable){
-        Page<Employee> employees;
+       String searchValue = "";
         if (search.isPresent()){
-            employees = employeeService.findCustomerByEmployeeNameContaining(search.get(),pageable);
-        }else {
-            employees = employeeService.findAll(pageable);
+            searchValue = search.get();
         }
-
+        Page<Employee> employees = employeeService.findCustomerByEmployeeNameContaining(searchValue, pageable);
         ModelAndView modelAndView = new ModelAndView("employee/list");
+        modelAndView.addObject("searchValue", searchValue);
         modelAndView.addObject("employees",employees);
         return modelAndView;
     }

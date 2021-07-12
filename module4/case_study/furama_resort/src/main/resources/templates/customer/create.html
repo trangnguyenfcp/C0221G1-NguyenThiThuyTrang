@@ -18,11 +18,13 @@
             <p>
                 <a href="/customer">Back to customer list</a>
             </p>
-            <form method="post" th:action="@{create-customer}" th:object="${customer}">
+            <form method="post" th:action="@{/customer/create}" th:object="${customer}">
                 <div class="form-group">
                     <div class="form-group">
                         <label for="customerCode" class="form-label">Customer Code</label>
                         <input type="text" class="form-control" name="customerCode" id="customerCode" th:field="*{customerCode}">
+                        <p class="text-danger" th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}"></p>
+
                     </div>
                     <label for="customerTypeId" class="form-label">Customer Type ID</label>
                     <select class="form-control" id="customerTypeId" name="customerTypeId" th:field="*{customerType}">
@@ -36,6 +38,8 @@
                 <div class="form-group">
                     <label for="customerBirthday" class="form-label">Customer Birthday</label>
                     <input type="date" class="form-control" name="customerBirthday" id="customerBirthday" th:field="*{customerBirthday}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"></p>
+
                 </div>
                 <div class="form-group">
                     <label for="customerGender" class="form-label">Customer Gender</label>
@@ -48,14 +52,20 @@
                 <div class="form-group">
                     <label for="customerIdCard" class="form-label">Customer ID Card</label>
                     <input type="text" class="form-control" name="customerIdCard" id="customerIdCard" th:field="*{customerIdCard}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></p>
+
                 </div>
                 <div class="form-group">
                     <label for="customerPhone" class="form-label">Customer Phone</label>
                     <input type="text" class="form-control" name="customerPhone" id="customerPhone" th:field="*{customerPhone}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></p>
+
                 </div>
                 <div class="form-group">
                     <label for="customerEmail" class="form-label">Customer Email</label>
                     <input type="text" class="form-control" name="customerEmail" id="customerEmail" th:field="*{customerEmail}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></p>
+
                 </div>
                 <div class="form-group">
                     <label for="customerAddress" class="form-label">Customer Address</label>

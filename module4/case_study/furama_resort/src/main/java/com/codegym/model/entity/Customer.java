@@ -26,6 +26,7 @@ public class Customer {
     private String customerEmail;
     @Column(name = "customer_address")
     private String customerAddress;
+    private int flag=1;
     @ManyToOne()
     @JoinColumn(name = "customer_type_id", referencedColumnName = "customer_type_id")
     private CustomerType customerType;
@@ -46,7 +47,7 @@ public class Customer {
     public Customer(Long id){
             this.customerId = id;
     }
-    public Customer(String customerCode, String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress, CustomerType customerType) {
+    public Customer(String customerCode, String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress, CustomerType customerType, int flag) {
         this.customerCode = customerCode;
         this.customerName = customerName;
         this.customerBirthday = customerBirthday;
@@ -56,6 +57,7 @@ public class Customer {
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
         this.customerType = customerType;
+        this.flag = flag;
     }
 
     public Long getCustomerId() {
@@ -129,6 +131,14 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 
     public CustomerType getCustomerType() {
