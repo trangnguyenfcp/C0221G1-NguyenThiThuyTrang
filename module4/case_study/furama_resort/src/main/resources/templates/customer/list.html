@@ -324,7 +324,7 @@
                 <tbody>
                 <th:block th:each="customer, count : ${customers}">
                     <tr>
-                        <td th:text = "${count.count}"></td>
+                        <td th:text = "${count.count + customers.number*customers.size}"></td>
                         <td th:text = "${customer.customerName}"></td>
                         <td th:text ="${customer.customerBirthday}"></td>
                         <td th:text ="${customer.customerType.customerTypeName}"></td>
@@ -332,6 +332,7 @@
                         <td th:text="${customer.customerEmail}"></td>
                         <td th:text = "${customer.customerAddress}"></td>
                         <td>
+                            <a th:href="@{/customer/view/{id}(id = ${customer.customerId})}" class="edit"><i class="material-icons" data-toggle="tooltip" title="View">&#xE252;</i></a>
                             <a th:href="@{/customer/edit/{id}(id = ${customer.customerId})}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             <button type="button" th:onclick="|sendDataToModal(${customer.customerId})|" class="btn" data-toggle="modal" data-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
 

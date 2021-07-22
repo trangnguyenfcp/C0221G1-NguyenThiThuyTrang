@@ -1,0 +1,12 @@
+First
+<input type="number" #firstNumber required>
+Second
+<input type="number" #secondNumber required>
+<select #select >
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input type="button" class="btn btn-success" (click)="calculate(firstNumber.value,secondNumber.value,select.value)" value="Calculator">
+<p>{{result}}</p>

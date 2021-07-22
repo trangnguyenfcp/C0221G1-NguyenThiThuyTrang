@@ -297,7 +297,7 @@
                         <h2>Manage <b>Question</b></h2>
                     </div>
                     <div class="col-sm-4">
-                    <form action="/customer">
+                    <form action="/question">
                         <input name="search" type="text"/>
                         <input type="submit" value="search"/>
                     </form>
@@ -325,9 +325,8 @@
                         <td th:text = "${count.count + questions.number*questions.size}"></td>
                         <td th:text = "${question.tittle}"></td>
                         <td th:text ="${question.questionType.questionTypeName}"></td>
-                        <td th:text ="${question.customerPhone}"></td>
-                        <td th:text ="${question.status}"></td>
                         <td th:text ="${question.dateCreate}"></td>
+                        <td th:text ="${question.status}"></td>
 
                         <td>
                             <a th:href="@{/question/view/{id}(id = ${question.questionId})}" class="edit"><i class="material-icons" data-toggle="tooltip" title="View">&#xE252;</i></a>
@@ -340,9 +339,9 @@
                 </tbody>
             </table>
             <div>
-                <a th:href="@{'/customer'(page=${questions.number - 1}, search = ${searchValue})}" th:if="${questions.hasPrevious()}">Previous</a>
+                <a th:href="@{'/question'(page=${questions.number - 1}, search = ${searchValue})}" th:if="${questions.hasPrevious()}">Previous</a>
                 <span th:text="${questions.number + 1}"></span>/<span th:text="${questions.totalPages}"></span>
-                <a th:href="@{'/customer'(page=${questions.number + 1}, search = ${searchValue})}" th:if="${questions.hasNext()}">Next</a>
+                <a th:href="@{'/question'(page=${questions.number + 1}, search = ${searchValue})}" th:if="${questions.hasNext()}">Next</a>
             </div>
         </div>
         </div>

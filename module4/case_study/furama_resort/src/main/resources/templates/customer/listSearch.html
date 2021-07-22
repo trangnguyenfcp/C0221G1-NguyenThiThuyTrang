@@ -326,7 +326,7 @@
         <tbody>
         <th:block th:each="customer, count : ${customers}">
           <tr>
-            <td th:text = "${count.count}"></td>
+            <td th:text = "${count.count + customers.number*customers.size}"></td>
             <td th:text = "${customer.customerName}"></td>
             <td th:text ="${customer.customerBirthday}"></td>
             <td th:text ="${customer.customerType.customerTypeName}"></td>

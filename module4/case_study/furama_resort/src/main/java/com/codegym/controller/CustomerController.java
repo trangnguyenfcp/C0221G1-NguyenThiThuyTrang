@@ -37,49 +37,45 @@ public class CustomerController {
     public Iterable<CustomerType> customerTypes(){
         return customerTypeService.findAll();
     }
-    @RequestMapping(value = "")
-    public String goHome(){
-        return "home";
-    }
-//    @GetMapping(value = { ""})
-//    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search,
-//                                      @PageableDefault(value = 2) Pageable pageable){
-//
-//        String searchValue = "";
-//        if (search.isPresent()){
-//            searchValue = search.get();
-//        }
-//
-//        ModelAndView modelAndView = new ModelAndView("customer/list");
-//        Page<Customer> customers = customerService.findCustomerByCustomerNameContaining(searchValue,pageable);
-//        modelAndView.addObject("searchValue", searchValue);
-//        modelAndView.addObject("customers",customers);
-//      return modelAndView;
-//    }
     @GetMapping(value = { ""})
-    public ModelAndView listCustomers(@RequestParam("searchName") Optional<String> searchName,
-                                      @RequestParam("searchBirthday") Optional<String> searchBirthday,
-                                      @RequestParam("searchAddress") Optional<String> searchAddress,
+    public ModelAndView listCustomers(@RequestParam("search") Optional<String> search,
                                       @PageableDefault(value = 2) Pageable pageable){
 
-        String searchNameValue = "";
-        String searchBirthdayValue = "";
-        String searchAddressValue = "";
-        if (searchName.isPresent() && searchBirthday.isPresent() && searchAddress.isPresent()){
-            searchNameValue = searchName.get();
-            searchBirthdayValue = searchBirthday.get();
-            searchAddressValue = searchAddress.get();
-
+        String searchValue = "";
+        if (search.isPresent()){
+            searchValue = search.get();
         }
-        Page<Customer> customers = customerService.findCustomer(searchNameValue, searchBirthdayValue, searchAddressValue, pageable);
-        ModelAndView modelAndView = new ModelAndView("customer/listSearch");
 
-        modelAndView.addObject("searchNameValue", searchNameValue);
-        modelAndView.addObject("searchBirthdayValue", searchBirthdayValue);
-        modelAndView.addObject("searchAddressValue", searchAddressValue);
+        ModelAndView modelAndView = new ModelAndView("customer/list");
+        Page<Customer> customers = customerService.findCustomerByCustomerNameContaining(searchValue,pageable);
+        modelAndView.addObject("searchValue", searchValue);
         modelAndView.addObject("customers",customers);
-        return modelAndView;
+      return modelAndView;
     }
+//    @GetMapping(value = { ""})
+//    public ModelAndView listCustomers(@RequestParam("searchName") Optional<String> searchName,
+//                                      @RequestParam("searchBirthday") Optional<String> searchBirthday,
+//                                      @RequestParam("searchAddress") Optional<String> searchAddress,
+//                                      @PageableDefault(value = 2) Pageable pageable){
+//
+//        String searchNameValue = "";
+//        String searchBirthdayValue = "";
+//        String searchAddressValue = "";
+//        if (searchName.isPresent() && searchBirthday.isPresent() && searchAddress.isPresent()){
+//            searchNameValue = searchName.get();
+//            searchBirthdayValue = searchBirthday.get();
+//            searchAddressValue = searchAddress.get();
+//
+//        }
+//        Page<Customer> customers = customerService.findCustomer(searchNameValue, searchBirthdayValue, searchAddressValue, pageable);
+//        ModelAndView modelAndView = new ModelAndView("customer/listSearch");
+//
+//        modelAndView.addObject("searchNameValue", searchNameValue);
+//        modelAndView.addObject("searchBirthdayValue", searchBirthdayValue);
+//        modelAndView.addObject("searchAddressValue", searchAddressValue);
+//        modelAndView.addObject("customers",customers);
+//        return modelAndView;
+//    }
     @GetMapping(value = "/create")
     public String showCreateForm(Model model){
         model.addAttribute("customer", new CustomerDto());
@@ -116,6 +112,12 @@ public class CustomerController {
     @PostMapping(value = "/edit/{id}")
     public String editCustomer(Model model, @Validated @ModelAttribute("customer") CustomerDto customerDto, BindingResult bindingResult, @PathVariable("id") Long id) {
         new CustomerDto().validate(customerDto,bindingResult);
+
+        if (customerService.findByCustomerCode(customerDto.getCustomerCode())!=null){
+            if (customerDto.getCustomerId() != customerService.findByCustomerCode(customerDto.getCustomerCode()).getCustomerId()){
+            ObjectError error = new FieldError("customerDto", "customerCode", "Code is existed");
+            bindingResult.addError(error);
+        }}
         if (bindingResult.hasFieldErrors()){
             model.addAttribute("customer", customerDto);
             return "customer/edit";
@@ -132,6 +134,11 @@ public class CustomerController {
         this.customerService.deleteCustomer(id);
         return "redirect:/customer/";
     }
+    @GetMapping(value = "/view/{id}")
+    public String showView(Model model, @PathVariable("id") Long id){
+        model.addAttribute("customer", customerService.findById(id));
+        return "customer/view";
+    }
     @GetMapping(value = "/customer-type/{id}")
     public String test(Model model, @PathVariable("id") Long id){
         Iterable<CustomerType> customerTypes = customerTypeService.findAll();
@@ -147,4 +154,5 @@ public class CustomerController {
         model.addAttribute("customerList", customerList);
         return "customer_type/test";
     }
+
 }

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4235c802-6a1e-4686-a2b7-cee01c30f1da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../module4/02_spring_controller/practice/03_customer_managament/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/02_spring_controller/practice/03_customer_managament/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/repository/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/repository/IContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IAttachServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IAttachServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/AttachServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/AttachServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/contract/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/contract/listCustomerUsingService.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/contract/listCustomerUsingService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/listSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/listSearch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/case_study/furama_resort/src/main/resources/templates/customer/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/case_study/test/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/documents/audit.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/documents/audit.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/dto/QuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/dto/QuestionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/QuestionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/QuestionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/repository/IQuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/repository/IQuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/repository/IQuestionTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/repository/IQuestionTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/IQuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/IQuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/IQuestionTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/IQuestionTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/implement/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/implement/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/implement/QuestionTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/java/com/codegym/model/service/implement/QuestionTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/header_footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/header_footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/list2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/list2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/final/src/main/resources/templates/question/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/exercise/fibonacci/ tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_typescript/exercise/fibonacci/ tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/exercise/fibonacci/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_typescript/exercise/fibonacci/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/practice/03_typescript_is_prime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_typescript/practice/03_typescript_is_prime/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/practice/03_typescript_is_prime/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_typescript/practice/03_typescript_is_prime/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/practice/typescript_variable/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_typescript/practice/typescript_variable/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1vfBupm7RNue6COxLrlIwmGn9ya" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/all_practices" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4235c802-6a1e-4686-a2b7-cee01c30f1da" name="Default Changelist" comment="" />
+      <created>1626943487819</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626943487819</updated>
+      <workItem from="1626943489855" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1170" y="293" key="FileChooserDialogImpl" timestamp="1626943518388">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1170" y="293" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1626943518388" />
+  </component>
+</project>

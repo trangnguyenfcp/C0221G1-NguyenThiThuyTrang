@@ -17,15 +17,17 @@ public class Employee {
     @Column(name = "employee_id_card")
     private String employeeIdCard;
     @Column(name = "employee_salary")
-    private double employeeSalary;
+    private Double employeeSalary;
     @Column(name = "employee_phone")
     private String employeePhone;
     @Column(name = "employee_email")
     private String employeeEmail;
     @Column(name = "employee_address")
     private String employeeAddress;
+
+
     @Column()
-    private int flag=1;
+    private Integer flag=1;
     @ManyToOne()
     @JoinColumn(name = "position_id", referencedColumnName = "position_id")
     private Position position;
@@ -52,7 +54,7 @@ public class Employee {
     public Employee(){
 
     }
-    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, Username username) {
+    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, Username username) {
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
@@ -98,11 +100,11 @@ public class Employee {
         this.employeeIdCard = employeeIdCard;
     }
 
-    public double getEmployeeSalary() {
+    public Double getEmployeeSalary() {
         return employeeSalary;
     }
 
-    public void setEmployeeSalary(double employeeSalary) {
+    public void setEmployeeSalary(Double employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 
@@ -161,4 +163,12 @@ public class Employee {
     public void setUsername(Username username) {
         this.username = username;
     }
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
 }

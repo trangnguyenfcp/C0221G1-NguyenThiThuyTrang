@@ -18,6 +18,7 @@ public class Contract {
     private double contractDeposit;
     @Column(name = "contract_total_money")
     private double contractTotalMoney;
+    private int flag=1;
     @OneToMany(mappedBy = "contract")
     private List<ContractDetail> contractDetails;
     @ManyToOne()

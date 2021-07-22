@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9adf73a5-dd13-4443-bc59-f0c7240c82c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../module4/case_study/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/case_study/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/contract/listCustomerUsingService.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/controller/QuestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/dto/QuestionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/entity/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/entity/QuestionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/repository/IQuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/repository/IQuestionTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/service/IQuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/service/IQuestionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/service/implement/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/java/com/codegym/model/service/implement/QuestionTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/about.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/clients/client-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/featured-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/featured-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/featured-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/featured-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/footer-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/hero-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/hero-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio-details-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio-details-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio-details-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/portfolio/portfolio-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/services.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/team/team-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials/testimonials-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials/testimonials-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials/testimonials-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials/testimonials-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/testimonials/testimonials-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/img/why-us.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/aos/aos.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/aos/aos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/css/animations.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/css/boxicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/css/boxicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/css/transformations.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/fonts/boxicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/fonts/boxicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/fonts/boxicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/fonts/boxicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/boxicons/fonts/boxicons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/icofont/fonts/icofont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/icofont/fonts/icofont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/icofont/icofont.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/isotope-layout/isotope.pkgd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/isotope-layout/isotope.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/jquery-sticky/jquery.sticky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/jquery.easing/jquery.easing.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/jquery/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.carousel.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.theme.default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.theme.default.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.theme.green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.theme.green.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/assets/owl.video.play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/owl.carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/owl.carousel/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/php-email-form/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/venobox/venobox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/venobox/venobox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/venobox/venobox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/static/css/assets/vendor/venobox/venobox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/header_footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/question/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/question/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/question/list2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/question/message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module4/final/src/main/resources/templates/question/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/02_spring_controller/practice/03_customer_managament/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/02_spring_controller/practice/03_customer_managament/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/controller/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/repository/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/repository/IContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IAttachServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IAttachServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/IContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/AttachServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/AttachServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/java/com/codegym/model/service/implement/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/contract/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/listSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/case_study/furama_resort/src/main/resources/templates/customer/listSearch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module4/documents/audit.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../module4/documents/audit.docx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1vclU7T1j0JOC1qExnCxtcPn6X0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\C0221G1-NguyenThiThuyTrang\module5\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="D:\C0221G1-NguyenThiThuyTrang\module5\02_typescript\practice\node_modules\typescript\lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9adf73a5-dd13-4443-bc59-f0c7240c82c9" name="Default Changelist" comment="" />
+      <created>1626869270496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626869270496</updated>
+      <workItem from="1626869272867" duration="608000" />
+      <workItem from="1626869915428" duration="73000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1014" y="258" key="FileChooserDialogImpl" timestamp="1626869937064">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1014" y="258" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1626869937064" />
+  </component>
+</project>
