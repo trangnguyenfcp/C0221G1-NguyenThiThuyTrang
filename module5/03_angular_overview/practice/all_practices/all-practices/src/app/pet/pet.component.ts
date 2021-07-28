@@ -9,7 +9,7 @@ import {Pet} from '../pet';
 export class PetComponent implements OnInit {
   pet: Pet = {
     name: 'puppie',
-    image: 'http://yourdost-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2016/01/03165939/Dogs.jpg'
+    image: 'https://th.bing.com/th/id/R.70deda079f5c04d2e266112ed9bb9040?rik=3lP0KjgxrkIzPA&pid=ImgRaw'
   };
   constructor() { }
 

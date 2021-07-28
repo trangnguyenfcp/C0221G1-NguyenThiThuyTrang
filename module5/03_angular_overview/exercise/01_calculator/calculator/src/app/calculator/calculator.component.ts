@@ -25,4 +25,5 @@ export class CalculatorComponent implements OnInit {
         return this.result = firstNum / secondNum;
     }
   }
+
 }

@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="container d-flex justify-content-center">
+    <div class="col-6 d-flex flex-column">
+      <h1>Create new customer</h1>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="customerEmail" class="form-label">Email</label>
+          <input type="text" class="form-control" name="customerEmail" id="customerEmail" formControlName="email">
+          <div
+            *ngIf="!registerForm.controls.email?.valid && (registerForm.controls.email?.dirty || registerForm.controls.email?.touched)">
+            <div [hidden]="!registerForm.controls.email.errors.required">
+              <p class="text-danger">Email is not allowed empty!</p>
+            </div>
+            <div [hidden]="!registerForm.controls.email.errors.email">
+              <p class="text-danger">Invalid email!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" formGroupName="passwordForm">
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password" formControlName="password">
+            <div
+              *ngIf="!registerForm.get('passwordForm').get('password').valid && (registerForm.get('passwordForm').get('password').dirty || (registerForm.get('passwordForm').get('password').touched))">
+              <div [hidden]="!registerForm.get('passwordForm').get('password').errors.required">
+                <p class="text-danger">Password is not allowed empty</p>
+              </div>
+              <div [hidden]="registerForm.get('passwordForm').get('password').errors.minLength">
+                <p class="text-danger">>= 6 characters </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+                   formControlName="confirmPassword">
+            <div
+              *ngIf="!registerForm.get('passwordForm').get('confirmPassword').valid && (registerForm.get('passwordForm').get('confirmPassword').dirty || (registerForm.get('passwordForm').get('confirmPassword').touched))">
+              <div [hidden]="!registerForm.get('passwordForm').get('confirmPassword').errors.required">
+                <p class="text-danger">Confirm password is not allowed empty</p>
+              </div>
+              <div [hidden]="registerForm.get('passwordForm').get('confirmPassword').errors.minLength">
+                <p class="text-danger">>= 6 characters </p>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="registerForm.hasError('notMatch', ['passwordForm']) && (registerForm.get('passwordForm').get('confirmPassword').dirty || (registerForm.get('passwordForm').get('confirmPassword').touched))">
+            <p class="text-danger">Password does not match!</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age" class="form-label">Age</label>
+          <input type="text" class="form-control" name="age" id="age" formControlName="age">
+          <div
+            *ngIf="!registerForm.controls.age?.valid && (registerForm.controls.age?.dirty || registerForm.controls.age?.touched)">
+            <div [hidden]="!registerForm.controls.age.errors.required">
+              <p class="text-danger">Age is not allowed empty!</p>
+            </div>
+            <div [hidden]="!registerForm.controls.age.errors.min">
+              <p class="text-danger">Age >= 18</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="country" class="form-label">Country</label>
+            <select class="form-control" id="country" name="country" formControlName="country">
+              <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+            </select>
+            <div
+              *ngIf="!registerForm.controls.country?.valid && (registerForm.controls.country?.dirty || registerForm.controls.country?.touched)">
+              <div [hidden]="!registerForm.controls.country.errors.required">
+                <p class="text-danger">Country is not allowed empty!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="gender" class="form-label">Gender</label>
+          <div id="gender">
+          <input type="radio"  value="male" name="gender" formControlName="gender"> Male
+          <input type="radio"  value="female" name="gender" formControlName="gender">
+          Female
+          </div>
+          <div
+            *ngIf="!registerForm.controls.gender?.valid && (registerForm.controls.gender?.dirty || registerForm.controls.gender?.touched)">
+            <div [hidden]="!registerForm.controls.gender.errors.required">
+              <p class="text-danger">Gender is not allowed empty!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="text" class="form-control" name="phone" id="phone" formControlName="phone">
+          <div *ngIf="!registerForm.controls.phone?.valid && (registerForm.controls.phone?.dirty || registerForm.controls.phone?.touched)">
+            <div [hidden]="!registerForm.controls.phone.errors.required">
+              <p class="text-danger">Phone is not allowed empty!</p>
+            </div>
+            <div [hidden]="!registerForm.controls.phone.errors.pattern">
+              <p class="text-danger">Invalid phone</p>
+            </div>
+          </div>
+        </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>

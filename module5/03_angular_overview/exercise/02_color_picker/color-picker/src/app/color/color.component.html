@@ -1,8 +1,9 @@
 <h2>Color picker</h2>
-<select (change)="changeColor($event.target.value)" >
-  <option value="orange">orange</option>
-  <option value="pink">pink</option>
-  <option value="yellow">yellow</option>
-</select>
+<input [(ngModel)]="color">
+<!--<select #select (change)="changeColor(select.value)">-->
+<!--  <option value="orange">orange</option>-->
+<!--  <option value="pink">pink</option>-->
+<!--  <option value="yellow">yellow</option>-->
+<!--</select>-->
 
-<p style="color: {{color}}">Chang Chang</p>
+<p  style="color: {{color}}">Chang Chang</p>

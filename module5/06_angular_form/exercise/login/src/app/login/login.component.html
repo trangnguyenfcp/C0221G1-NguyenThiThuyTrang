@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="container d-flex justify-content-center">
+    <div class="col-6 d-flex flex-column">
+      <h1>Login</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" name="email" id="email" formControlName="email">
+          <div
+            *ngIf="!loginForm.controls.email?.valid && (loginForm.controls.email?.dirty || loginForm.controls.email?.touched)">
+            <div [hidden]="!loginForm.controls.email.errors.required">
+              <p class="text-danger">Email is not allowed empty!</p>
+            </div>
+            <div [hidden]="!loginForm.controls.email.errors.email">
+              <p class="text-danger">Email is not allowed empty!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password" formControlName="password">
+            <div
+              *ngIf="!loginForm.get('password').valid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+              <div [hidden]="!loginForm.controls.password.errors.required">
+                <p class="text-danger">Password is not allowed empty!</p>
+              </div>
+              <div [hidden]="!loginForm.controls.password.errors.minLength">
+                <p class="text-danger">Password is invalid! </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
