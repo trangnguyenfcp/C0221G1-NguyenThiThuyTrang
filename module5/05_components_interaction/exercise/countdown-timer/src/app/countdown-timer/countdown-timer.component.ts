@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TimeInterval} from "rxjs";
 
 @Component({
   selector: 'app-countdown-timer',

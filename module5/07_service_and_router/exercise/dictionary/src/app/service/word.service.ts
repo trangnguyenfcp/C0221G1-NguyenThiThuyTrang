@@ -19,14 +19,7 @@ export class WordService {
   getAll() {
     return this.words;
   }
-  search(wordSearch: string): string {
-    if (!wordSearch) {
-      return '';
-    }
-    const wordFind = this.words.find(word => word.english === wordSearch.toLowerCase());
-    if (wordFind) {
-      return wordFind.vietnamese;
-    }
-    return 'Not Found!';
-  }
+ findByEnglish(english: string) {
+    return this.words.find(word => word.english === english);
+ }
 }

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../../service/product.service";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-product-edit',
@@ -11,11 +11,10 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class ProductEditComponent implements OnInit {
   productForm: FormGroup;
   id: number;
-
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('id');
+    this.activatedRoute.paramMap.subscribe((paraMap: ParamMap) => {
+      this.id = +paraMap.get('id');
       const product = this.getProduct(this.id);
       this.productForm = new FormGroup({
         id: new FormControl(product.id),
@@ -26,13 +25,11 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-
   getProduct(id: number) {
     return this.productService.findById(id);
   }
-
   updateProduct(id: number) {
     const product = this.productForm.value;
     this.productService.updateProduct(id, product);

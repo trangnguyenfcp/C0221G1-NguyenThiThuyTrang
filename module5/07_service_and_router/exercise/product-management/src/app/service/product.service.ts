@@ -43,7 +43,7 @@ export class ProductService {
     this.products.push(product);
   }
 
-  findById(id: number) {
+  findById(id: number): Product {
     return this.products.find(product => product.id === id);
   }
 
@@ -54,7 +54,6 @@ export class ProductService {
       }
     }
   }
-
   deleteProduct(id: number) {
     this.products = this.products.filter(product => {
       return product.id !== id;

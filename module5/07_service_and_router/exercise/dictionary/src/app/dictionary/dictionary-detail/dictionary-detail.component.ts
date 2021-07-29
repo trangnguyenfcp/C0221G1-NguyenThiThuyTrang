@@ -12,21 +12,21 @@ import {Word} from "../../model/word";
 export class DictionaryDetailComponent implements OnInit {
   subscription: Subscription;
   word: Word;
+  english: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private wordService: WordService
-  ) { }
+  ) {
+    this.activatedRoute.paramMap.subscribe((paraMap: ParamMap) => {
+      this.english = paraMap.get('english');
+      // @ts-ignore
+      this.word = this.getWord(this.english);
+    });
+  }
 
   ngOnInit(): void {
-    this.subscription = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      const word = paramMap.get('word');
-      const mean = this.wordService.search(word);
-      // @ts-ignore
-      this.word = {word, mean};
-    } ) ;
   }
-  // tslint:disable-next-line:use-lifecycle-interface
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  getWord(english: string) {
+    return this.wordService.findByEnglish(english);
   }
 }

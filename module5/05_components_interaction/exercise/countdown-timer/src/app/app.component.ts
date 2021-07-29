@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'countdown-timer';
   output: number;
   input: number;
-  changeTime(value){
+  changeTime(value) {
     this.output = value;
   }
 }

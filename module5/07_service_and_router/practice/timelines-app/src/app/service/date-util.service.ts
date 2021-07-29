@@ -16,6 +16,7 @@ export class DateUtilService {
       diff = addYears(diff, years);
     }
 
+
     const months = differenceInMonths(now, diff);
     result.push(`${months} months`);
     if (months > 0) {
