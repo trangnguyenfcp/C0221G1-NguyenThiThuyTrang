@@ -1,22 +1,32 @@
+<app-navbar></app-navbar>
 <h2>Today's article</h2>
 <hr>
 <div>
-  <div *ngFor="let art of articles">
-    <a href="{{art.url}}" target="_blank">{{art.title}}</a>: <app-like></app-like>
+  <select [(ngModel)]="filter">
+    <option value="all">All</option>
+    <option value="a">Includes a</option>
+    <option value="b">Includes b</option>
+  </select>
+</div>
+<div *ngFor="let article of articles">
+  <div *ngIf="filter === 'all' || (article.title.includes('a') && filter === 'a') || (article.title.includes('b') && filter === 'b')">
+  <div><a href="{{article.url}}" target="_blank">{{article.title}}</a>: <app-like></app-like></div>
+  <div><button (click)="deleteArticle(article.title)">Delete</button></div>
+  <br>
   </div>
 </div>
 <hr>
 <div>
   <h2>Article Information</h2>
-  <table>
+  <table *ngIf="!isShownForm">
     <tr>
       <td>Title:</td>
-      <td><textarea [(ngModel)]="article.title" cols="70"></textarea></td>
+      <td><textarea [(ngModel)]="newTittle" cols="70"></textarea></td>
     </tr>
     <tr>
       <td>Url:</td>
       <td>
-        <textarea [(ngModel)]="article.url" cols="70"></textarea>
+        <textarea [(ngModel)]="newUrl" cols="70"></textarea>
       </td>
     </tr>
     <tr>
@@ -24,14 +34,7 @@
       <td><button style="float: right" (click)="addNewArticle()">Add</button></td>
     </tr>
   </table>
-  <div >
-    <table >
-      <tr *ngFor="let art of articles">
-        <td><a href="{{art.url}}" target="_blank">{{art.title}}</a></td>
-        <td class="text-center"><app-like></app-like></td>
-      </tr>
-    </table>
-
-  </div>
+  <td><button style="float: right" *ngIf= "isShownForm" (click)="showForm()">Add</button></td>
 </div>
 <hr>
+<app-footer></app-footer>

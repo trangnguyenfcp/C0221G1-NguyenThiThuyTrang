@@ -13,10 +13,14 @@ export class CountdownTimerComponent implements OnInit {
   remainingTime: number;
   message = '';
   interValid = 0;
-  constructor() { }
+
+  constructor() {
+  }
+
   clearTimer() {
     clearInterval(this.interValid);
   }
+
   start() {
     this.countdown();
     if (this.remainingTime <= 0) {
@@ -26,6 +30,7 @@ export class CountdownTimerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   private countdown() {
     this.clearTimer();
     this.interValid = window.setInterval(() => {
@@ -36,10 +41,13 @@ export class CountdownTimerComponent implements OnInit {
         this.finish.emit('Boom!!!!');
         this.stop();
       }
-    }, 1000);}
+    }, 1000);
+  }
+
   stop() {
     clearInterval(this.interValid);
   }
+
   reset() {
     this.clearTimer();
     this.start();

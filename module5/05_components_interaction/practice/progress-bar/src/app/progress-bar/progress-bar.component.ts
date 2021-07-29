@@ -9,14 +9,16 @@ export class ProgressBarComponent implements OnInit {
   @Input() backgroundColor = '#D9D9D9';
   @Input() progressColor = '#4CAF50';
   @Input() progress = 0;
-  constructor() { }
+  constructor() {
+    this.loading();
+  }
 
   ngOnInit(): void {
   }
   loading() {
-    let interval = setInterval(() => {
+    const interval = setInterval(() => {
       this.progress = +this.progress + 5;
-      if (this.progress == 100) {
+      if (this.progress === 100) {
         clearInterval(interval);
       }
     }, 1000);

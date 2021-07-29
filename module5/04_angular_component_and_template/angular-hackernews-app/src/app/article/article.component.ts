@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../article';
 
@@ -8,7 +7,11 @@ import {Article} from '../article';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  article: Article = {};
+  isShownForm = true;
+  filter = 'all';
+  newTittle = '' ;
+  newUrl = '';
+  article: Article;
   articles: Article[] = [
     {
       title: 'The Evolution of Async JavaScript: From Callbacks, to Promises, to Async/Await',
@@ -31,13 +34,25 @@ export class ArticleComponent implements OnInit {
       url: 'https://ruslanspivak.com/lsbaws-part1/'
     }
   ];
-
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
   addNewArticle() {
-    this.articles.push(this.article);
+    this.articles.push({
+      title: this.newTittle,
+      url: this.newUrl
+      });
+    this.newTittle = '';
+    this.newUrl = '';
+    this.isShownForm = !this.isShownForm;
+    console.log(this.articles);
+  }
+  showForm() {
+    this.isShownForm = !this.isShownForm;
+  }
+  deleteArticle(tittle) {
+    const index = this.articles.findIndex(article => article.title === tittle);
+    this.articles.splice(index, 1);
   }
 }

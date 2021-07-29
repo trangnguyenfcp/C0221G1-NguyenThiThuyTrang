@@ -23,6 +23,7 @@ export class RatingBarComponent implements OnInit {
   ngOnInit(): void {
     this.calculate(this.max, this.ratingValue);
   }
+  // tslint:disable-next-line:use-lifecycle-interface
   ngOnChanges(changes: SimpleChanges) {
     if ('max' in changes) {
       let max = changes.max.currentValue;
