@@ -1,0 +1,96 @@
+{
+  "customers": [
+    {
+      "id": 2,
+      "name": "Thuan",
+      "code": "KH-1238",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Silver"
+      },
+      "gender": "Female",
+      "birthday": "1998-01-20T17:00:00.000Z",
+      "phone": "0917488290",
+      "address": "Gia Lai",
+      "email": "thien@gmail.com"
+    },
+    {
+      "name": "Thien Thien",
+      "code": "KH-1000",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 4,
+        "customerTypeName": "Platinum"
+      },
+      "gender": "Female",
+      "birthday": "2000-04-10T17:00:00.000Z",
+      "phone": "0918378481",
+      "address": "Da Nang",
+      "email": "thienthien123@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Phong",
+      "code": "KH-0182",
+      "idCard": "192125323",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "gender": "Male",
+      "birthday": "1998-02-17T17:00:00.000Z",
+      "phone": "0917488290",
+      "address": "Hue",
+      "email": "phongmmo@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Tang",
+      "code": "KH-2345",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Silver"
+      },
+      "gender": "Male",
+      "birthday": "1999-09-13T17:00:00.000Z",
+      "phone": "0918597960",
+      "address": "Hue",
+      "email": "tang@gmail.com",
+      "id": 5
+    }
+  ],
+  "customer-types": [
+    {
+      "id": 5,
+      "customerTypeName": "Diamond"
+    },
+    {
+      "id": 4,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "id": 3,
+      "customerTypeName": "Gold"
+    },
+    {
+      "id": 2,
+      "customerTypeName": "Silver"
+    },
+    {
+      "id": 1,
+      "customerTypeName": "Member"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

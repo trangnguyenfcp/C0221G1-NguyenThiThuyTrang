@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Category} from '../../model/category';
-import {CategoryService} from '../../service/category.service';
+import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../../service/product.service";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-product-edit',
@@ -13,45 +11,35 @@ import {CategoryService} from '../../service/category.service';
 export class ProductEditComponent implements OnInit {
   productForm: FormGroup;
   id: number;
-  categories: Category[] = [];
-
   constructor(private productService: ProductService,
-              private categoryService: CategoryService,
               private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('id');
+    this.activatedRoute.paramMap.subscribe((paraMap: ParamMap) => {
+      this.id = +paraMap.get('id');
+      const product = this.getProduct(this.id);
       this.getProduct(this.id);
     });
   }
 
-  ngOnInit() {
-    this.getAllCategory();
+  ngOnInit(): void {
   }
-
   getProduct(id: number) {
     return this.productService.findById(id).subscribe(product => {
       this.productForm = new FormGroup({
         name: new FormControl(product.name),
         price: new FormControl(product.price),
-        description: new FormControl(product.description),
-        category: new FormControl(product.category.id)
+        description: new FormControl(product.description)
       });
     });
   }
-
   updateProduct(id: number) {
     const product = this.productForm.value;
-    product.category = {
-      id: product.category
-    };
-    this.productService.updateProduct(id, product).subscribe(() => {
-      alert('Cập nhật thành công');
+    this.productService.updateProduct(id, product).subscribe(next => {
+      alert('success');
+    }, error => {
+      alert('Error');
+    }, () => {
+      alert('complete');
     });
-  }
 
-  getAllCategory() {
-    this.categoryService.getAll().subscribe(categoires => {
-      this.categories = categoires;
-    });
   }
 }

@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="container d-flex justify-content-center">
+    <div class="col-6 d-flex flex-column">
+      <h1>Create new customer</h1>
+      <p>
+        <a [routerLink]="['/customer']">Back to customer list</a>
+      </p>
+      <form [formGroup]="createForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="customerCode" class="form-label">Customer Code</label>
+          <input type="text" class="form-control" name="customerCode" id="customerCode" formControlName="code">
+          <p class="text-danger" *ngIf="createForm.controls.code.errors?.required && createForm.controls.code.touched">not empty</p>
+          <p class="text-danger" *ngIf="createForm.controls.code.errors?.pattern && createForm.controls.code.touched">Code is invalid</p>
+        </div>
+        <div class="form-group">
+          <label for="customerTypeId" class="form-label">Customer Type</label>
+          <select class="form-control" id="customerTypeId" name="customerTypeId" formControlName="customerType" >
+            <option value="">Select customer type</option>
+            <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">{{customerType.customerTypeName}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="customerName" class="form-label">Customer Name</label>
+          <input type="text" class="form-control" name="customerName" id="customerName" formControlName="name">
+        <p class="text-danger" *ngIf="createForm.controls.name.errors?.required && createForm.controls.name.touched">not empty</p>
+        </div>
+        <div class="form-group">
+          <mat-form-field>
+          <label for="customerBirthday" class="form-label">Customer Birthday</label>
+          <input [max] = maxDate [min] = minDate matInput [matDatepicker]="picker" class="form-control" name="customerBirthday" id="customerBirthday"
+                 formControlName="birthday"> <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          <p class="text-danger" *ngIf="createForm.controls.birthday.errors?.required && createForm.controls.birthday.touched">not empty</p>
+            <p class="text-danger" *ngIf="createForm.controls.birthday.errors?.validateBirthday && createForm.controls.birthday.touched">Birthday is invalid</p>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <label for="customerGender" class="form-label">Customer Gender</label>
+          <select class="form-control" id="customerGender" name="customerGender" formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="customerIdCard" class="form-label">Customer ID Card</label>
+          <input type="text" class="form-control" name="customerIdCard" id="customerIdCard"
+                 formControlName="idCard">
+          <p class="text-danger" *ngIf="createForm.controls.idCard.errors?.required && createForm.controls.idCard.touched">not empty</p>
+          <p class="text-danger" *ngIf="createForm.controls.idCard.errors?.pattern && createForm.controls.idCard.touched">Id card is invalid</p>
+
+        </div>
+        <div class="form-group">
+          <label for="customerPhone" class="form-label">Customer Phone</label>
+          <input type="text" class="form-control" name="customerPhone" id="customerPhone" formControlName="phone">
+          <p class="text-danger" *ngIf="createForm.controls.phone.errors?.required && createForm.controls.phone.touched">not empty</p>
+          <p class="text-danger" *ngIf="createForm.controls.phone.errors?.pattern && createForm.controls.phone.touched">Phone is invalid</p>
+
+        </div>
+        <div class="form-group">
+          <label for="customerEmail" class="form-label">Customer Email</label>
+          <input type="text" class="form-control" name="customerEmail" id="customerEmail" formControlName="email">
+          <p class="text-danger" *ngIf="createForm.controls.email.errors?.required && createForm.controls.email.touched">not empty</p>
+          <p class="text-danger" *ngIf="createForm.controls.email.errors?.email && createForm.controls.email.touched">Email is invalid</p>
+
+        </div>
+        <div class="form-group">
+          <label for="customerAddress" class="form-label">Customer Address</label>
+          <input type="text" class="form-control" name="customerAddress" id="customerAddress"
+                 formControlName="address">
+          <p class="text-danger" *ngIf="createForm.controls.address.errors?.required && createForm.controls.address.touched">not empty</p>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="createForm.invalid" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

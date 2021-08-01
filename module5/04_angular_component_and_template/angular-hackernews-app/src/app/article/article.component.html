@@ -9,10 +9,15 @@
   </select>
 </div>
 <div *ngFor="let article of articles">
-  <div *ngIf="filter === 'all' || (article.title.includes('a') && filter === 'a') || (article.title.includes('b') && filter === 'b')">
-  <div><a href="{{article.url}}" target="_blank">{{article.title}}</a>: <app-like></app-like></div>
-  <div><button (click)="deleteArticle(article.title)">Delete</button></div>
-  <br>
+  <div
+    *ngIf="filter === 'all' || (article.title.includes('a') && filter === 'a') || (article.title.includes('b') && filter === 'b')">
+    <div><a href="{{article.url}}" target="_blank">{{article.title}}</a>:
+      <app-like></app-like>
+    </div>
+    <div>
+      <button (click)="deleteArticle(article.title)">Delete</button>
+    </div>
+    <br>
   </div>
 </div>
 <hr>
@@ -31,10 +36,14 @@
     </tr>
     <tr>
       <td></td>
-      <td><button style="float: right" (click)="addNewArticle()">Add</button></td>
+      <td>
+        <button style="float: right" (click)="addNewArticle()">Add</button>
+      </td>
     </tr>
   </table>
-  <td><button style="float: right" *ngIf= "isShownForm" (click)="showForm()">Add</button></td>
+  <td>
+    <button style="float: right" *ngIf="isShownForm" (click)="showForm()">Add</button>
+  </td>
 </div>
 <hr>
 <app-footer></app-footer>
