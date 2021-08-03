@@ -1,19 +1,19 @@
 {
   "customers": [
     {
-      "name": "Tang",
-      "code": "KH-2345",
-      "idCard": "173649182",
+      "name": "Nhu Nguyet",
+      "code": "KH-1000",
+      "idCard": "183649174",
       "customerType": {
-        "id": 2,
-        "customerTypeName": "Silver"
+        "id": 5,
+        "customerTypeName": "Diamond"
       },
-      "gender": "Male",
-      "birthday": "1999-09-13T17:00:00.000Z",
-      "phone": "0918597960",
-      "address": "Hue",
-      "email": "tang@gmail.com",
-      "id": 5
+      "gender": "Female",
+      "birthday": "1999-02-03T17:00:00.000Z",
+      "phone": "0917488290",
+      "address": "Da Nang",
+      "email": "nhunguyet@gmail.com",
+      "id": 6
     }
   ],
   "customer-types": [
@@ -36,139 +36,6 @@
     {
       "id": 1,
       "customerTypeName": "Member"
-    }
-  ],
-  "employees": [
-    {
-      "id": 1,
-      "name": "Thuan",
-      "idCard": "173649182",
-      "position": {
-        "id": 2,
-        "name": "Administrative division"
-      },
-      "division": {
-        "id": 2,
-        "name": "staff"
-      },
-      "educationDegree": {
-        "id": 1,
-        "name": "Intermediate"
-      },
-      "gender": "Female",
-      "birthday": "1998-01-20T17:00:00.000Z",
-      "phone": "0917488290",
-      "address": "Gia Lai",
-      "email": "thien@gmail.com",
-      "salary": 8000000
-    },
-    {
-      "id": 2,
-      "name": "Phong",
-      "idCard": "173649182",
-      "division": {
-        "id": 2,
-        "name": "staff"
-      },
-      "position": {
-        "id": 2,
-        "name": "Administrative division"
-      },
-      "educationDegree": {
-        "id": 3,
-        "name": "University"
-      },
-      "gender": "Female",
-      "birthday": "1998-01-20T17:00:00.000Z",
-      "phone": "0917488290",
-      "address": "Gia Lai",
-      "email": "thien@gmail.com",
-      "salary": 8000000
-    },
-    {
-      "id": 4,
-      "name": "Trang",
-      "idCard": "192125322",
-      "position": {
-        "id": 4,
-        "name": "Supervisor"
-      },
-      "division": {
-        "id": 3,
-        "name": "Service division"
-      },
-      "educationDegree": {
-        "id": 4,
-        "name": "After University"
-      },
-      "gender": "Female",
-      "birthday": "1998-02-17T17:00:00.000Z",
-      "phone": "0918378481",
-      "address": "Hue",
-      "email": "trangnguyenfcp@gmail.com",
-      "salary": 10000000
-    }
-  ],
-  "positions": [
-    {
-      "id": 1,
-      "name": "Receptionist"
-    },
-    {
-      "id": 2,
-      "name": "staff"
-    },
-    {
-      "id": 3,
-      "name": "Expert"
-    },
-    {
-      "id": 4,
-      "name": "Supervisor"
-    },
-    {
-      "id": 5,
-      "name": "Manager"
-    },
-    {
-      "id": 6,
-      "name": "Director"
-    }
-  ],
-  "divisions": [
-    {
-      "id": 1,
-      "name": "Sale-Marketing"
-    },
-    {
-      "id": 2,
-      "name": "Administrative division"
-    },
-    {
-      "id": 3,
-      "name": "Service division"
-    },
-    {
-      "id": 4,
-      "name": "Management division"
-    }
-  ],
-  "education-degrees": [
-    {
-      "id": 1,
-      "name": "Intermediate"
-    },
-    {
-      "id": 2,
-      "name": "College"
-    },
-    {
-      "id": 3,
-      "name": "University"
-    },
-    {
-      "id": 4,
-      "name": "After University"
     }
   ]
 }

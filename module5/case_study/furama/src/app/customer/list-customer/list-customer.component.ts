@@ -3,6 +3,7 @@ import {CustomerService} from '../../service/customer.service';
 import {FormsModule} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteCustomerComponent} from '../delete-customer/delete-customer.component';
+import {ViewCustomerComponent} from '../view-customer/view-customer.component';
 
 @Component({
   selector: 'app-list-customer',
@@ -25,6 +26,8 @@ export class ListCustomerComponent implements OnInit {
     this.customerService.getAll().subscribe(customers => {
       this.customers = customers;
     });
+
+
   }
   // search() {
   //     this.customerService.findByName(this.name, this.startDate, this.endDate).subscribe(customers => {
@@ -39,6 +42,19 @@ export class ListCustomerComponent implements OnInit {
   deleteDialog(id): void {
     this.customerService.getById(id).subscribe(dataCustomer => {
       const dialogRef = this.dialog.open(DeleteCustomerComponent, {
+        width: '500px',
+        data: {data1: dataCustomer}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.ngOnInit();
+      });
+    });
+  }
+  viewDialog(id): void {
+    this.customerService.getById(id).subscribe(dataCustomer => {
+      const dialogRef = this.dialog.open(ViewCustomerComponent, {
         width: '500px',
         data: {data1: dataCustomer}
       });

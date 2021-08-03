@@ -14,6 +14,51 @@
       "address": "Hue",
       "email": "tang@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Thuan",
+      "code": "KH-1000",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "gender": "Female",
+      "birthday": "1998-06-22T17:00:00.000Z",
+      "phone": "0905171838",
+      "address": "Da Nang",
+      "email": "thien@gmail.com",
+      "id": 6
+    },
+    {
+      "name": "Nhu Nguyet",
+      "code": "KH-1000",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 4,
+        "customerTypeName": "Platinum"
+      },
+      "gender": "Female",
+      "birthday": "1998-06-08T17:00:00.000Z",
+      "phone": "0905217111",
+      "address": "Ha Noi",
+      "email": "thienthien123@gmail.com",
+      "id": 7
+    },
+    {
+      "name": "Anh",
+      "code": "KH-0182",
+      "idCard": "173649182",
+      "customerType": {
+        "id": 5,
+        "customerTypeName": "Diamond"
+      },
+      "gender": "Male",
+      "birthday": "1998-06-15T17:00:00.000Z",
+      "phone": "0918378481",
+      "address": "Da Nang",
+      "email": "phongmmo@gmail.com",
+      "id": 8
     }
   ],
   "customer-types": [

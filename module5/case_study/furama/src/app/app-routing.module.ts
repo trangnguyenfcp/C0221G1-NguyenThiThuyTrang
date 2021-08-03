@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "../../../furama-resort/src/app/home/home.component";
-import {ListCustomerComponent} from "./customer/list-customer/list-customer.component";
 import {CreateCustomerComponent} from './customer/create-customer/create-customer.component';
 import {EditCustomerComponent} from './customer/edit-customer/edit-customer.component';
 import {ListEmployeeComponent} from './employee/list-employee/list-employee.component';
 import {CreateEmployeeComponent} from './employee/create-employee/create-employee.component';
 import {EditEmployeeComponent} from './employee/edit-employee/edit-employee.component';
 import {ErrorComponent} from './error/error.component';
+import {HomeComponent} from './home/home.component';
+import {ListCustomerComponent} from './customer/list-customer/list-customer.component';
 
 
 const routes: Routes = [

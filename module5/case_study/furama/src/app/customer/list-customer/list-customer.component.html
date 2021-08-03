@@ -8,8 +8,8 @@
           </div>
           <div class="col-sm-4">
             <input type="text" [(ngModel)]="name" placeholder="Enter name...">
-            <input type=date [(ngModel)]="startDate">
-            <input type=date [(ngModel)]="endDate">
+<!--            <input type=date [(ngModel)]="startDate">-->
+<!--            <input type=date [(ngModel)]="endDate">-->
             <input type="submit" (click)="search()">
           </div>
           <div class="col-sm-4">
@@ -33,7 +33,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 2, currentPage: page }; index as i">
+        <tr *ngFor="let customer of customers |  paginate: { itemsPerPage: 2, currentPage: page }; index as i">
           <td>{{i - 1  + page*2}}</td>
           <td>{{customer.name}}</td>
           <td>{{customer.birthday}}</td>
@@ -42,9 +42,11 @@
           <td>{{customer.email}}</td>
           <td>{{customer.address}}</td>
           <td>
+            <div class="btn-group">
             <button class="btn btn-sm btn-warning" [routerLink]="['/customer/edit/'+customer.id]">Edit</button>
             <button class="btn btn-sm btn-danger" (click)="deleteDialog(customer.id)">Delete</button>
-
+            <button class="btn btn-sm btn-primary" (click)="viewDialog(customer.id)">View</button>
+            </div>
           </td>
         </tr>
         </tbody>

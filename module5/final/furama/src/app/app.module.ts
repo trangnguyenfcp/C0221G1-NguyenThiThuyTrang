@@ -12,10 +12,6 @@ import { CreateCustomerComponent } from './customer/create-customer/create-custo
 import {MaterialModule} from './material.module';
 import {DeleteCustomerComponent} from './customer/delete-customer/delete-customer.component';
 import {EditCustomerComponent} from './customer/edit-customer/edit-customer.component';
-import {ListEmployeeComponent} from './employee/list-employee/list-employee.component';
-import {CreateEmployeeComponent} from './employee/create-employee/create-employee.component';
-import {DeleteEmployeeComponent} from './employee/delete-employee/delete-employee.component';
-import {EditEmployeeComponent} from './employee/edit-employee/edit-employee.component';
 import {ErrorComponent} from './error/error.component';
 
 @NgModule({
@@ -26,10 +22,6 @@ import {ErrorComponent} from './error/error.component';
     CreateCustomerComponent,
     DeleteCustomerComponent,
     EditCustomerComponent,
-    ListEmployeeComponent,
-    CreateEmployeeComponent,
-    DeleteEmployeeComponent,
-    EditEmployeeComponent,
     ErrorComponent
   ],
   imports: [

@@ -17,6 +17,7 @@ import {CreateEmployeeComponent} from './employee/create-employee/create-employe
 import {DeleteEmployeeComponent} from './employee/delete-employee/delete-employee.component';
 import {EditEmployeeComponent} from './employee/edit-employee/edit-employee.component';
 import {ErrorComponent} from './error/error.component';
+import {ViewCustomerComponent} from './customer/view-customer/view-customer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ErrorComponent} from './error/error.component';
     CreateEmployeeComponent,
     DeleteEmployeeComponent,
     EditEmployeeComponent,
-    ErrorComponent
+    ErrorComponent,
+    ViewCustomerComponent
   ],
   imports: [
     BrowserModule,
