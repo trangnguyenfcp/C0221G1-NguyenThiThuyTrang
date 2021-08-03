@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {EmployeeService} from '../../service/employee.service';
 
 @Component({
-  selector: 'app-edit-customer',
-  templateUrl: './edit-customer.component.html',
-  styleUrls: ['./edit-customer.component.css']
+  selector: 'app-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.css']
 })
-export class EditCustomerComponent implements OnInit {
-
+export class EditEmployeeComponent implements OnInit {
+  employeeId;
   maxDate = new Date();
   minDate = new Date(1900, 0, 1);
   editForm: FormGroup;
-  customerId;
-  customerTypes;
-  selectedCustomerType;
+  positions;
+  divisions;
+  edu;
+  selectedPosition;
+  selectedDivision;
+  selectedEdu;
   constructor(private formBuilder: FormBuilder,
-              private customerService: CustomerService,
+              private employeeService: EmployeeService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
   }
@@ -26,27 +30,32 @@ export class EditCustomerComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       id: [''],
       name: ['', [Validators.required]],
-      code: ['', [Validators.required, Validators.pattern('^KH-[\\d]{4}$')]],
       idCard: ['', [Validators.required, Validators.pattern('^([\\d]{9}|[\\d]{12})$')]],
-      customerType: ['', [Validators.required]],
+      position: ['', [Validators.required]],
+      division: ['', [Validators.required]],
+      educationDegree: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       birthday: ['', [Validators.required, this.validateBirthday]],
       phone: ['', [Validators.required, Validators.pattern('^(\\(84\\)\\+|0)9[0|1][\\d]{7}$')]],
       address: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      salary: ['', [Validators.required, Validators.min(0)]]
     });
     this.activatedRoute.params.subscribe(data => {
-        this.customerId = data.id;
-        this.customerService.getById(this.customerId).subscribe(data2 => {
-          this.editForm.patchValue(data2);
-        });
+      this.employeeId = data.id;
+      this.employeeService.getById(this.employeeId).subscribe(data2 => {
+        this.editForm.patchValue(data2);
+      });
     });
-    this.getCustomerTypes();
+    this.getDivisions();
+    this.getEdu();
+    this.getPositions();
+    console.log(this.selectedPosition);
   }
   submit() {
-    const customer = this.editForm.value;
-    this.customerService.updateCustomer(this.customerId, customer).subscribe(() => {
-      this.router.navigateByUrl('customer');
+    const employee = this.editForm.value;
+    this.employeeService.updateEmployee(this.employeeId, employee).subscribe(() => {
+      this.router.navigateByUrl('employee');
     });
   }
 
@@ -65,9 +74,19 @@ export class EditCustomerComponent implements OnInit {
       return null;
     }
   }
-  getCustomerTypes() {
-    this.customerService.getAllCustomerTypes().subscribe(customerTypes => {
-      this.customerTypes = customerTypes;
+  getPositions() {
+    this.employeeService.getAllPositions().subscribe(positions => {
+      this.positions = positions;
+    });
+  }
+  getDivisions() {
+    this.employeeService.getAllDivisions().subscribe(divisions => {
+      this.divisions = divisions;
+    });
+  }
+  getEdu() {
+    this.employeeService.getAllEdu().subscribe(edu => {
+      this.edu = edu;
     });
   }
   compare(c1: any, c2: any): boolean {
